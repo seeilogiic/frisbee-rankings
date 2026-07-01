@@ -338,7 +338,7 @@ window.fetchData = async function () {
   btn.classList.add('spinning');
   showState('st-loading');
   try {
-    const csvResp = await fetch('./out/games.csv');
+    const csvResp = await fetch('../out/games.csv');
     if(csvResp.status===404){showState('st-nodata');return;}
     if(!csvResp.ok) throw new Error(`HTTP ${csvResp.status}`);
     const csvText = await csvResp.text();
@@ -346,7 +346,7 @@ window.fetchData = async function () {
     // Rankings are optional — 404 is fine
     let rankings = null;
     try {
-      const jr = await fetch('./out/rankings.json');
+      const jr = await fetch('../out/rankings.json');
       if(jr.ok) rankings = await jr.json();
     } catch(_){}
 
@@ -354,7 +354,7 @@ window.fetchData = async function () {
     if(rankings) applyRankings(rankings);
 
     // Metadata timestamp (optional, 404 is fine)
-    fetch('./out/metadata.json').then(r=>r.ok?r.json():null).then(m=>{
+    fetch('../out/metadata.json').then(r=>r.ok?r.json():null).then(m=>{
       const ts = m?.rankings_computed_at || m?.scraped_at;
       if(ts){
         const d=new Date(ts);

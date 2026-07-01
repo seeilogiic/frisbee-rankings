@@ -283,10 +283,10 @@
     try {
       // Fetch rankings + breakdown (required); history + metadata optional
       const [rkResp, bdResp, histResp, metaResp] = await Promise.all([
-        fetch('./out/rankings.json'),
-        fetch('./out/breakdown.json'),
-        fetch('./out/history.json').catch(() => null),
-        fetch('./out/metadata.json').catch(() => null),
+        fetch('../out/rankings.json'),
+        fetch('../out/breakdown.json'),
+        fetch('../out/history.json').catch(() => null),
+        fetch('../out/metadata.json').catch(() => null),
       ]);
       if (rkResp.status === 404 || bdResp.status === 404) {
         document.getElementById('nodata-msg').textContent =

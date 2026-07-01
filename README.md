@@ -11,26 +11,35 @@ pip install -r requirements.txt
 python -m usau_mixed_scraper --compute-rankings
 
 # 2. Open the viewer
-python serve.py            # rankings leaderboard
-python serve.py graph      # game connection graph
+python serve.py
 ```
 
-`serve.py` starts a local HTTP server and prints the URLs — Ctrl+click either one to open it. The pages auto-load from `out/` — just click **Refresh** after re-running the scraper.
+`serve.py` starts a local HTTP server on port `8765` by default (configurable via `--port PORT`) and prints the dashboard URL (`http://localhost:8765/viewer/index.html`). Open this URL in your browser to view the interactive dashboard.
 
 ## Viewer pages
 
-| Page | URL | Description |
-|------|-----|-------------|
-| `rankings.html` | `http://localhost:8765/rankings.html` | Sortable power-rankings leaderboard with rating bars and W-L records |
-| `graph.html`    | `http://localhost:8765/graph.html`    | Force-directed game connection graph — shows which teams are linked through shared opponents |
+The interactive viewer features several interconnected pages inside the `viewer/` directory:
+
+| Page | URL / Path | Description |
+|------|------------|-------------|
+| `viewer/index.html` | `http://localhost:8765/viewer/index.html` | The main dashboard hub, displaying summary metrics (number of ranked teams, counted games, top-rated team) and quick links to all viewer tools. |
+| `viewer/rankings.html` | `http://localhost:8765/viewer/rankings.html` | Sortable power-rankings leaderboard with rating bars, W-L records, SOS, and region-based bid allocation tracking. |
+| `viewer/team.html` | `http://localhost:8765/viewer/team.html?id=<id>` | Detailed team page showing the leave-one-out (LOO) game contribution rating breakdown and a historical rating/rank chart. |
+| `viewer/graph.html`    | `http://localhost:8765/viewer/graph.html`    | Interactive force-directed game connection graph visualizing the connectivity of the game network and clusters of teams. |
+| `viewer/winprob.html` | `http://localhost:8765/viewer/winprob.html` | Head-to-head win probability calculator based on rating difference, showing head-to-head game records this season. |
 
 ## Scraper output
+
+Running the scraper writes several files to the output directory (`out/` by default):
 
 | File | Description |
 |------|-------------|
 | `out/games.csv`      | One row per unique completed game (date, event, both teams + IDs, scores, winner) |
-| `out/teams.csv`      | One row per team (metadata + season W/L totals) |
+| `out/teams.csv`      | One row per team (metadata, school name, city/state, region, section, + season W/L totals) |
 | `out/rankings.json`  | USAU v2.0 power ratings, sorted by rank |
+| `out/breakdown.json` | Per-game rating contribution, weight shares, and leave-one-out rating impacts for every team (needed by `team.html` and `winprob.html`) |
+| `out/metadata.json`  | Scrape details such as timestamps (`scraped_at`, `rankings_computed_at`), target season, and counts of teams/games |
+| `out/history.json`   | Historical snapshots of team ranks and ratings appended at the end of each run to generate the rating history chart |
 
 ## Scraper flags
 

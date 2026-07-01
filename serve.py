@@ -36,7 +36,7 @@ def main() -> None:
 
     with _Server(("", args.port), _Handler) as srv:
         base = f"http://localhost:{args.port}"
-        print(f"\n  Open : {base}/index.html")
+        print(f"\n  Open : {base}/viewer/index.html")
         print(f"\n  Press Ctrl+C to stop.\n")
 
         try:

@@ -196,8 +196,8 @@
   async function loadStats() {
     try {
       const [rkResp, metaResp] = await Promise.all([
-        fetch('./out/rankings.json').catch(() => null),
-        fetch('./out/metadata.json').catch(() => null),
+        fetch('../out/rankings.json').catch(() => null),
+        fetch('../out/metadata.json').catch(() => null),
       ]);
 
       if (rkResp?.ok) {

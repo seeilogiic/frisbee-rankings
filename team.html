@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Team Detail · USAU Club Mixed 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0c1020;
+    --surface:   #141928;
+    --surface2:  #1a2035;
+    --border:    #222c44;
+    --border2:   #2a3550;
+    --text:      #dce6f5;
+    --text-dim:  #6b80a8;
+    --text-faint:#3d4f70;
+    --accent:    #4a9eff;
+    --accent-dim:#1d4a82;
+    --win:       #2dd4a0;
+    --loss:      #f06060;
+    --gold:      #f5c842;
+    --silver:    #a8b8d0;
+    --bronze:    #c87c3c;
+    --radius:    6px;
+    --mono: "ui-monospace", "SFMono-Regular", "Cascadia Code", "Consolas", monospace;
+  }
+
+  html { font-size: 15px; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; min-height: 100vh; line-height: 1.5; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; gap: 1.2rem;
+    height: 60px; position: sticky; top: 0; z-index: 50;
+  }
+  .wordmark { display: flex; align-items: center; gap: .5rem; white-space: nowrap; }
+  .disc { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid var(--accent); background: radial-gradient(circle at 35% 35%, #1a4fa0, #0a1d40); box-shadow: 0 0 8px rgba(74,158,255,.3); flex-shrink: 0; }
+  .wm-org  { font-size: .72rem; color: var(--text-dim); letter-spacing: .08em; text-transform: uppercase; }
+  .wm-name { font-size: 1rem; font-weight: 600; }
+  .header-spacer { flex: 1; }
+  .back-btn {
+    display: flex; align-items: center; gap: .35rem;
+    color: var(--text-dim); text-decoration: none; font-size: .82rem;
+    padding: .35rem .7rem; border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--surface2); white-space: nowrap; transition: color .15s, border-color .15s;
+  }
+  .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .back-btn svg { width: 14px; height: 14px; }
+  .updated-badge { font-size: .73rem; color: var(--text-faint); white-space: nowrap; }
+
+  /* ── State screens ── */
+  .state-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.1rem; min-height: calc(100vh - 60px); color: var(--text-dim);
+    text-align: center; padding: 2rem;
+  }
+  .state-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--border); background: radial-gradient(circle at 35% 35%, #1a2a4a, #0c1020); display: flex; align-items: center; justify-content: center; }
+  .state-icon svg { width: 30px; height: 30px; color: var(--text-faint); }
+  .state-title { font-size: 1.2rem; font-weight: 600; color: var(--text); }
+  .state-sub { font-size: .87rem; max-width: 420px; }
+  .state-link { font-size: .78rem; color: var(--text-faint); }
+  .state-link a { color: var(--accent); text-decoration: none; }
+  .state-link a:hover { text-decoration: underline; }
+
+  /* ── Main ── */
+  #main { display: none; padding: 1.5rem 2rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  /* ── Team hero ── */
+  .team-hero {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 1.5rem 1.75rem; margin-bottom: 2rem;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  }
+  .hero-rank { flex-shrink: 0; }
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--text-dim); background: var(--surface2); }
+  .rank-1 { background: rgba(245,200,66,.15); color: var(--gold);   border: 1px solid rgba(245,200,66,.3); }
+  .rank-2 { background: rgba(168,184,208,.1);  color: var(--silver); border: 1px solid rgba(168,184,208,.25); }
+  .rank-3 { background: rgba(200,124,60,.12);  color: var(--bronze); border: 1px solid rgba(200,124,60,.3); }
+  .hero-info { flex: 1; min-width: 0; }
+  .hero-name { font-size: 1.45rem; font-weight: 700; margin-bottom: .4rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: .85rem; color: var(--text-dim); }
+  .hero-meta .val { color: var(--text); font-family: var(--mono); font-weight: 600; }
+  .hero-meta .w-c  { color: var(--win); }
+  .hero-meta .l-c  { color: var(--loss); }
+
+  /* ── Section heading ── */
+  .section-title { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: .6rem; }
+  .section-sub { font-size: .82rem; color: var(--text-faint); margin-bottom: 1.1rem; line-height: 1.6; }
+
+  /* ── Games table ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .87rem; }
+  thead th {
+    padding: .6rem .75rem; text-align: left; font-size: .71rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim);
+    border-bottom: 1px solid var(--border); white-space: nowrap;
+    cursor: pointer; user-select: none;
+  }
+  thead th:hover { color: var(--text); }
+  thead th.sorted { color: var(--accent); }
+  thead th .si { margin-left: .3em; opacity: .5; font-size: .85em; }
+  thead th.sorted .si { opacity: 1; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tbody tr:hover { background: var(--surface2); }
+  tbody tr.ignored-row { opacity: .55; }
+  td { padding: .55rem .75rem; vertical-align: middle; }
+
+  /* Date cell */
+  .td-date { white-space: nowrap; font-size: .85rem; color: var(--text); }
+  .td-event { font-size: .73rem; color: var(--text-faint); margin-top: .1rem; white-space: normal; }
+
+  /* Opponent cell */
+  .opp-link { color: inherit; text-decoration: none; font-weight: 600; }
+  .opp-link:hover { color: var(--accent); text-decoration: underline; }
+  .opp-no-link { font-weight: 600; }
+
+  /* Result cell */
+  .result-cell { white-space: nowrap; }
+  .res-badge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; font-size: .72rem; font-weight: 700; font-family: var(--mono); margin-right: .4rem; }
+  .res-w { background: rgba(45,212,160,.15); color: var(--win); }
+  .res-l { background: rgba(240,96,96,.12);  color: var(--loss); }
+  .score-text { font-family: var(--mono); font-size: .82rem; color: var(--text-dim); }
+
+  /* Numeric cells */
+  .num-col { text-align: right; }
+  .td-gr  { font-family: var(--mono); font-size: .88rem; font-variant-numeric: tabular-nums; color: var(--text); }
+  .td-wt  { font-family: var(--mono); font-size: .82rem; font-variant-numeric: tabular-nums; color: var(--text-dim); white-space: nowrap; }
+  .wt-share { font-size: .73rem; color: var(--text-faint); margin-left: .35rem; }
+
+  /* Impact column */
+  .impact-col { min-width: 100px; }
+  .impact-val { display: inline-flex; align-items: center; gap: .25rem; font-family: var(--mono); font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .impact-pos { color: var(--win); }
+  .impact-neg { color: var(--loss); }
+  .impact-nil { color: var(--text-faint); }
+
+  /* Ignored badge */
+  .ign-badge { display: inline-block; background: var(--surface2); border: 1px solid var(--border); color: var(--text-faint); border-radius: 4px; padding: .1rem .4rem; font-size: .67rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; margin-left: .35rem; }
+
+  /* ── History chart ── */
+  .history-wrap { position: relative; margin-bottom: 2rem; }
+  .history-empty { font-size: .85rem; color: var(--text-faint); padding: 1.5rem 0; }
+  #history-tooltip {
+    display: none; position: absolute; pointer-events: none;
+    background: var(--surface); border: 1px solid var(--border2);
+    color: var(--text); font-size: .78rem; line-height: 1.55;
+    padding: .4rem .65rem; border-radius: var(--radius);
+    white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,.4);
+  }
+
+  @media (max-width: 640px) {
+    .header { padding: 0 1rem; }
+    #main { padding: 1rem 1rem 3rem; }
+    .team-hero { padding: 1rem; gap: 1rem; }
+    .hero-name { font-size: 1.1rem; }
+    .td-wt  { display: none; }
+    .wm-org { display: none; }
+  }
+</style>
+
+<header class="header">
+  <a href="index.html" class="wordmark" style="text-decoration:none;color:inherit">
+    <div class="disc"></div>
+    <span class="wm-org">USA Ultimate</span>
+    <span class="wm-name">Club Mixed 2026</span>
+  </a>
+  <a href="rankings.html" class="back-btn">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg>
+    Rankings
+  </a>
+  <div class="header-spacer"></div>
+  <span id="updated-badge" class="updated-badge"></span>
+  <a id="winprob-btn" href="winprob.html" class="back-btn" style="display:none">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5l3 3-3 3"/></svg>
+    Win Prob
+  </a>
+</header>
+
+<!-- Loading screen -->
+<div id="screen-loading" class="state-screen">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin .8s linear infinite">
+      <path d="M21 12a9 9 0 11-6.219-8.56"/>
+    </svg>
+  </div>
+  <div class="state-title">Loading team data…</div>
+</div>
+<style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+<!-- No-data screen -->
+<div id="screen-nodata" class="state-screen" style="display:none">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-30 12 12)"/><circle cx="12" cy="12" r="2"/>
+    </svg>
+  </div>
+  <div class="state-title">Team not found</div>
+  <div class="state-sub" id="nodata-msg">Run the scraper then try again.</div>
+  <div class="state-link"><a href="rankings.html">← Back to Rankings</a></div>
+</div>
+
+<!-- Error screen -->
+<div id="screen-error" class="state-screen" style="display:none">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+  </div>
+  <div class="state-title">Could not load data</div>
+  <div class="state-sub" id="error-msg"></div>
+  <div class="state-link">Make sure <code style="font-family:var(--mono)">serve.py</code> is running, then <a href="javascript:location.reload()">try again</a>.</div>
+</div>
+
+<!-- Main content -->
+<main id="main">
+  <!-- Team hero stats -->
+  <div class="team-hero">
+    <div class="hero-rank"><div class="rank-badge" id="hero-rank"></div></div>
+    <div class="hero-info">
+      <div class="hero-name" id="hero-name"></div>
+      <div class="hero-meta" id="hero-meta"></div>
+    </div>
+  </div>
+
+  <!-- Rating history chart -->
+  <div class="section-title">Rating history</div>
+  <div class="history-wrap">
+    <div id="history-chart"></div>
+    <div id="history-tooltip"></div>
+  </div>
+
+  <!-- Per-game breakdown -->
+  <div class="section-title">Game-by-game contribution</div>
+  <p class="section-sub">
+    Each row shows how much that game moved the team's final rating.
+    <strong>Impact Δ</strong> uses a leave-one-out estimate anchored to the official rating
+    (opponents' ratings held fixed). <span style="color:var(--win)">▲ Green</span> = game pulled rating up;
+    <span style="color:var(--loss)">▼ red</span> = pulled it down. Sorted newest first — click any column to re-sort.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-col="iso_date">Date <span class="si">↓</span></th>
+          <th data-col="opponent_name">Opponent <span class="si"></span></th>
+          <th data-col="result">Result <span class="si"></span></th>
+          <th data-col="game_rating" class="num-col">Game Rating <span class="si"></span></th>
+          <th data-col="weight" class="num-col">Weight / Share <span class="si"></span></th>
+          <th data-col="impact" class="num-col impact-col">Impact Δ <span class="si"></span></th>
+        </tr>
+      </thead>
+      <tbody id="games-body"></tbody>
+    </table>
+  </div>
+</main>
+
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  // ── Screen management ─────────────────────────────────────────────
+  function showScreen(id) {
+    ['screen-loading','screen-nodata','screen-error'].forEach(s => {
+      document.getElementById(s).style.display = s === id ? 'flex' : 'none';
+    });
+    document.getElementById('main').style.display = !id ? 'block' : 'none';
+  }
+
+  // ── Parse team id from URL ────────────────────────────────────────
+  const teamId = new URLSearchParams(location.search).get('id');
+  if (!teamId) {
+    document.getElementById('nodata-msg').textContent = 'No team ID in URL. Return to rankings and click a team.';
+    showScreen('screen-nodata');
+  }
+
+  // ── Sorting state ─────────────────────────────────────────────────
+  let sortCol = 'iso_date', sortDir = -1;  // default: newest first
+  let allGames = [];
+
+  // ── Main load ─────────────────────────────────────────────────────
+  async function loadTeam() {
+    if (!teamId) return;
+    try {
+      // Fetch rankings + breakdown (required); history + metadata optional
+      const [rkResp, bdResp, histResp, metaResp] = await Promise.all([
+        fetch('./out/rankings.json'),
+        fetch('./out/breakdown.json'),
+        fetch('./out/history.json').catch(() => null),
+        fetch('./out/metadata.json').catch(() => null),
+      ]);
+      if (rkResp.status === 404 || bdResp.status === 404) {
+        document.getElementById('nodata-msg').textContent =
+          'Rankings data not found. Run: python -m usau_mixed_scraper --rankings-only';
+        showScreen('screen-nodata'); return;
+      }
+      if (!rkResp.ok) throw new Error(`rankings.json: HTTP ${rkResp.status}`);
+      if (!bdResp.ok) throw new Error(`breakdown.json: HTTP ${bdResp.status}`);
+
+      const [rankings, breakdown] = await Promise.all([rkResp.json(), bdResp.json()]);
+      const history = (histResp?.ok) ? await histResp.json().catch(() => []) : [];
+      const meta    = (metaResp?.ok) ? await metaResp.json().catch(() => null) : null;
+
+      const team = rankings.find(r => r.team_id === teamId);
+      if (!team) {
+        document.getElementById('nodata-msg').textContent =
+          `Team ID not found in rankings. It may not have any counted games this season.`;
+        showScreen('screen-nodata'); return;
+      }
+
+      const games = breakdown[teamId];
+      if (!games) {
+        document.getElementById('nodata-msg').textContent = 'No breakdown data for this team.';
+        showScreen('screen-nodata'); return;
+      }
+
+      // Metadata timestamp badge
+      const ts = meta?.rankings_computed_at || meta?.scraped_at;
+      if (ts) {
+        const d = new Date(ts);
+        document.getElementById('updated-badge').textContent =
+          'Updated ' + d.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}) +
+          ' ' + d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});
+      }
+
+      // Update page title
+      document.title = esc(team.team_name) + ' · USAU Club Mixed 2026';
+
+      // Render hero
+      renderHero(team);
+
+      // Render rating history chart
+      renderHistoryChart(history, meta?.season);
+
+      // Render games table
+      allGames = games;
+      renderTable(sortGames(allGames));
+      showScreen(null);
+
+    } catch (err) {
+      document.getElementById('error-msg').textContent = String(err);
+      showScreen('screen-error');
+    }
+  }
+
+  // ── Rating history chart ──────────────────────────────────────────
+  function renderHistoryChart(rawHistory, season) {
+    const container = document.getElementById('history-chart');
+    const year = season || 2026;
+
+    // Filter to snapshots where this team appears
+    const points = (rawHistory || [])
+      .filter(snap => snap.teams && snap.teams[teamId])
+      .map(snap => ({
+        date:   snap.date,
+        rating: snap.teams[teamId].rating,
+        rank:   snap.teams[teamId].rank,
+      }))
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    if (points.length === 0) {
+      container.innerHTML = '<p class="history-empty">No history recorded yet — run the scraper to save the first snapshot.</p>';
+      return;
+    }
+
+    // Fixed x-axis: May 1 – Nov 30
+    const xMin  = new Date(`${year}-05-01T00:00:00`);
+    const xMax  = new Date(`${year}-11-30T00:00:00`);
+    const xSpan = xMax - xMin;
+
+    const W = 900, H = 260;
+    const pad = { top: 28, right: 20, bottom: 40, left: 68 };
+    const plotW = W - pad.left - pad.right;
+    const plotH = H - pad.top - pad.bottom;
+
+    function xPos(dateStr) {
+      const t = Math.max(0, Math.min(1, (new Date(dateStr + 'T00:00:00') - xMin) / xSpan));
+      return pad.left + t * plotW;
+    }
+
+    // Rating y-axis (left)
+    const ratings = points.map(p => p.rating);
+    const rRange  = Math.max(Math.max(...ratings) - Math.min(...ratings), 300);
+    const rPad    = rRange * 0.15;
+    const yRMin   = Math.min(...ratings) - rPad;
+    const yRMax   = Math.max(...ratings) + rPad;
+    function yRPos(v) { return pad.top + (1 - (v - yRMin) / (yRMax - yRMin)) * plotH; }
+
+    // Nice tick helper
+    function niceTicks(lo, hi, target) {
+      const raw = (hi - lo) / target;
+      const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+      let step = mag;
+      for (const m of [1, 2, 2.5, 5, 10]) { if (mag * m >= raw) { step = mag * m; break; } }
+      const ticks = [];
+      for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) ticks.push(v);
+      return ticks;
+    }
+
+    const rTicks = niceTicks(yRMin, yRMax, 4);
+
+    const MONTHS = [[5,'May'],[6,'Jun'],[7,'Jul'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov']];
+
+    const todayX    = xPos(new Date().toISOString().slice(0, 10));
+    const showToday = todayX >= pad.left && todayX <= pad.left + plotW;
+
+    function linePath(pts, xFn, yFn) {
+      return pts.map((p, i) => `${i===0?'M':'L'}${xFn(p).toFixed(1)},${yFn(p).toFixed(1)}`).join(' ');
+    }
+
+    let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block" xmlns="http://www.w3.org/2000/svg">`
+      + `<defs><style>`
+      + `.cht-grid{stroke:#222c44;stroke-width:1}`
+      + `.cht-frame{stroke:#2a3550;stroke-width:1;fill:none}`
+      + `.cht-lbl{font-family:ui-monospace,monospace;fill:#6b80a8;font-size:11px}`
+      + `.cht-today{stroke:#3d4f70;stroke-width:1;stroke-dasharray:4 3}`
+      + `.cht-lr{stroke:#4a9eff;stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}`
+      + `</style></defs>`;
+
+    // Plot background
+    s += `<rect x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="#141928" rx="3"/>`;
+
+    // Horizontal rating gridlines + left labels
+    for (const v of rTicks) {
+      const y = yRPos(v);
+      if (y < pad.top - 1 || y > pad.top + plotH + 1) continue;
+      s += `<line class="cht-grid" x1="${pad.left}" y1="${y.toFixed(1)}" x2="${pad.left+plotW}" y2="${y.toFixed(1)}"/>`;
+      s += `<text class="cht-lbl" x="${pad.left-6}" y="${y.toFixed(1)}" text-anchor="end" dominant-baseline="middle">${Math.round(v).toLocaleString()}</text>`;
+    }
+
+    // Month vertical gridlines + labels
+    for (const [mo, lbl] of MONTHS) {
+      const x = xPos(`${year}-${String(mo).padStart(2,'0')}-01`).toFixed(1);
+      s += `<line class="cht-grid" x1="${x}" y1="${pad.top}" x2="${x}" y2="${pad.top+plotH}"/>`;
+      s += `<text class="cht-lbl" x="${x}" y="${pad.top+plotH+16}" text-anchor="middle">${lbl}</text>`;
+    }
+
+    // Today marker
+    if (showToday) {
+      s += `<line class="cht-today" x1="${todayX.toFixed(1)}" y1="${pad.top}" x2="${todayX.toFixed(1)}" y2="${pad.top+plotH}"/>`;
+      s += `<text class="cht-lbl" x="${todayX.toFixed(1)}" y="${pad.top-8}" text-anchor="middle">today</text>`;
+    }
+
+    // Axis frame
+    s += `<rect class="cht-frame" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}"/>`;
+
+    // Lines (only when 2+ points)
+    if (points.length > 1) {
+      s += `<path class="cht-lr" d="${linePath(points, p=>xPos(p.date), p=>yRPos(p.rating))}"/>`;
+    }
+
+    // Dots
+    for (const p of points) {
+      const x = xPos(p.date).toFixed(1);
+      const ry = yRPos(p.rating);
+      s += `<circle fill="#4a9eff" cx="${x}" cy="${ry.toFixed(1)}" r="4"/>`;
+      // Rank label above the rating dot
+      const labelY = (ry - 8).toFixed(1);
+      s += `<text class="cht-lbl" x="${x}" y="${labelY}" text-anchor="middle" style="fill:#4a9eff;font-size:9px">#${p.rank}</text>`;
+    }
+
+    // Invisible hit areas for hover tooltip
+    for (const p of points) {
+      const x = xPos(p.date);
+      s += `<rect class="cht-hit" x="${(x-12).toFixed(1)}" y="${pad.top}" width="24" height="${plotH}" fill="transparent" data-date="${p.date}" data-rating="${Math.round(p.rating)}" data-rank="${p.rank}" style="cursor:crosshair"/>`;
+    }
+
+    // Axis label
+    s += `<text class="cht-lbl" text-anchor="middle" transform="rotate(-90,${pad.left-48},${pad.top+plotH/2})"><tspan x="${pad.left-48}" y="${pad.top+plotH/2}">Rating</tspan></text>`;
+
+    s += '</svg>';
+    container.innerHTML = s;
+
+    // Tooltip wiring
+    const tooltip = document.getElementById('history-tooltip');
+    container.querySelectorAll('.cht-hit').forEach(el => {
+      el.addEventListener('mouseenter', function() {
+        const d = new Date(this.dataset.date + 'T00:00:00');
+        const dateStr = d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+        tooltip.innerHTML = `<strong>${dateStr}</strong><br>Rating: ${parseInt(this.dataset.rating).toLocaleString()}<br>Rank: #${this.dataset.rank}`;
+        tooltip.style.display = 'block';
+      });
+      el.addEventListener('mousemove', function(e) {
+        const rect = container.getBoundingClientRect();
+        tooltip.style.left = (e.clientX - rect.left + 14) + 'px';
+        tooltip.style.top  = (e.clientY - rect.top  - 52) + 'px';
+      });
+      el.addEventListener('mouseleave', function() { tooltip.style.display = 'none'; });
+    });
+  }
+
+  // ── Hero section ──────────────────────────────────────────────────
+  function renderHero(team) {
+    const rankEl = document.getElementById('hero-rank');
+    const rc = team.rank===1?'rank-1':team.rank===2?'rank-2':team.rank===3?'rank-3':'';
+    rankEl.className = 'rank-badge ' + rc;
+    rankEl.textContent = '#' + team.rank;
+
+    document.getElementById('hero-name').textContent = team.team_name;
+
+    const rdisp = (team.rating >= 0 ? '' : '−') + Math.abs(Math.round(team.rating)).toLocaleString();
+    const locationParts = [team.city_state, team.region].filter(Boolean);
+    const locationStr = locationParts.length ? `<span>${esc(locationParts.join(' · '))}</span>` : '';
+    document.getElementById('hero-meta').innerHTML = `
+      <span>Rating <span class="val">${rdisp}</span></span>
+      <span>Record <span class="val w-c">${team.wins}W</span> <span class="val l-c">${team.losses}L</span></span>
+      <span>Counted <span class="val">${team.games_counted}</span></span>
+      ${team.games_ignored ? `<span>Ignored <span class="val" style="color:var(--text-faint)">${team.games_ignored}</span></span>` : ''}
+      ${locationStr}
+    `;
+
+    const wpBtn = document.getElementById('winprob-btn');
+    wpBtn.href = `winprob.html?a=${encodeURIComponent(team.team_id)}`;
+    wpBtn.style.display = 'flex';
+  }
+
+  // ── Games table ───────────────────────────────────────────────────
+  function renderTable(games) {
+    const tbody = document.getElementById('games-body');
+    tbody.innerHTML = games.map(g => {
+      const ignored = g.ignored;
+      const isWin = g.result === 'win';
+      const resBadge = `<span class="res-badge ${isWin?'res-w':'res-l'}">${isWin?'W':'L'}</span>`;
+      const score = `<span class="score-text">${g.score_us}–${g.score_them}</span>`;
+      const oppLink = g.opponent_team_id
+        ? `<a class="opp-link" href="team.html?id=${encodeURIComponent(g.opponent_team_id)}">${esc(g.opponent_name)}</a>`
+        : `<span class="opp-no-link">${esc(g.opponent_name)}</span>`;
+      const ignBadge = ignored ? `<span class="ign-badge">blowout ignored</span>` : '';
+      const dateCell = `<td class="td-date">${g.date ? esc(g.date) : '—'}${g.event ? `<div class="td-event">${esc(g.event)}</div>` : ''}</td>`;
+
+      const gr = g.game_rating != null
+        ? `<span style="color:${g.game_rating > 0 ? 'var(--text)' : 'var(--loss)'}">${Math.round(g.game_rating).toLocaleString()}</span>`
+        : '—';
+
+      const wtCell = ignored ? '—' :
+        `${g.weight != null ? g.weight.toFixed(3) : '—'}<span class="wt-share">${g.weight_share != null ? g.weight_share.toFixed(1)+'%' : ''}</span>`;
+
+      let impactCell;
+      if (ignored || g.impact == null) {
+        impactCell = `<span class="impact-val impact-nil">—</span>`;
+      } else {
+        const pos = g.impact > 0;
+        const zero = g.impact === 0;
+        const cls = zero ? 'impact-nil' : (pos ? 'impact-pos' : 'impact-neg');
+        const arrow = zero ? '' : (pos ? '▲' : '▼');
+        const absVal = Math.abs(g.impact).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+        impactCell = `<span class="impact-val ${cls}">${arrow} ${absVal}</span>`;
+      }
+
+      return `<tr class="${ignored?'ignored-row':''}">
+        ${dateCell}
+        <td>${oppLink}${ignBadge}</td>
+        <td class="result-cell">${resBadge}${score}</td>
+        <td class="td-gr num-col">${gr}</td>
+        <td class="td-wt num-col">${wtCell}</td>
+        <td class="num-col impact-col">${impactCell}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── Sort ──────────────────────────────────────────────────────────
+  function sortGames(games) {
+    return [...games].sort((a, b) => {
+      // Always push ignored games to the end regardless of sort column
+      if (a.ignored !== b.ignored) return a.ignored ? 1 : -1;
+      if (sortCol === 'impact') {
+        // Sort by |impact|
+        const am = Math.abs(a.impact ?? -Infinity), bm = Math.abs(b.impact ?? -Infinity);
+        return sortDir * (am - bm);
+      }
+      const av = a[sortCol] ?? '', bv = b[sortCol] ?? '';
+      if (typeof av === 'number' && typeof bv === 'number') return sortDir * (av - bv);
+      return sortDir * String(av).localeCompare(String(bv));
+    });
+  }
+
+  document.querySelectorAll('thead th[data-col]').forEach(th => {
+    th.addEventListener('click', function () {
+      const col = this.dataset.col;
+      if (sortCol === col) {
+        sortDir = -sortDir;
+      } else {
+        sortCol = col;
+        // Default direction per column: date/opponent/result asc; numeric desc
+        sortDir = (col === 'opponent_name' || col === 'result') ? 1 : -1;
+      }
+      updateSortUI();
+      renderTable(sortGames(allGames));
+    });
+  });
+
+  function updateSortUI() {
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      const col = th.dataset.col, si = th.querySelector('.si');
+      th.classList.toggle('sorted', col === sortCol);
+      si.textContent = col === sortCol ? (sortDir === 1 ? '↑' : '↓') : '';
+    });
+  }
+  updateSortUI();
+
+  // ── Kick off ──────────────────────────────────────────────────────
+  if (teamId) loadTeam();
+})();
+</script>

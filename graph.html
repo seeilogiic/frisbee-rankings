@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>USAU Club Mixed 2026 · Game Connection Graph</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #07090f; --surface: #0d1220; --surf2: #121a2e;
+    --border: #1c2840; --border2: #253450;
+    --text: #b8ccee; --dim: #4a6088; --faint: #1e2c45;
+    --accent: #4a9eff; --gold: #f5c842; --win: #22d4a0;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", monospace;
+  }
+  html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; }
+
+  .hdr { height: 52px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .75rem; padding: 0 1.1rem; position: relative; z-index: 20; }
+  .wm  { display: flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 600; white-space: nowrap; }
+  .disc { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--accent); background: radial-gradient(circle at 35% 35%, #1a4fa0, #060912); box-shadow: 0 0 10px rgba(74,158,255,.25); flex-shrink: 0; }
+  .wm-sub { font-size: .72rem; font-weight: 400; color: var(--dim); white-space: nowrap; }
+  .vr { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; margin: 0 .1rem; }
+  .spacer { flex: 1; }
+
+  .srch-wrap { position: relative; }
+  .srch-wrap svg { position: absolute; left: .55rem; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; color: var(--dim); pointer-events: none; }
+  #search { padding: .32rem .6rem .32rem 1.8rem; background: var(--surf2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-size: .76rem; width: 170px; outline: none; }
+  #search:focus { border-color: var(--accent); }
+  #search::placeholder { color: var(--dim); }
+
+  .ibtn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: var(--surf2); border: 1px solid var(--border); border-radius: 5px; cursor: pointer; color: var(--dim); flex-shrink: 0; transition: color .15s, border-color .15s; }
+  .ibtn:hover { color: var(--text); border-color: var(--border2); }
+  .ibtn.active { border-color: var(--accent); color: var(--accent); }
+  .ibtn svg { width: 14px; height: 14px; }
+  .ibtn-w { width: auto; padding: 0 .55rem; font-size: .7rem; gap: .35rem; }
+
+  .refresh-ibtn { display: flex; align-items: center; gap: .4rem; padding: .3rem .65rem; background: var(--surf2); border: 1px solid var(--border); border-radius: 5px; cursor: pointer; color: var(--dim); font-size: .76rem; transition: color .15s, border-color .15s; }
+  .refresh-ibtn:hover { color: var(--text); border-color: var(--border2); }
+  .refresh-ibtn svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .refresh-ibtn.spinning svg { animation: spin .7s linear infinite; }
+  .updated-badge { font-size: .68rem; color: var(--dim); white-space: nowrap; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  canvas { display: block; cursor: grab; width: 100%; height: calc(100vh - 52px); }
+  canvas.dragging { cursor: grabbing; }
+
+  #tip { position: fixed; pointer-events: none; background: var(--surface); border: 1px solid var(--border2); border-radius: 6px; padding: .55rem .75rem; font-size: .77rem; line-height: 1.65; max-width: 210px; display: none; z-index: 100; box-shadow: 0 6px 24px rgba(0,0,0,.55); }
+  #tip .t-name { font-weight: 700; color: var(--text); font-size: .82rem; margin-bottom: .2rem; }
+  #tip .t-row { color: var(--dim); }
+  #tip .t-row b { color: var(--text); font-weight: 500; font-family: var(--mono); font-size: .74rem; }
+  #tip .t-comp { margin-top: .3rem; padding-top: .3rem; border-top: 1px solid var(--border); font-size: .72rem; }
+
+  #panel { position: fixed; bottom: 1rem; left: 1rem; background: rgba(10,16,30,.88); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 7px; padding: .65rem .85rem; font-size: .73rem; color: var(--dim); min-width: 160px; line-height: 1.7; pointer-events: none; display: none; }
+  #panel .p-title { font-weight: 700; color: var(--text); font-size: .75rem; margin-bottom: .35rem; letter-spacing: .04em; }
+  #panel .p-row { display: flex; align-items: center; gap: .45rem; }
+  #panel .p-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  #panel .p-stat { display: flex; justify-content: space-between; gap: 1rem; }
+  #panel .p-stat b { color: var(--text); font-family: var(--mono); font-weight: 500; }
+  #panel .p-sep { height: 1px; background: var(--border); margin: .4rem 0; }
+
+  /* State screens */
+  .state-screen { position: fixed; top: 52px; inset: 52px 0 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; color: var(--dim); text-align: center; padding: 2rem; }
+  .state-screen.gone { display: none; }
+  .st-icon { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--border); background: radial-gradient(circle at 35% 35%, #0d1a2e, #07090f); display: flex; align-items: center; justify-content: center; }
+  .st-icon svg { width: 28px; height: 28px; color: var(--faint); }
+  .st-h { font-size: 1.1rem; font-weight: 600; color: var(--text); }
+  .st-s { font-size: .81rem; max-width: 360px; }
+  .st-code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: .35rem .8rem; font-family: var(--mono); font-size: .74rem; color: var(--win); }
+  .st-link a { color: var(--accent); text-decoration: none; font-size: .78rem; }
+  .st-link a:hover { text-decoration: underline; }
+</style>
+
+<header class="hdr">
+  <a href="index.html" class="wm" style="text-decoration:none;color:inherit">
+    <div class="disc"></div>
+    <span>Game Graph</span>
+    <span class="wm-sub">Club Mixed 2026</span>
+  </a>
+  <div class="vr"></div>
+  <div class="refresh-ibtn" id="refresh-btn" onclick="fetchData()" title="Re-fetch data">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13.5 8A5.5 5.5 0 112.5 5M2.5 2v3h3"/></svg>
+    Refresh
+  </div>
+  <div class="vr"></div>
+  <div class="srch-wrap">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3 3"/></svg>
+    <input type="text" id="search" placeholder="Find team…" autocomplete="off">
+  </div>
+  <div class="spacer"></div>
+  <span id="updated-badge" class="updated-badge"></span>
+  <div class="ibtn" id="btn-zin"  title="Zoom in"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="5"/><path d="M11 11l3 3"/><path d="M6.5 4v5M4 6.5h5"/></svg></div>
+  <div class="ibtn" id="btn-zout" title="Zoom out"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="5"/><path d="M11 11l3 3"/><path d="M4 6.5h5"/></svg></div>
+  <div class="ibtn" id="btn-fit"  title="Fit view"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 5V2h3M11 2h3v3M2 11v3h3M11 14h3v-3"/></svg></div>
+  <div class="ibtn ibtn-w" id="btn-lbl" title="Toggle labels">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="1" y="5" width="14" height="6" rx="1.5"/><path d="M4 8h8"/></svg>
+    Labels
+  </div>
+</header>
+
+<canvas id="c"></canvas>
+<div id="tip"></div>
+<div id="panel">
+  <div class="p-title">COMPONENTS</div>
+  <div id="p-legend"></div>
+  <div class="p-sep"></div>
+  <div class="p-stat"><span>Teams</span><b id="ps-t">—</b></div>
+  <div class="p-stat"><span>Games</span><b id="ps-g">—</b></div>
+  <div class="p-stat"><span>Clusters</span><b id="ps-c">—</b></div>
+  <div class="p-stat"><span>Isolated</span><b id="ps-i">—</b></div>
+</div>
+
+<!-- State: loading -->
+<div id="st-loading" class="state-screen">
+  <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg></div>
+  <div class="st-h">Loading game data…</div>
+</div>
+
+<!-- State: no data -->
+<div id="st-nodata" class="state-screen gone">
+  <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-30 12 12)"/><circle cx="12" cy="12" r="2"/></svg></div>
+  <div class="st-h">No game data yet</div>
+  <div class="st-s">Generate <code style="font-family:var(--mono);color:var(--accent)">out/games.csv</code> by running the scraper:</div>
+  <div class="st-code">python -m usau_mixed_scraper</div>
+  <div class="st-link"><a onclick="fetchData()" href="#">Refresh</a> once it completes.</div>
+</div>
+
+<!-- State: error -->
+<div id="st-error" class="state-screen gone">
+  <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
+  <div class="st-h">Could not load data</div>
+  <div class="st-s" id="err-msg"></div>
+  <div class="st-link">Make sure <code style="font-family:var(--mono)">serve.py</code> is running, then <a onclick="fetchData()" href="#">try again</a>.</div>
+</div>
+
+<script>
+(function () {
+'use strict';
+
+// ─── Physics ──────────────────────────────────────────────────────
+const REPEL = 5500, SPRING_K = 0.06, REST = 75;
+const GRAVITY = 0.0012, DAMP = 0.80, MAX_VEL = 14;
+const ALPHA_DECAY = 0.994, ALPHA_MIN = 0.001;
+
+const PALETTE = ['#4a9eff','#22d4a0','#f5c842','#a78bfa','#f472b6','#fb923c','#34d399','#60a5fa'];
+const SMALL_COLOR = '#2d3d5a';
+
+// ─── State ────────────────────────────────────────────────────────
+let nodes=[], edges=[], components=[];
+let alpha=1, simRunning=false, rafId=null;
+let showLabels=false, pinnedId=null, hovIdx=null;
+const cam = {tx:0, ty:0, s:1};
+
+// ─── Canvas ───────────────────────────────────────────────────────
+const canvas = document.getElementById('c');
+const ctx    = canvas.getContext('2d');
+const W = () => canvas.offsetWidth;
+const H = () => canvas.offsetHeight;
+
+function resize() { canvas.width = W(); canvas.height = H(); draw(); }
+window.addEventListener('resize', resize);
+resize();
+
+// ─── CSV parse ────────────────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.replace(/\r/g,'').trim().split('\n');
+  const keys  = lines[0].split(',').map(s=>s.trim());
+  return lines.slice(1).map(line => {
+    const vals = line.split(',').map(s=>s.trim()), row={};
+    keys.forEach((k,i)=>{ row[k]=vals[i]??''; });
+    return row;
+  }).filter(r=>r[keys[0]]);
+}
+
+// ─── Build graph ──────────────────────────────────────────────────
+function buildGraph(rows) {
+  const nmap = new Map();
+  function getNode(id, name) {
+    if (!nmap.has(id)) nmap.set(id, {
+      id, name, wins:0, losses:0, degree:0,
+      x:(Math.random()-.5)*600, y:(Math.random()-.5)*600,
+      vx:0, vy:0, r:5, compIdx:-1,
+      rating:null, rank:null,
+    });
+    return nmap.get(id);
+  }
+  const eset = new Set(), earr = [];
+  for (const row of rows) {
+    const aid=row.team_a_id, bid=row.team_b_id;
+    if (!aid||!bid||aid===bid) continue;
+    const a=getNode(aid,row.team_a||aid), b=getNode(bid,row.team_b||bid);
+    const sa=parseInt(row.score_a)||0, sb=parseInt(row.score_b)||0;
+    if (sa>sb){a.wins++;b.losses++;} else if(sb>sa){b.wins++;a.losses++;}
+    const ek=[aid,bid].sort().join('\x00');
+    if (!eset.has(ek)){eset.add(ek);earr.push([aid,bid]);}
+  }
+  nodes = [...nmap.values()];
+  const idx = new Map(nodes.map((n,i)=>[n.id,i]));
+  edges = earr.map(([a,b])=>({a:idx.get(a),b:idx.get(b)})).filter(e=>e.a!==undefined&&e.b!==undefined);
+  edges.forEach(e=>{nodes[e.a].degree++;nodes[e.b].degree++;});
+  const maxD = Math.max(...nodes.map(n=>n.degree),1);
+  nodes.forEach(n=>{ n.r = 4+9*Math.sqrt(n.degree/maxD); });
+  computeComponents();
+  placeByComponent();
+  updatePanel();
+  updateLegend();
+}
+
+// ─── Components (union-find) ──────────────────────────────────────
+function computeComponents() {
+  const par = nodes.map((_,i)=>i);
+  function find(x){return par[x]===x?x:(par[x]=find(par[x]));}
+  edges.forEach(e=>{const pa=find(e.a),pb=find(e.b);if(pa!==pb)par[pa]=pb;});
+  const map=new Map();
+  nodes.forEach((_,i)=>{const r=find(i);if(!map.has(r))map.set(r,[]);map.get(r).push(i);});
+  components=[...map.values()].sort((a,b)=>b.length-a.length);
+  components.forEach((c,ci)=>c.forEach(i=>{nodes[i].compIdx=ci;}));
+}
+
+function placeByComponent() {
+  const multi=components.filter(c=>c.length>1), nc=multi.length;
+  const br=Math.min(W(),H())*0.38;
+  multi.forEach((c,ci)=>{
+    const ang=(ci/nc)*2*Math.PI-Math.PI/2;
+    const cx=nc<=1?0:br*Math.cos(ang), cy=nc<=1?0:br*Math.sin(ang);
+    const sp=40+22*Math.sqrt(c.length);
+    c.forEach(i=>{nodes[i].x=cx+(Math.random()-.5)*sp;nodes[i].y=cy+(Math.random()-.5)*sp;nodes[i].vx=0;nodes[i].vy=0;});
+  });
+  const iso=components.filter(c=>c.length===1);
+  iso.forEach((c,ii)=>{const ang=(ii/Math.max(iso.length,1))*2*Math.PI,r=br*1.35+Math.random()*60;nodes[c[0]].x=r*Math.cos(ang);nodes[c[0]].y=r*Math.sin(ang);});
+}
+
+function applyRankings(data) {
+  const rm=new Map(data.map(r=>[r.team_id,r]));
+  nodes.forEach(n=>{const r=rm.get(n.id);if(r){n.rating=r.rating;n.rank=r.rank;}});
+  if(!simRunning)draw();
+}
+
+// ─── Colors ───────────────────────────────────────────────────────
+function compColor(ci) {
+  if(ci<0)return SMALL_COLOR;
+  if(components[ci]?.length===1)return SMALL_COLOR;
+  return ci<PALETTE.length?PALETTE[ci]:SMALL_COLOR;
+}
+function hexRGBA(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+
+// ─── Physics ──────────────────────────────────────────────────────
+function tick() {
+  if(alpha<ALPHA_MIN){simRunning=false;return;}
+  for(let i=0;i<nodes.length;i++){
+    const ni=nodes[i];
+    for(let j=i+1;j<nodes.length;j++){
+      const nj=nodes[j],dx=nj.x-ni.x,dy=nj.y-ni.y;
+      const d2=dx*dx+dy*dy+0.1,d=Math.sqrt(d2),f=alpha*REPEL/d2;
+      const fx=f*dx/d,fy=f*dy/d;
+      ni.vx-=fx;ni.vy-=fy;nj.vx+=fx;nj.vy+=fy;
+    }
+  }
+  for(const e of edges){
+    const a=nodes[e.a],b=nodes[e.b],dx=b.x-a.x,dy=b.y-a.y;
+    const d=Math.sqrt(dx*dx+dy*dy)||1,f=alpha*SPRING_K*(d-REST);
+    const fx=f*dx/d,fy=f*dy/d;
+    a.vx+=fx;a.vy+=fy;b.vx-=fx;b.vy-=fy;
+  }
+  for(const n of nodes){n.vx-=GRAVITY*n.x*alpha;n.vy-=GRAVITY*n.y*alpha;}
+  for(const n of nodes){
+    n.vx*=DAMP;n.vy*=DAMP;
+    const spd=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
+    if(spd>MAX_VEL){n.vx=n.vx/spd*MAX_VEL;n.vy=n.vy/spd*MAX_VEL;}
+    n.x+=n.vx;n.y+=n.vy;
+  }
+  alpha*=ALPHA_DECAY;
+}
+
+// ─── Draw ─────────────────────────────────────────────────────────
+function draw() {
+  const w=W(),h=H();
+  ctx.clearRect(0,0,w,h);
+  const bg=ctx.createRadialGradient(w*.5,h*.5,0,w*.5,h*.5,Math.hypot(w,h)*.55);
+  bg.addColorStop(0,'#0d1422');bg.addColorStop(1,'#07090f');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+  if(!nodes.length)return;
+
+  let hl=null, hlCenter=-1;
+  if(pinnedId){
+    const pi=nodes.findIndex(n=>n.id===pinnedId);
+    if(pi>=0){hlCenter=pi;hl=new Set([pi]);edges.forEach(e=>{if(e.a===pi)hl.add(e.b);if(e.b===pi)hl.add(e.a);});}
+  }
+
+  ctx.save();
+  ctx.translate(w*.5+cam.tx,h*.5+cam.ty);
+  ctx.scale(cam.s,cam.s);
+
+  for(const e of edges){
+    const na=nodes[e.a],nb=nodes[e.b];
+    const hi=hl&&(e.a===hlCenter||e.b===hlCenter),dim=hl&&!hi;
+    ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);
+    ctx.strokeStyle=hi?'rgba(100,175,255,0.65)':dim?'rgba(20,35,60,0.3)':'rgba(45,75,130,0.32)';
+    ctx.lineWidth=hi?1.4:dim?0.4:0.7;
+    ctx.stroke();
+  }
+
+  for(let i=0;i<nodes.length;i++){
+    const n=nodes[i],isHov=i===hovIdx,isSel=n.id===pinnedId,isDim=hl&&!hl.has(i);
+    const bc=compColor(n.compIdx);
+    if(!isDim&&(isHov||isSel)){
+      const gr=n.r*(isSel?4:3.2),gc='rgba(74,158,255,';
+      const grd=ctx.createRadialGradient(n.x,n.y,n.r*.3,n.x,n.y,gr);
+      grd.addColorStop(0,gc+(isSel?'0.4)':'0.2)'));grd.addColorStop(1,gc+'0)');
+      ctx.beginPath();ctx.arc(n.x,n.y,gr,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+    }
+    ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle=hexRGBA(bc,isDim?.15:(isHov||isSel?1:.78));ctx.fill();
+    if(!isDim&&(isSel||isHov)){ctx.strokeStyle=isSel?'rgba(255,255,255,0.7)':'rgba(200,220,255,0.45)';ctx.lineWidth=isSel?1.5:1;ctx.stroke();}
+    if((showLabels||isHov||isSel)&&!isDim){
+      const fs=Math.max(8,Math.min(11,9/cam.s*.95));
+      ctx.font=(isSel?'600 ':'')+fs+'px system-ui,sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='top';
+      const lbl=n.name.length>18?n.name.slice(0,17)+'…':n.name;
+      ctx.fillStyle=isSel||isHov?'#d8ecff':'rgba(120,165,220,0.7)';
+      ctx.fillText(lbl,n.x,n.y+n.r+2.5);
+    }
+  }
+  ctx.restore();
+}
+
+function loop(){if(simRunning)tick();draw();rafId=requestAnimationFrame(loop);}
+
+function fitView(){
+  if(!nodes.length)return;
+  let x0=Infinity,x1=-Infinity,y0=Infinity,y1=-Infinity;
+  nodes.forEach(n=>{x0=Math.min(x0,n.x-n.r);x1=Math.max(x1,n.x+n.r);y0=Math.min(y0,n.y-n.r);y1=Math.max(y1,n.y+n.r);});
+  const s=Math.min((W()-60)/(x1-x0),(H()-60)/(y1-y0),3);
+  cam.s=s;cam.tx=-((x0+x1)/2)*s;cam.ty=-((y0+y1)/2)*s;draw();
+}
+
+// ─── Fetch ────────────────────────────────────────────────────────
+window.fetchData = async function () {
+  const btn=document.getElementById('refresh-btn');
+  btn.classList.add('spinning');
+  showState('st-loading');
+  try {
+    const csvResp = await fetch('./out/games.csv');
+    if(csvResp.status===404){showState('st-nodata');return;}
+    if(!csvResp.ok) throw new Error(`HTTP ${csvResp.status}`);
+    const csvText = await csvResp.text();
+
+    // Rankings are optional — 404 is fine
+    let rankings = null;
+    try {
+      const jr = await fetch('./out/rankings.json');
+      if(jr.ok) rankings = await jr.json();
+    } catch(_){}
+
+    buildGraph(parseCSV(csvText));
+    if(rankings) applyRankings(rankings);
+
+    // Metadata timestamp (optional, 404 is fine)
+    fetch('./out/metadata.json').then(r=>r.ok?r.json():null).then(m=>{
+      const ts = m?.rankings_computed_at || m?.scraped_at;
+      if(ts){
+        const d=new Date(ts);
+        document.getElementById('updated-badge').textContent='Updated '+d.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})+' '+d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});
+      }
+    }).catch(()=>{});
+
+    alpha=1;simRunning=true;
+    showState(null);
+    document.getElementById('panel').style.display='block';
+    if(!rafId)loop();
+    setTimeout(fitView,3200);
+  } catch(err){
+    document.getElementById('err-msg').textContent=String(err);
+    showState('st-error');
+  } finally {
+    btn.classList.remove('spinning');
+  }
+};
+
+function showState(id) {
+  ['st-loading','st-nodata','st-error'].forEach(s=>{
+    document.getElementById(s).classList.toggle('gone', s!==id);
+  });
+  // canvas is always present but empty if no data
+}
+
+// ─── Panel ────────────────────────────────────────────────────────
+function updatePanel(){
+  document.getElementById('ps-t').textContent=nodes.length;
+  document.getElementById('ps-g').textContent=edges.length;
+  const multi=components.filter(c=>c.length>1),iso=components.filter(c=>c.length===1);
+  document.getElementById('ps-c').textContent=multi.length;
+  document.getElementById('ps-i').textContent=iso.length;
+}
+function updateLegend(){
+  const el=document.getElementById('p-legend');
+  const show=components.filter(c=>c.length>1).slice(0,6);
+  el.innerHTML=show.map((c,i)=>{
+    const col=i<PALETTE.length?PALETTE[i]:SMALL_COLOR;
+    const lbl=i===0?`Main (${c.length} teams)`:`Cluster ${i+1} (${c.length})`;
+    return `<div class="p-row"><div class="p-dot" style="background:${col}"></div>${lbl}</div>`;
+  }).join('')+(components.filter(c=>c.length>1).length>6?`<div class="p-row" style="color:var(--faint)">… more clusters</div>`:'');
+}
+
+// ─── Controls ─────────────────────────────────────────────────────
+document.getElementById('btn-zin') .addEventListener('click',()=>{cam.s=Math.min(8,cam.s*1.3);if(!simRunning)draw();});
+document.getElementById('btn-zout').addEventListener('click',()=>{cam.s=Math.max(.05,cam.s/1.3);if(!simRunning)draw();});
+document.getElementById('btn-fit') .addEventListener('click',fitView);
+document.getElementById('btn-lbl') .addEventListener('click',function(){showLabels=!showLabels;this.classList.toggle('active',showLabels);if(!simRunning)draw();});
+
+document.getElementById('search').addEventListener('input',function(){
+  const q=this.value.trim().toLowerCase();
+  if(!q){pinnedId=null;if(!simRunning)draw();return;}
+  const f=nodes.find(n=>n.name.toLowerCase().includes(q));
+  if(f){pinnedId=f.id;cam.tx=-f.x*cam.s;cam.ty=-f.y*cam.s;}
+  else pinnedId=null;
+  if(!simRunning)draw();
+});
+
+// ─── Mouse ────────────────────────────────────────────────────────
+let drag=null;
+function toWorld(cx,cy){const rect=canvas.getBoundingClientRect();return{x:(cx-rect.left-W()*.5-cam.tx)/cam.s,y:(cy-rect.top-H()*.5-cam.ty)/cam.s};}
+function nodeAt(wx,wy){let best=-1,bd2=Infinity;const H2=Math.max(10/cam.s,8);nodes.forEach((n,i)=>{const d2=(wx-n.x)**2+(wy-n.y)**2,r=Math.max(n.r+3,H2);if(d2<=r*r&&d2<bd2){bd2=d2;best=i;}});return best;}
+
+canvas.addEventListener('mousedown',e=>{drag={ox:e.clientX-cam.tx,oy:e.clientY-cam.ty,moved:false};canvas.classList.add('dragging');});
+canvas.addEventListener('mousemove',e=>{
+  if(drag){const dx=(e.clientX-drag.ox)-cam.tx,dy=(e.clientY-drag.oy)-cam.ty;if(Math.abs(dx)+Math.abs(dy)>3)drag.moved=true;cam.tx=e.clientX-drag.ox;cam.ty=e.clientY-drag.oy;if(!simRunning)draw();return;}
+  const wp=toWorld(e.clientX,e.clientY),hit=nodeAt(wp.x,wp.y);
+  hovIdx=hit>=0?hit:null;
+  const tip=document.getElementById('tip');
+  if(hit>=0){
+    const n=nodes[hit],tot=n.wins+n.losses,pct=tot?Math.round(n.wins/tot*100)+'%':'—';
+    const comp=n.compIdx>=0?components[n.compIdx]:null;
+    const cl=comp?(n.compIdx===0?`Main cluster (${comp.length} teams)`:comp.length===1?'⚠ Isolated — no shared opponents':`Cluster ${n.compIdx+1} (${comp.length} teams)`):'—';
+    const rr=n.rating!=null?`<div class="t-row">Rating <b>${n.rating.toFixed(0)}</b></div><div class="t-row">Rank <b>#${n.rank}</b></div>`:'';
+    tip.innerHTML=`<div class="t-name">${esc(n.name)}</div><div class="t-row">Record <b>${n.wins}W&nbsp;${n.losses}L (${pct})</b></div><div class="t-row">Connections <b>${n.degree}</b></div>${rr}<div class="t-comp">${esc(cl)}</div>`;
+    tip.style.display='block';
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-220)+'px';
+    tip.style.top=Math.min(e.clientY-8,window.innerHeight-150)+'px';
+    canvas.style.cursor='pointer';
+  } else {tip.style.display='none';canvas.style.cursor='grab';}
+  if(!simRunning)draw();
+});
+canvas.addEventListener('mouseup',e=>{
+  if(drag&&!drag.moved){const wp=toWorld(e.clientX,e.clientY),hit=nodeAt(wp.x,wp.y);pinnedId=hit>=0?(pinnedId===nodes[hit].id?null:nodes[hit].id):null;document.getElementById('search').value=pinnedId?nodes[hit]?.name??'':'';if(!simRunning)draw();}
+  drag=null;canvas.classList.remove('dragging');
+});
+canvas.addEventListener('mouseleave',()=>{drag=null;hovIdx=null;document.getElementById('tip').style.display='none';canvas.classList.remove('dragging');if(!simRunning)draw();});
+canvas.addEventListener('wheel',e=>{
+  e.preventDefault();const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left-W()*.5,my=e.clientY-rect.top-H()*.5,f=e.deltaY<0?1.12:1/1.12;
+  cam.tx=mx+(cam.tx-mx)*f;cam.ty=my+(cam.ty-my)*f;cam.s=Math.max(.04,Math.min(10,cam.s*f));
+  if(!simRunning)draw();
+},{passive:false});
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ─── Auto-load ────────────────────────────────────────────────────
+fetchData();
+})();
+</script>

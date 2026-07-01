@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>USA Ultimate · Club Mixed 2026 Power Rankings</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0c1020;
+    --surface:   #141928;
+    --surface2:  #1a2035;
+    --border:    #222c44;
+    --border2:   #2a3550;
+    --text:      #dce6f5;
+    --text-dim:  #6b80a8;
+    --text-faint:#3d4f70;
+    --accent:    #4a9eff;
+    --accent-dim:#1d4a82;
+    --win:       #2dd4a0;
+    --loss:      #f06060;
+    --gold:      #f5c842;
+    --silver:    #a8b8d0;
+    --bronze:    #c87c3c;
+    --radius:    6px;
+    --mono: "ui-monospace", "SFMono-Regular", "Cascadia Code", "Consolas", monospace;
+  }
+
+  html { font-size: 15px; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; min-height: 100vh; line-height: 1.5; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem;
+    height: 60px; position: sticky; top: 0; z-index: 50;
+  }
+  .wordmark { display: flex; align-items: center; gap: .5rem; white-space: nowrap; }
+  .disc { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid var(--accent); background: radial-gradient(circle at 35% 35%, #1a4fa0, #0a1d40); box-shadow: 0 0 8px rgba(74,158,255,.3); flex-shrink: 0; }
+  .wm-org  { font-size: .72rem; color: var(--text-dim); letter-spacing: .08em; text-transform: uppercase; }
+  .wm-name { font-size: 1rem; font-weight: 600; }
+  .header-spacer { flex: 1; }
+
+  .refresh-btn {
+    display: flex; align-items: center; gap: .45rem;
+    padding: .4rem .85rem; background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text-dim); border-radius: var(--radius); font-size: .8rem;
+    cursor: pointer; transition: border-color .15s, color .15s; user-select: none;
+  }
+  .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .refresh-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .refresh-btn.spinning svg { animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── State screens ── */
+  .state-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.1rem; min-height: calc(100vh - 60px); color: var(--text-dim);
+    text-align: center; padding: 2rem;
+  }
+  .state-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--border); background: radial-gradient(circle at 35% 35%, #1a2a4a, #0c1020); display: flex; align-items: center; justify-content: center; }
+  .state-icon svg { width: 30px; height: 30px; color: var(--text-faint); }
+  .state-title { font-size: 1.2rem; font-weight: 600; color: var(--text); }
+  .state-sub { font-size: .87rem; max-width: 420px; }
+  .state-code { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: .5rem 1rem; font-family: var(--mono); font-size: .78rem; color: var(--win); }
+  .state-link { font-size: .78rem; color: var(--text-faint); }
+  .state-link a { color: var(--accent); text-decoration: none; }
+  .state-link a:hover { text-decoration: underline; }
+
+  /* ── Controls bar ── */
+  #controls {
+    position: sticky; top: 60px; z-index: 40;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: .65rem 2rem; gap: .75rem; align-items: center; flex-wrap: wrap;
+    display: none;
+  }
+  .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 340px; }
+  .search-wrap svg { position: absolute; left: .7rem; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; color: var(--text-dim); pointer-events: none; }
+  #search { width: 100%; padding: .45rem .75rem .45rem 2.1rem; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: .85rem; outline: none; }
+  #search::placeholder { color: var(--text-faint); }
+  #search:focus { border-color: var(--accent); }
+
+  .stat-chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-left: auto; }
+  .chip { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: .3rem .75rem; font-size: .77rem; color: var(--text-dim); white-space: nowrap; }
+  .chip span { color: var(--text); font-family: var(--mono); font-weight: 600; }
+
+  /* ── Main content ── */
+  #main { display: none; padding: 1.5rem 2rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  thead th { padding: .65rem .75rem; text-align: left; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
+  thead th:hover { color: var(--text); }
+  thead th.sorted { color: var(--accent); }
+  thead th .si { margin-left: .3em; opacity: .5; font-size: .85em; }
+  thead th.sorted .si { opacity: 1; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tbody tr:hover { background: var(--surface2); }
+  tbody tr.hl { background: rgba(74,158,255,.06); }
+  tbody tr.hl:hover { background: rgba(74,158,255,.1); }
+  td { padding: .6rem .75rem; vertical-align: middle; }
+
+  .td-rank { width: 50px; text-align: center; }
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-family: var(--mono); font-size: .82rem; font-weight: 700; color: var(--text-dim); background: var(--surface2); }
+  .rank-1 { background: rgba(245,200,66,.15); color: var(--gold); border: 1px solid rgba(245,200,66,.3); }
+  .rank-2 { background: rgba(168,184,208,.1); color: var(--silver); border: 1px solid rgba(168,184,208,.25); }
+  .rank-3 { background: rgba(200,124,60,.12); color: var(--bronze); border: 1px solid rgba(200,124,60,.3); }
+
+  .td-team { min-width: 160px; }
+  .team-name { font-weight: 600; }
+  a.team-name { color: inherit; text-decoration: none; }
+  a.team-name:hover { color: var(--accent); text-decoration: underline; }
+  .team-tag { display: inline-block; background: rgba(74,158,255,.15); color: var(--accent); border-radius: 4px; padding: .1rem .4rem; font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-left: .5rem; vertical-align: middle; }
+  .updated-badge { font-size: .73rem; color: var(--text-faint); white-space: nowrap; }
+
+  .td-bar { width: 220px; min-width: 80px; }
+  .bar-bg { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); }
+  .bar-fill.neg { background: linear-gradient(90deg, #5a1a1a, var(--loss)); }
+
+  .td-rating { font-family: var(--mono); font-size: .9rem; font-weight: 700; text-align: right; width: 80px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .td-record { white-space: nowrap; width: 110px; }
+  .record { display: flex; align-items: center; gap: .3rem; font-family: var(--mono); font-size: .82rem; font-variant-numeric: tabular-nums; }
+  .w-c { color: var(--win); font-weight: 700; }
+  .l-c { color: var(--loss); }
+  .rs  { color: var(--text-faint); }
+  .rec-bar { display: flex; height: 3px; border-radius: 2px; overflow: hidden; margin-top: 4px; gap: 1px; }
+  .rec-bar-w { background: var(--win); }
+  .rec-bar-l { background: var(--loss); }
+  .td-games { color: var(--text-dim); font-family: var(--mono); font-size: .78rem; text-align: right; width: 60px; font-variant-numeric: tabular-nums; }
+  .td-sos { font-family: var(--mono); font-size: .82rem; text-align: right; width: 80px; font-variant-numeric: tabular-nums; color: var(--text-dim); }
+
+  .season-note { margin-bottom: 1.2rem; font-size: .8rem; color: var(--text-dim); display: flex; align-items: center; gap: .5rem; }
+  .season-note svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--gold); }
+
+  /* ── Algorithm section ── */
+  .algo-section { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+  .algo-title { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.2rem; }
+  .algo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .algo-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; }
+  .algo-card h3 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); margin-bottom: .55rem; }
+  .algo-card p { font-size: .82rem; color: var(--text-dim); line-height: 1.6; }
+  .algo-formula { margin-top: .5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: .45rem .7rem; font-family: var(--mono); font-size: .75rem; color: #82c0ff; line-height: 1.7; }
+
+  #no-results { display: none; padding: 3rem; text-align: center; color: var(--text-dim); font-size: .9rem; }
+
+  @media (max-width: 640px) {
+    .header { padding: 0 1rem; gap: 1rem; }
+    #main { padding: 1rem 1rem 3rem; }
+    #controls { padding: .5rem 1rem; }
+    .td-bar { display: none; }
+    .wm-org { display: none; }
+  }
+</style>
+
+<header class="header">
+  <a href="index.html" class="wordmark" style="text-decoration:none;color:inherit">
+    <div class="disc"></div>
+    <span class="wm-org">USA Ultimate</span>
+    <span class="wm-name">Club Mixed 2026 · Power Rankings</span>
+  </a>
+  <div class="header-spacer"></div>
+  <span id="updated-badge" class="updated-badge"></span>
+  <a href="winprob.html" style="display:flex;align-items:center;gap:.4rem;padding:.4rem .85rem;background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius);font-size:.8rem;text-decoration:none;white-space:nowrap;transition:border-color .15s,color .15s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-dim)'">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5l3 3-3 3"/></svg>
+    Win Prob
+  </a>
+  <div class="refresh-btn" id="refresh-btn" onclick="fetchData()" title="Re-fetch from out/rankings.json">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M13.5 8A5.5 5.5 0 112.5 5M2.5 2v3h3"/>
+    </svg>
+    Refresh
+  </div>
+</header>
+
+<!-- Controls bar (shown once data loads) -->
+<div id="controls">
+  <div class="search-wrap">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3 3"/></svg>
+    <input type="text" id="search" placeholder="Search team…" autocomplete="off">
+  </div>
+  <select id="region-filter" style="padding:.42rem .65rem;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-dim);font-size:.82rem;outline:none;cursor:pointer;transition:border-color .15s,color .15s">
+    <option value="">All regions</option>
+  </select>
+  <div class="stat-chips">
+    <div class="chip">Teams <span id="chip-teams">—</span></div>
+    <div class="chip">Games <span id="chip-games">—</span></div>
+    <div class="chip">Avg rating <span id="chip-avg">—</span></div>
+  </div>
+</div>
+
+<!-- State screens -->
+<div id="screen-loading" class="state-screen">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin .8s linear infinite">
+      <path d="M21 12a9 9 0 11-6.219-8.56"/>
+    </svg>
+  </div>
+  <div class="state-title">Loading rankings…</div>
+</div>
+
+<div id="screen-nodata" class="state-screen" style="display:none">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <circle cx="12" cy="12" r="9"/>
+      <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-30 12 12)"/>
+      <circle cx="12" cy="12" r="2"/>
+    </svg>
+  </div>
+  <div class="state-title">No rankings data yet</div>
+  <div class="state-sub">Generate <code style="font-family:var(--mono);color:var(--accent)">out/rankings.json</code> by running the scraper:</div>
+  <div class="state-code">python -m usau_mixed_scraper --compute-rankings</div>
+  <div class="state-sub" style="color:var(--text-faint)">If <code style="font-family:var(--mono)">out/games.csv</code> already exists:</div>
+  <div class="state-code">python -m usau_mixed_scraper --rankings-only</div>
+  <div class="state-link">Then click <a onclick="fetchData()" href="#">Refresh</a> above.</div>
+</div>
+
+<div id="screen-error" class="state-screen" style="display:none">
+  <div class="state-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+  </div>
+  <div class="state-title">Could not load data</div>
+  <div class="state-sub" id="error-msg"></div>
+  <div class="state-link">Make sure <code style="font-family:var(--mono)">serve.py</code> is running, then <a onclick="fetchData()" href="#">try again</a>.</div>
+</div>
+
+<!-- Main table (shown once data loads) -->
+<main id="main">
+  <div class="season-note">
+    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
+    Early-season data — ratings stabilize as more games are reported. Teams with fewer than 3 games may be unreliable.
+  </div>
+  <div class="table-wrap">
+    <table id="rankings-table">
+      <thead>
+        <tr>
+          <th class="td-rank" data-col="rank">Rank <span class="si">↑</span></th>
+          <th class="td-team" data-col="team_name">Team <span class="si"></span></th>
+          <th class="td-bar" data-col="rating" style="text-align:left">Strength <span class="si"></span></th>
+          <th class="td-rating" data-col="rating">Rating <span class="si"></span></th>
+          <th class="td-sos" data-col="sos" title="Avg. rating of opponents in counted games">SOS <span class="si"></span></th>
+          <th class="td-record" data-col="wins">Record <span class="si"></span></th>
+          <th class="td-games" data-col="games_counted">Games <span class="si"></span></th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div id="no-results">No teams match your search.</div>
+  </div>
+
+  <section class="algo-section">
+    <div class="algo-title">USAU Rankings Algorithm v2.0</div>
+    <div class="algo-grid">
+      <div class="algo-card">
+        <h3>Rating Differential</h3>
+        <p>Each game earns a rating based on the opponent's strength ± a score differential <em>x</em>.</p>
+        <div class="algo-formula">r = L / (W − 1)<br>x = 125 + 475 × sin(min(1,(1−r)/0.5) × 0.4π)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / sin(0.4π)</div>
+      </div>
+      <div class="algo-card">
+        <h3>Score Weight</h3>
+        <p>Low-scoring games count less. Full weight (1.0) when W ≥ 13 or W+L ≥ 19.</p>
+        <div class="algo-formula">score_wt = min(1, √((W + max(L, ⌊(W−1)/2⌋)) / 19))</div>
+      </div>
+      <div class="algo-card">
+        <h3>Date Weight</h3>
+        <p>Recent games count more. Exponential interpolation from 0.5 (first week) to 1.0 (last week).</p>
+        <div class="algo-formula">t = days_elapsed / season_days<br>date_wt = 0.5 × 2<sup>t</sup></div>
+      </div>
+      <div class="algo-card">
+        <h3>Iteration</h3>
+        <p>All teams start at 1000. Game ratings are recomputed using each iteration's ratings until convergence.</p>
+        <div class="algo-formula">rating = Σ(game_rating × weight) / Σ(weight)<br>game_rating = opp_rating ± x</div>
+      </div>
+      <div class="algo-card">
+        <h3>Blowout Ignore Rule</h3>
+        <p>A game is excluded if all three conditions hold, preventing rating inflation from weak opponents.</p>
+        <div class="algo-formula">1. winner_rating − loser_rating &gt; 600<br>2. W &gt; 2 × L<br>3. winner has ≥ 5 other valid results</div>
+      </div>
+      <div class="algo-card">
+        <h3>Score Differentials</h3>
+        <p>Sample <em>x</em> values by margin and winning score.</p>
+        <div class="algo-formula" id="diff-table"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  // ── Algorithm helpers ────────────────────────────────────────────
+  const sin04pi = Math.sin(0.4 * Math.PI);
+  function ratingDiff(w, l) {
+    const r = w === 1 ? 0 : l / (w - 1);
+    const t = Math.min(1, (1 - r) / 0.5);
+    return 125 + 475 * Math.sin(t * 0.4 * Math.PI) / sin04pi;
+  }
+
+  // Populate sample diff table
+  (function () {
+    const winners = [15, 13, 11], margins = [1,2,3,4,5,6,7,8];
+    let html = `<span style="color:var(--text-dim)">Margin</span>`;
+    winners.forEach(w => { html += `<span style="color:var(--text-dim)">  W=${w}</span>`; });
+    html += '\n';
+    margins.forEach(m => {
+      html += `<span>     ${m}  </span>`;
+      winners.forEach(w => {
+        const l = w - m;
+        if (l < 0) { html += `<span style="color:var(--text-faint)">     —</span>`; return; }
+        const x = Math.round(ratingDiff(w, l));
+        html += `<span style="color:${x >= 600 ? 'var(--win)' : 'var(--text)'}">  ${String(x).padStart(4)}</span>`;
+      });
+      html += '\n';
+    });
+    document.getElementById('diff-table').innerHTML = html;
+  })();
+
+  // ── State ────────────────────────────────────────────────────────
+  let allData = [], maxRating = 1, minRating = 0;
+  let sortCol = 'rank', sortDir = 1;
+  let bidMap = new Map();
+
+  // ── Bid prediction ───────────────────────────────────────────────
+  const TOTAL_BIDS = 16;
+  const MAX_BIDS_PER_REGION = 5;
+  const REGION_ABBREV = {
+    'Southeast': 'SE', 'Atlantic Coast': 'AC', 'Mid-Atlantic': 'MA',
+    'Ohio Valley': 'OV', 'New England': 'NE', 'Metro NY': 'NY',
+    'Great Lakes': 'GL', 'North Central': 'NC', 'South Central': 'SC',
+    'Southwest': 'SW', 'Northwest': 'NW', 'Rocky Mountain': 'RM',
+  };
+  function regionAbbrev(r) {
+    return REGION_ABBREV[r] || r.replace(/[^A-Z]/g,'').slice(0,2) || r.slice(0,2).toUpperCase();
+  }
+  function computeBids(data) {
+    // data is already sorted by rank ascending
+    const result = new Map();
+    const regionCount = new Map(); // region -> bids assigned so far
+    let total = 0;
+    // Pass 1: autobid — best team per region
+    const autobidDone = new Set();
+    for (const t of data) {
+      if (!t.region || autobidDone.has(t.region)) continue;
+      autobidDone.add(t.region);
+      regionCount.set(t.region, 1);
+      result.set(t.team_id, regionAbbrev(t.region) + '1');
+      total++;
+      if (total >= TOTAL_BIDS) break;
+    }
+    // Pass 2: strength bids in rank order
+    if (total < TOTAL_BIDS) {
+      for (const t of data) {
+        if (total >= TOTAL_BIDS) break;
+        if (!t.region || result.has(t.team_id)) continue;
+        const cnt = regionCount.get(t.region) || 0;
+        if (cnt >= MAX_BIDS_PER_REGION) continue;
+        regionCount.set(t.region, cnt + 1);
+        result.set(t.team_id, regionAbbrev(t.region) + (cnt + 1));
+        total++;
+      }
+    }
+    return result;
+  }
+
+  // ── Screen management ────────────────────────────────────────────
+  function showScreen(id) {
+    ['screen-loading','screen-nodata','screen-error'].forEach(s => {
+      document.getElementById(s).style.display = s === id ? 'flex' : 'none';
+    });
+    const hasData = !id;
+    document.getElementById('controls').style.display = hasData ? 'flex' : 'none';
+    document.getElementById('main').style.display    = hasData ? 'block' : 'none';
+  }
+
+  // ── Fetch ────────────────────────────────────────────────────────
+  window.fetchData = async function () {
+    const btn = document.getElementById('refresh-btn');
+    btn.classList.add('spinning');
+    showScreen('screen-loading');
+    try {
+      const resp = await fetch('./out/rankings.json');
+      if (resp.status === 404) { showScreen('screen-nodata'); return; }
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+      loadData(data);
+      // Fetch metadata for "Updated" timestamp (404 is fine — just hide the badge)
+      fetch('./out/metadata.json').then(r => r.ok ? r.json() : null).then(m => {
+        const badge = document.getElementById('updated-badge');
+        const ts = m?.rankings_computed_at || m?.scraped_at;
+        if (ts) {
+          const d = new Date(ts);
+          badge.textContent = 'Updated ' + d.toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'}) + ' ' + d.toLocaleTimeString(undefined, {hour:'2-digit',minute:'2-digit'});
+        }
+      }).catch(() => {});
+    } catch (err) {
+      document.getElementById('error-msg').textContent = String(err);
+      showScreen('screen-error');
+    } finally {
+      btn.classList.remove('spinning');
+    }
+  };
+
+  function loadData(data) {
+    if (!Array.isArray(data) || !data.length) { showScreen('screen-nodata'); return; }
+    allData = data;
+    const ratings = data.map(d => d.rating);
+    maxRating = Math.max(...ratings);
+    minRating = Math.min(...ratings);
+    const totalGames = data.reduce((s, d) => s + (d.games_counted || 0), 0) / 2;
+    document.getElementById('chip-teams').textContent = data.length;
+    document.getElementById('chip-games').textContent = Math.round(totalGames);
+    document.getElementById('chip-avg').textContent   = Math.round(data.reduce((s,d) => s+d.rating,0)/data.length);
+    populateRegionFilter(data);
+    bidMap = computeBids(data);
+    showScreen(null);
+    renderTable(allData);
+  }
+
+  function populateRegionFilter(data) {
+    const regions = [...new Set(data.map(d => d.region).filter(Boolean))].sort();
+    const sel = document.getElementById('region-filter');
+    regions.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = r; opt.textContent = r;
+      sel.appendChild(opt);
+    });
+  }
+
+  function filteredData() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    const region = document.getElementById('region-filter').value;
+    return allData.filter(r =>
+      (!q || r.team_name.toLowerCase().includes(q)) &&
+      (!region || r.region === region)
+    );
+  }
+
+  // ── Table ────────────────────────────────────────────────────────
+  function renderTable(rows) {
+    const tbody = document.getElementById('table-body');
+    const noRes = document.getElementById('no-results');
+    if (!rows.length) { tbody.innerHTML = ''; noRes.style.display = 'block'; return; }
+    noRes.style.display = 'none';
+    const range = maxRating - minRating || 1;
+    tbody.innerHTML = rows.map(r => {
+      const pct = Math.max(0, (r.rating - minRating) / range * 100);
+      const neg = r.rating < 0;
+      const tot = (r.wins||0) + (r.losses||0);
+      const wp  = tot ? (r.wins/tot*100) : 0;
+      const lp  = tot ? (r.losses/tot*100) : 0;
+      const rc  = r.rank===1?'rank-1':r.rank===2?'rank-2':r.rank===3?'rank-3':'';
+      const bidLabel = bidMap.get(r.team_id);
+      const bidTag = bidLabel ? `<span class="team-tag">${bidLabel}</span>` : '';
+      const rdisp = (r.rating>=0?'':'−') + Math.abs(Math.round(r.rating)).toLocaleString();
+      return `<tr>
+        <td class="td-rank"><div class="rank-badge ${rc}">${r.rank}</div></td>
+        <td class="td-team"><a class="team-name" href="team.html?id=${encodeURIComponent(r.team_id)}">${esc(r.team_name)}</a>${bidTag}</td>
+        <td class="td-bar"><div class="bar-bg"><div class="${neg?'bar-fill neg':'bar-fill'}" style="width:${pct.toFixed(1)}%"></div></div></td>
+        <td class="td-rating" style="color:${neg?'var(--loss)':'var(--text)'}">${rdisp}</td>
+        <td class="td-sos">${r.sos != null ? Math.round(r.sos).toLocaleString() : '—'}</td>
+        <td class="td-record">
+          <div class="record"><span class="w-c">${r.wins}</span><span class="rs">W</span><span class="l-c">${r.losses}</span><span class="rs">L</span></div>
+          <div class="rec-bar"><div class="rec-bar-w" style="width:${wp.toFixed(1)}%"></div><div class="rec-bar-l" style="width:${lp.toFixed(1)}%"></div></div>
+        </td>
+        <td class="td-games">${r.games_counted||0}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  // ── Search ───────────────────────────────────────────────────────
+  document.getElementById('search').addEventListener('input', function () {
+    renderTable(sortRows(filteredData()));
+  });
+
+  // ── Region filter ─────────────────────────────────────────────────
+  document.getElementById('region-filter').addEventListener('change', function () {
+    this.style.borderColor = this.value ? 'var(--accent)' : 'var(--border)';
+    this.style.color = this.value ? 'var(--accent)' : 'var(--text-dim)';
+    renderTable(sortRows(filteredData()));
+  });
+
+  // ── Sort ─────────────────────────────────────────────────────────
+  document.querySelectorAll('thead th[data-col]').forEach(th => {
+    th.addEventListener('click', function () {
+      const col = this.dataset.col;
+      sortDir = sortCol === col ? -sortDir : (col==='team_name'?1:(col==='rank'?1:-1));
+      sortCol = col;
+      updateSortUI();
+      renderTable(sortRows(filteredData()));
+    });
+  });
+
+  function sortRows(rows) {
+    return [...rows].sort((a, b) => {
+      const av = a[sortCol]??'', bv = b[sortCol]??'';
+      return typeof av==='number' ? sortDir*(av-bv) : sortDir*String(av).localeCompare(String(bv));
+    });
+  }
+
+  function updateSortUI() {
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      const col = th.dataset.col, si = th.querySelector('.si');
+      th.classList.toggle('sorted', col===sortCol);
+      si.textContent = col===sortCol ? (sortDir===1?'↑':'↓') : '';
+    });
+  }
+  updateSortUI();
+
+  // ── Auto-load on page open ───────────────────────────────────────
+  fetchData();
+})();
+</script>

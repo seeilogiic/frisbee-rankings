@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Player Career Profile · USA Ultimate rankings</title>
+<script src="common.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0c1020;
+    --surface:   #141928;
+    --surface2:  #1a2035;
+    --border:    #222c44;
+    --border2:   #2a3550;
+    --text:      #dce6f5;
+    --text-dim:  #6b80a8;
+    --text-faint:#3d4f70;
+    --accent:    #4a9eff;
+    --accent-dim:#1d4a82;
+    --win:       #2dd4a0;
+    --loss:      #f06060;
+    --gold:      #f5c842;
+    --silver:    #a8b8d0;
+    --bronze:    #c87c3c;
+    --radius:    6px;
+    --mono: "ui-monospace", "SFMono-Regular", "Cascadia Code", "Consolas", monospace;
+  }
+
+  html { font-size: 15px; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; min-height: 100vh; line-height: 1.5; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; gap: 1.2rem;
+    height: 60px; position: sticky; top: 0; z-index: 50;
+  }
+  .wordmark { display: flex; align-items: center; gap: .5rem; white-space: nowrap; }
+  .disc { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid var(--accent); background: radial-gradient(circle at 35% 35%, #1a4fa0, #0a1d40); box-shadow: 0 0 8px rgba(74,158,255,.3); flex-shrink: 0; }
+  .wm-org  { font-size: .72rem; color: var(--text-dim); letter-spacing: .08em; text-transform: uppercase; }
+  .wm-name { font-size: 1rem; font-weight: 600; }
+  .header-spacer { flex: 1; }
+  .back-btn {
+    display: flex; align-items: center; gap: .35rem;
+    color: var(--text-dim); text-decoration: none; font-size: .82rem;
+    padding: .35rem .7rem; border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--surface2); white-space: nowrap; transition: color .15s, border-color .15s;
+  }
+  .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .back-btn svg { width: 14px; height: 14px; }
+  .updated-badge { font-size: .73rem; color: var(--text-faint); white-space: nowrap; }
+
+  /* ── Main Layout ── */
+  #main { padding: 1.5rem 2rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  /* ── Section Heading ── */
+  .section-title { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: .6rem; }
+  .section-sub { font-size: .82rem; color: var(--text-faint); margin-bottom: 1.1rem; line-height: 1.6; }
+
+  /* ── Search Card ── */
+  .search-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .search-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: .9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+  #player-search-input {
+    width: 100%;
+    padding: .75rem 1rem .75rem 2.6rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: .95rem;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  #player-search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.15);
+  }
+  .search-status {
+    font-size: .78rem;
+    color: var(--text-faint);
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .search-status svg {
+    animation: spin .8s linear infinite;
+    width: 12px;
+    height: 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  .search-results-list {
+    margin-top: 1rem;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: var(--radius);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    display: none;
+  }
+  .search-result-item {
+    padding: .65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background .15s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .search-result-item:last-child {
+    border-bottom: none;
+  }
+  .search-result-item:hover {
+    background: rgba(74, 158, 255, 0.08);
+  }
+  .search-result-name {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .search-result-meta {
+    font-size: .78rem;
+    color: var(--text-dim);
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── Player Hero ── */
+  .player-hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--surface), rgba(20, 25, 40, 0.7));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+  }
+  .player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+  }
+  .player-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .player-name {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: .5rem;
+    background: linear-gradient(to right, #ffffff, #c2d1e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .player-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .player-badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: .2rem .6rem;
+    border-radius: 12px;
+    font-size: .75rem;
+    font-weight: 600;
+  }
+  .player-badge.highlight {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-color: rgba(74, 158, 255, 0.3);
+  }
+
+  /* ── Stats Grid ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform .15s, border-color .15s;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border2);
+  }
+  .stat-card-val {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--mono);
+    margin-bottom: .2rem;
+  }
+  .stat-card-lbl {
+    font-size: .73rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  /* ── State screens ── */
+  .state-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.1rem; min-height: 250px; color: var(--text-dim);
+    text-align: center; padding: 2rem;
+  }
+  .state-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--border); background: radial-gradient(circle at 35% 35%, #1a2a4a, #0c1020); display: flex; align-items: center; justify-content: center; }
+  .state-icon svg { width: 30px; height: 30px; color: var(--text-faint); }
+  .state-title { font-size: 1.2rem; font-weight: 600; color: var(--text); }
+  
+  /* ── Tabs Navigation ── */
+  .tab-nav {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: .6rem 0;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  .tab-btn:hover {
+    color: var(--text);
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Timeline ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-node {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .timeline-node:last-child {
+    margin-bottom: 1rem;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+    z-index: 2;
+    transition: transform .15s;
+  }
+  .timeline-node:hover .timeline-dot {
+    transform: scale(1.25);
+    background: var(--accent);
+  }
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .75rem;
+    flex-wrap: wrap;
+  }
+  .timeline-year {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    font-family: var(--mono);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: .1rem .5rem;
+    border-radius: 4px;
+  }
+  .timeline-team {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .timeline-team a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .timeline-team a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .timeline-meta {
+    font-size: .8rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  .timeline-meta span {
+    color: var(--text);
+    font-family: var(--mono);
+    font-weight: 600;
+  }
+
+  /* ── Tournament Card inside Timeline ── */
+  .tourn-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .tourn-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .5rem;
+    margin-bottom: .75rem;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .tourn-card-title {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .tourn-card-record {
+    font-size: .8rem;
+    font-weight: 600;
+    font-family: var(--mono);
+    color: var(--text-dim);
+  }
+  .tourn-card-record span.w-c {
+    color: var(--win);
+  }
+  .tourn-card-record span.l-c {
+    color: var(--loss);
+  }
+
+  /* ── Mini Games Table ── */
+  .mini-games-wrap {
+    overflow-x: auto;
+  }
+  .mini-games-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .82rem;
+  }
+  .mini-game-row {
+    border-bottom: 1px solid rgba(34, 44, 68, 0.5);
+    transition: background .1s;
+  }
+  .mini-game-row:last-child {
+    border-bottom: none;
+  }
+  .mini-game-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .mini-game-row td {
+    padding: .4rem .5rem;
+    vertical-align: middle;
+  }
+  .mini-game-date {
+    width: 70px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+  }
+  .mini-game-opp {
+    font-weight: 600;
+  }
+  .mini-game-opp a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .mini-game-opp a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .mini-game-res-cell {
+    width: 25px;
+    text-align: center;
+  }
+  .mini-game-res {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    font-size: .65rem;
+    font-weight: 700;
+    font-family: var(--mono);
+  }
+  .mini-game-res.w { background: rgba(45,212,160,.15); color: var(--win); }
+  .mini-game-res.l { background: rgba(240,96,96,.12);  color: var(--loss); }
+  
+  .mini-game-score {
+    width: 60px;
+    text-align: right;
+    font-family: var(--mono);
+    font-weight: 600;
+    color: var(--text-dim);
+  }
+
+  /* ── Tables & Rankings ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .87rem; }
+  thead th {
+    padding: .6rem .75rem; text-align: left; font-size: .71rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim);
+    border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tbody tr:hover { background: var(--surface2); }
+  td { padding: .55rem .75rem; vertical-align: middle; }
+  .num-col { text-align: right; }
+  
+  .team-link { color: inherit; text-decoration: none; font-weight: 600; }
+  .team-link:hover { color: var(--accent); text-decoration: underline; }
+  
+  .rank-val { font-family: var(--mono); font-weight: 700; color: var(--text); }
+  .rating-val { font-family: var(--mono); font-weight: 700; color: var(--text); }
+  .record-val { font-family: var(--mono); font-size: .82rem; }
+  .w-c { color: var(--win); }
+  .l-c { color: var(--loss); }
+
+  @media (max-width: 640px) {
+    .header { padding: 0 1rem; }
+    #main { padding: 1rem 1rem 3rem; }
+    .player-hero { padding: 1.25rem; gap: 1.25rem; }
+    .player-name { font-size: 1.4rem; }
+    .player-avatar { width: 60px; height: 60px; font-size: 1.6rem; }
+    .wm-org { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="wordmark" style="text-decoration:none;color:inherit">
+    <div class="disc"></div>
+    <span class="wm-org">USA Ultimate</span>
+    <span class="wm-name">Club Mixed 2026</span>
+  </a>
+  <a href="index.html" class="back-btn" onclick="if(document.referrer && !document.referrer.includes('player.html')){history.back();return false;}">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg>
+    Back
+  </a>
+  <div class="header-spacer"></div>
+  <span id="updated-badge" class="updated-badge"></span>
+</header>
+
+<main id="main">
+  <!-- Global Search Panel -->
+  <div class="search-panel">
+    <div class="section-title" style="margin-bottom:0.75rem">Global Career Lookup</div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3 3"/></svg>
+      <input type="text" id="player-search-input" placeholder="Type player name to search career..." autocomplete="off">
+    </div>
+    <div id="search-loading-status" class="search-status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
+      Initializing career rosters database...
+    </div>
+    <div id="search-results-list" class="search-results-list"></div>
+  </div>
+
+  <!-- Loading State -->
+  <div id="player-loading" class="state-screen" style="display:none">
+    <div class="state-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin .8s linear infinite">
+        <path d="M21 12a9 9 0 11-6.219-8.56"/>
+      </svg>
+    </div>
+    <div class="state-title">Loading career history...</div>
+  </div>
+
+  <!-- No Player Selected state -->
+  <div id="player-noselect" class="state-screen">
+    <div class="state-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="state-title">No Player Selected</div>
+    <div style="font-size: .87rem; max-width: 420px;">Use the search bar above to look up a player's career history, tournaments, and results across all seasons.</div>
+  </div>
+
+  <!-- Profile Details (Hidden until player loaded) -->
+  <div id="player-profile-detail" style="display:none">
+    <!-- Hero Header -->
+    <div class="player-hero">
+      <div class="player-avatar" id="player-avatar">??</div>
+      <div class="player-info">
+        <h1 class="player-name" id="player-name-display">—</h1>
+        <div class="player-badges" id="player-badges-display"></div>
+      </div>
+    </div>
+
+    <!-- Career Statistics Card Grid -->
+    <div class="section-title">Career Statistics</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-seasons-count">—</div>
+        <div class="stat-card-lbl">Seasons Active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-teams-count">—</div>
+        <div class="stat-card-lbl">Teams Played For</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-tourneys-count">—</div>
+        <div class="stat-card-lbl">Tournaments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-jersey-display">—</div>
+        <div class="stat-card-lbl">Common Jersey</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-pos-display">—</div>
+        <div class="stat-card-lbl">Primary Position</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-val" id="stat-height-display">—</div>
+        <div class="stat-card-lbl">Reported Height</div>
+      </div>
+    </div>
+
+    <!-- Tab navigation -->
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="career-timeline">Career Timeline & Tournaments</button>
+      <button class="tab-btn" data-tab="teams-rankings">Teams & Rankings History</button>
+    </div>
+
+    <!-- Tab 1: Timeline & Tournaments -->
+    <div id="tab-timeline-section" class="tab-section">
+      <div class="section-title">Career Timeline</div>
+      <p class="section-sub">
+        Below is the career path of this player. Expanding tournaments shows the team's game results for that event (where available in the scraped database).
+      </p>
+      <div class="timeline" id="career-timeline-container">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+
+    <!-- Tab 2: Teams & Rankings -->
+    <div id="tab-rankings-section" class="tab-section" style="display:none">
+      <div class="section-title">Historical Team Standings</div>
+      <p class="section-sub">
+        The official rank and power rating achieved by this player's teams in each season.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Season</th>
+              <th>Division</th>
+              <th>Team</th>
+              <th>City / State</th>
+              <th class="num-col">Rank</th>
+              <th class="num-col">Rating</th>
+              <th class="num-col">Record</th>
+            </tr>
+          </thead>
+          <tbody id="teams-rankings-body">
+            <!-- Filled dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function() {
+  function esc(s) { return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function normalizeKey(str) { return (str || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+  // ── CSV Parser ────────────────────────────────────────────────────
+  function parseCSV(text) {
+    const result = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      if (inQuotes) {
+        if (char === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') {
+            field += '"';
+            i++;
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          field += char;
+        }
+      } else {
+        if (char === '"') {
+          inQuotes = true;
+        } else if (char === ',') {
+          row.push(field);
+          field = '';
+        } else if (char === '\n' || char === '\r') {
+          row.push(field);
+          field = '';
+          if (row.length > 1 || row[0] !== '') {
+            result.push(row);
+          }
+          row = [];
+          if (char === '\r' && i + 1 < text.length && text[i + 1] === '\n') {
+            i++;
+          }
+        } else {
+          field += char;
+        }
+      }
+    }
+    if (field || row.length > 0) {
+      row.push(field);
+      if (row.length > 1 || row[0] !== '') {
+        result.push(row);
+      }
+    }
+    if (result.length < 2) return [];
+    const headers = result[0].map(h => h.trim());
+    return result.slice(1).map(r => {
+      const obj = {};
+      headers.forEach((h, idx) => {
+        obj[h] = r[idx] !== undefined ? r[idx].trim() : '';
+      });
+      return obj;
+    });
+  }
+
+  // ── Globals ──────────────────────────────────────────────────────
+  const divisions = ['mixed', 'mens', 'womens'];
+  const seasons = ['2027', '2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018'];
+  
+  let globalPlayers = {}; // stable_player_key -> { name, records: [] }
+  let statsAndGamesCache = {}; // "season_division" -> { rankings, games }
+  
+  let selectedPlayerKey = new URLSearchParams(location.search).get('key');
+  let selectedPlayerName = new URLSearchParams(location.search).get('name') || '';
+
+  // DOM Elements
+  const searchInput = document.getElementById('player-search-input');
+  const searchStatus = document.getElementById('search-loading-status');
+  const searchResultsList = document.getElementById('search-results-list');
+  const screenLoading = document.getElementById('player-loading');
+  const screenNoSelect = document.getElementById('player-noselect');
+  const profileDetail = document.getElementById('player-profile-detail');
+
+  // Set initial search term if player name is provided in URL
+  if (selectedPlayerName && !selectedPlayerKey) {
+    searchInput.value = selectedPlayerName;
+  }
+
+  // ── Database Loader ───────────────────────────────────────────────
+  async function loadDatabase() {
+    // 1. Fetch current season + division roster first for fast loading
+    const currentDiv = window.currentDivision || 'mixed';
+    const currentYr = window.currentSeason || '2026';
+    
+    try {
+      const resp = await fetch(`../out/${currentDiv}/${currentYr}/tournament_rosters.csv`);
+      if (resp.ok) {
+        const text = await resp.text();
+        const rows = parseCSV(text);
+        addRosterRows(rows, currentDiv, currentYr);
+        
+        // If player is selected in URL, check if we can render immediately
+        if (selectedPlayerKey && globalPlayers[selectedPlayerKey]) {
+          showPlayerProfile(selectedPlayerKey);
+        }
+      }
+    } catch (e) {
+      console.warn(`Failed to fetch primary roster file: ${e.message}`);
+    }
+
+    // 2. Fetch other seasons/divisions in the background
+    const promises = [];
+    for (const div of divisions) {
+      for (const yr of seasons) {
+        // Skip the one we already fetched
+        if (div === currentDiv && yr === currentYr) continue;
+        
+        promises.push(
+          fetch(`../out/${div}/${yr}/tournament_rosters.csv`)
+            .then(async res => {
+              if (!res.ok) return null;
+              const text = await res.text();
+              return { div, yr, text };
+            })
+            .catch(() => null)
+        );
+      }
+    }
+
+    let loadedCount = 1; // Counted the primary one
+    const results = await Promise.allSettled(promises);
+    
+    results.forEach(res => {
+      if (res.status === 'fulfilled' && res.value) {
+        const { div, yr, text } = res.value;
+        const rows = parseCSV(text);
+        addRosterRows(rows, div, yr);
+        loadedCount++;
+      }
+    });
+
+    // Finished loading everything
+    searchStatus.innerHTML = `Loaded roster data from ${loadedCount} active season folders.`;
+    
+    // If player is selected in URL, trigger full career render (with historical data merged)
+    if (selectedPlayerKey) {
+      showPlayerProfile(selectedPlayerKey);
+    }
+  }
+
+  function addRosterRows(rows, division, season) {
+    rows.forEach(row => {
+      const name = row.player_name;
+      if (!name) return;
+      
+      const key = row.stable_player_key || normalizeKey(name);
+      if (!key) return;
+
+      if (!globalPlayers[key]) {
+        globalPlayers[key] = {
+          name: name,
+          records: []
+        };
+      }
+
+      // Check for duplicate tournament registration records
+      const isDuplicate = globalPlayers[key].records.some(r => 
+        r.season === season && 
+        r.division === division && 
+        r.tournament_name === row.tournament_name && 
+        r.stable_team_key === row.stable_team_key
+      );
+
+      if (!isDuplicate) {
+        globalPlayers[key].records.push({
+          season: season,
+          division: division,
+          tournament_name: row.tournament_name,
+          team_name: row.team_name,
+          team_city_state: row.team_city_state,
+          stable_team_key: row.stable_team_key,
+          jersey: row.jersey || '',
+          position: row.position || '',
+          height: row.height || ''
+        });
+      }
+    });
+  }
+
+  // ── Search Handlers ──────────────────────────────────────────────
+  searchInput.addEventListener('input', function() {
+    const val = this.value.toLowerCase().trim();
+    if (!val) {
+      searchResultsList.style.display = 'none';
+      searchResultsList.innerHTML = '';
+      return;
+    }
+
+    const matches = [];
+    for (const [key, p] of Object.entries(globalPlayers)) {
+      if (p.name.toLowerCase().includes(val)) {
+        matches.push({ key, ...p });
+      }
+      if (matches.length >= 10) break; // Limit search list to top 10
+    }
+
+    if (matches.length === 0) {
+      searchResultsList.innerHTML = `<div style="padding:0.75rem;color:var(--text-faint);font-size:0.82rem;text-align:center">No players found</div>`;
+      searchResultsList.style.display = 'block';
+      return;
+    }
+
+    searchResultsList.innerHTML = matches.map(m => {
+      // Create team summary string
+      const uniqueTeams = Array.from(new Set(m.records.map(r => r.team_name)));
+      const teamsStr = uniqueTeams.slice(0, 3).join(', ') + (uniqueTeams.length > 3 ? '...' : '');
+      const years = Array.from(new Set(m.records.map(r => r.season))).sort();
+      const yearsStr = years.join(', ');
+      
+      return `<div class="search-result-item" data-key="${esc(m.key)}" data-name="${esc(m.name)}">
+        <span class="search-result-name">${esc(m.name)}</span>
+        <span class="search-result-meta">${esc(teamsStr)} (${esc(yearsStr)})</span>
+      </div>`;
+    }).join('');
+    
+    searchResultsList.style.display = 'block';
+  });
+
+  searchResultsList.addEventListener('click', function(e) {
+    const item = e.target.closest('.search-result-item');
+    if (!item) return;
+    
+    const key = item.dataset.key;
+    const name = item.dataset.name;
+    
+    // Update URL query parameters
+    const url = new URL(location.href);
+    url.searchParams.set('key', key);
+    url.searchParams.set('name', name);
+    history.pushState(null, '', url.pathname + url.search + url.hash);
+    
+    selectedPlayerKey = key;
+    selectedPlayerName = name;
+    
+    searchInput.value = '';
+    searchResultsList.style.display = 'none';
+    
+    showPlayerProfile(key);
+  });
+
+  // Close search results on click outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-panel')) {
+      searchResultsList.style.display = 'none';
+    }
+  });
+
+  // ── Roster & Stats Loading cache ──────────────────────────────────
+  async function fetchSeasonStatsAndGames(season, division) {
+    const cacheKey = `${season}_${division}`;
+    if (statsAndGamesCache[cacheKey]) return statsAndGamesCache[cacheKey];
+
+    try {
+      const [rkResp, gamesResp] = await Promise.all([
+        fetch(`../out/${division}/${season}/rankings.json`).catch(() => null),
+        fetch(`../out/${division}/${season}/games.csv`).catch(() => null)
+      ]);
+
+      let rankings = [];
+      if (rkResp && rkResp.ok) {
+        rankings = await rkResp.json().catch(() => []);
+      }
+
+      let games = [];
+      if (gamesResp && gamesResp.ok) {
+        const text = await gamesResp.text().catch(() => '');
+        games = parseCSV(text);
+      }
+
+      statsAndGamesCache[cacheKey] = { rankings, games };
+      return statsAndGamesCache[cacheKey];
+    } catch (err) {
+      console.error(`Error loading data for ${season} ${division}:`, err);
+      return { rankings: [], games: [] };
+    }
+  }
+
+  // ── Show Player Profile ───────────────────────────────────────────
+  async function showPlayerProfile(key) {
+    const player = globalPlayers[key];
+    if (!player) {
+      screenNoSelect.style.display = 'none';
+      screenLoading.style.display = 'flex';
+      profileDetail.style.display = 'none';
+      return;
+    }
+
+    screenLoading.style.display = 'none';
+    screenNoSelect.style.display = 'none';
+    profileDetail.style.display = 'block';
+
+    // 1. Set Name and Avatar
+    document.getElementById('player-name-display').textContent = player.name;
+    
+    const initials = player.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+    document.getElementById('player-avatar').textContent = initials;
+
+    // 2. Group records by season + division + stable_team_key
+    const groups = {};
+    player.records.forEach(rec => {
+      const groupKey = `${rec.season}_${rec.division}_${rec.stable_team_key}`;
+      if (!groups[groupKey]) {
+        groups[groupKey] = {
+          season: rec.season,
+          division: rec.division,
+          team_name: rec.team_name,
+          team_city_state: rec.team_city_state,
+          stable_team_key: rec.stable_team_key,
+          jerseys: new Set(),
+          positions: new Set(),
+          heights: new Set(),
+          tournaments: []
+        };
+      }
+      if (rec.jersey) groups[groupKey].jerseys.add(rec.jersey);
+      if (rec.position) groups[groupKey].positions.add(rec.position);
+      if (rec.height) groups[groupKey].heights.add(rec.height);
+      if (rec.tournament_name && !groups[groupKey].tournaments.includes(rec.tournament_name)) {
+        groups[groupKey].tournaments.push(rec.tournament_name);
+      }
+    });
+
+    const groupedTeams = Object.values(groups).sort((a, b) => b.season.localeCompare(a.season));
+
+    // 3. Compute Career Stats
+    const seasonsSet = new Set(player.records.map(r => r.season));
+    const teamsSet = new Set(player.records.map(r => r.stable_team_key));
+    const tourneysCount = player.records.length; // Raw rows scraped represents tournament rosters registered
+
+    // Find most frequent jersey
+    const jerseysList = player.records.map(r => r.jersey).filter(Boolean);
+    const mostCommonJersey = getMostFrequent(jerseysList) || '—';
+
+    // Find most frequent position
+    const positionsList = player.records.map(r => r.position).filter(Boolean);
+    const primaryPosition = getMostFrequent(positionsList) || '—';
+
+    // Find most frequent height
+    const heightsList = player.records.map(r => r.height).filter(Boolean);
+    const reportedHeight = getMostFrequent(heightsList) || '—';
+
+    document.getElementById('stat-seasons-count').textContent = seasonsSet.size;
+    document.getElementById('stat-teams-count').textContent = teamsSet.size;
+    document.getElementById('stat-tourneys-count').textContent = tourneysCount;
+    document.getElementById('stat-jersey-display').textContent = mostCommonJersey;
+    document.getElementById('stat-pos-display').textContent = primaryPosition;
+    document.getElementById('stat-height-display').textContent = reportedHeight;
+
+    // Badges below name
+    const divisionLabels = { 'mixed': 'Mixed', 'mens': "Men's", 'womens': "Women's" };
+    const careerDivs = Array.from(new Set(player.records.map(r => divisionLabels[r.division] || r.division)));
+    const latestTeam = groupedTeams[0]?.team_name || 'Free Agent';
+    
+    document.getElementById('player-badges-display').innerHTML = `
+      <span class="player-badge highlight">${esc(latestTeam)}</span>
+      <span class="player-badge">${esc(careerDivs.join(' / '))}</span>
+      <span class="player-badge">Active: ${esc(Array.from(seasonsSet).sort().join(', '))}</span>
+    `;
+
+    // 4. Render Tabs data (Async fetching of team rank & game results)
+    renderTimelineAndRankings(groupedTeams);
+  }
+
+  async function renderTimelineAndRankings(groupedTeams) {
+    const timelineContainer = document.getElementById('career-timeline-container');
+    const rankingsTableBody = document.getElementById('teams-rankings-body');
+    
+    timelineContainer.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--text-dim)">Loading career games & tournament results...</div>`;
+    rankingsTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--text-dim)">Loading standings...</td></tr>`;
+
+    // Setup initial HTML structure for timeline
+    let timelineHTML = '';
+    let rankingsHTML = '';
+
+    // We will resolve each team's games and rankings in order
+    for (const teamInfo of groupedTeams) {
+      const { season, division, team_name, team_city_state, stable_team_key, jerseys, positions, heights, tournaments } = teamInfo;
+      
+      const divLabel = { 'mixed': 'Mixed', 'mens': "Men's", 'womens': "Women's" }[division] || division;
+      const jerseyStr = Array.from(jerseys).filter(Boolean).join(', ') || '—';
+      const posStr = Array.from(positions).filter(Boolean).join(', ') || '—';
+      const heightStr = Array.from(heights).filter(Boolean).join(', ') || '—';
+
+      // Load stats for this team in this season + division
+      const { rankings, games } = await fetchSeasonStatsAndGames(season, division);
+      
+      // Find team in rankings
+      const rankingObj = rankings.find(r => 
+        normalizeKey(r.team_name) + '_' + normalizeKey(r.city_state) + '_' + division === stable_team_key
+      );
+
+      const teamId = rankingObj ? rankingObj.team_id : '';
+      const rank = rankingObj ? rankingObj.rank : '—';
+      const rating = rankingObj ? Math.round(rankingObj.rating) : '—';
+      const record = rankingObj ? `${rankingObj.wins}W–${rankingObj.losses}L` : '—';
+
+      const teamLinkHTML = teamId 
+        ? `<a href="team.html?id=${encodeURIComponent(teamId)}&division=${division}&season=${season}">${esc(team_name)}</a>`
+        : `<span>${esc(team_name)}</span>`;
+
+      // ── Append to rankings tab ──
+      rankingsHTML += `<tr>
+        <td style="font-family:var(--mono);font-weight:600">${esc(season)}</td>
+        <td style="color:var(--text-dim)">${esc(divLabel)}</td>
+        <td>${teamLinkHTML}</td>
+        <td style="color:var(--text-dim)">${esc(team_city_state || '—')}</td>
+        <td class="num-col rank-val">${rank !== '—' ? '#' + rank : '—'}</td>
+        <td class="num-col rating-val">${rating}</td>
+        <td class="num-col record-val">${record !== '—' ? `<span class="w-c">${rankingObj.wins}W</span>–<span class="l-c">${rankingObj.losses}L</span>` : '—'}</td>
+      </tr>`;
+
+      // ── Append timeline node ──
+      let teamMetaDetails = `Jersey: <span>#${esc(jerseyStr)}</span> &middot; Position: <span>${esc(posStr)}</span> &middot; Height: <span>${esc(heightStr)}</span>`;
+      if (rank !== '—') {
+        teamMetaDetails += ` &middot; Season Rank: <span>#${rank}</span> (Rating: <span>${rating}</span>)`;
+      }
+
+      let tournamentsHTML = '';
+      for (const tName of tournaments) {
+        // Filter games for this tournament and team
+        const tGames = games.filter(g => {
+          const isEvent = g.event.toLowerCase() === tName.toLowerCase();
+          const isOurTeam = (rankingObj && (g.team_a_id === teamId || g.team_b_id === teamId)) ||
+                            (normalizeKey(g.team_a) === normalizeKey(team_name) || normalizeKey(g.team_b) === normalizeKey(team_name));
+          return isEvent && isOurTeam;
+        });
+
+        let tWins = 0;
+        let tLosses = 0;
+        let gamesRowsHTML = '';
+
+        tGames.forEach(g => {
+          // Identify home/away or our team vs opponent
+          const isTeamA = (teamId && g.team_a_id === teamId) || (normalizeKey(g.team_a) === normalizeKey(team_name));
+          
+          let scoreUs, scoreThem, oppName, oppId, isWin;
+          if (isTeamA) {
+            scoreUs = parseInt(g.score_a) || 0;
+            scoreThem = parseInt(g.score_b) || 0;
+            oppName = g.team_b;
+            oppId = g.team_b_id;
+          } else {
+            scoreUs = parseInt(g.score_b) || 0;
+            scoreThem = parseInt(g.score_a) || 0;
+            oppName = g.team_a;
+            oppId = g.team_a_id;
+          }
+          
+          isWin = scoreUs > scoreThem;
+          if (isWin) tWins++; else tLosses++;
+
+          const oppLinkHTML = oppId 
+            ? `<a href="team.html?id=${encodeURIComponent(oppId)}&division=${division}&season=${season}">${esc(oppName)}</a>`
+            : `<span>${esc(oppName)}</span>`;
+
+          gamesRowsHTML += `<tr class="mini-game-row">
+            <td class="mini-game-date">${esc(g.date || '')}</td>
+            <td class="mini-game-opp">${oppLinkHTML}</td>
+            <td class="mini-game-res-cell">
+              <span class="mini-game-res ${isWin?'w':'l'}">${isWin?'W':'L'}</span>
+            </td>
+            <td class="mini-game-score">${scoreUs}–${scoreThem}</td>
+          </tr>`;
+        });
+
+        let recordBadge = tGames.length > 0
+          ? `<span class="tourn-card-record"><span class="w-c">${tWins}W</span>–<span class="l-c">${tLosses}L</span></span>`
+          : `<span class="tourn-card-record" style="color:var(--text-faint)">No games scraped</span>`;
+
+        tournamentsHTML += `<div class="tourn-card">
+          <div class="tourn-card-header">
+            <span class="tourn-card-title">${esc(tName)}</span>
+            ${recordBadge}
+          </div>
+          ${tGames.length > 0 ? `
+            <div class="mini-games-wrap">
+              <table class="mini-games-table">
+                <tbody>
+                  ${gamesRowsHTML}
+                </tbody>
+              </table>
+            </div>
+          ` : `<div style="font-size:0.78rem;color:var(--text-faint);text-align:center;padding:0.5rem">Roster scraped, but tournament games not in rankings schedule database.</div>`}
+        </div>`;
+      }
+
+      timelineHTML += `<div class="timeline-node">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-year">${esc(season)}</span>
+          <span class="timeline-team">${teamLinkHTML} <span style="font-size:0.82rem;color:var(--text-dim);font-weight:normal">(${esc(divLabel)})</span></span>
+        </div>
+        <div class="timeline-meta" style="margin-bottom:1rem">
+          ${teamMetaDetails}
+        </div>
+        <div class="timeline-tournaments">
+          ${tournamentsHTML}
+        </div>
+      </div>`;
+    }
+
+    timelineContainer.innerHTML = timelineHTML || `<div style="padding:2rem;text-align:center;color:var(--text-faint)">No timeline records available</div>`;
+    rankingsTableBody.innerHTML = rankingsHTML || `<tr><td colspan="7" style="text-align:center;color:var(--text-faint)">No standings records available</td></tr>`;
+    
+    // Automatically rewrite links for dynamically loaded components
+    if (window.updateDynamicLinks) window.updateDynamicLinks();
+  }
+
+  // Helper: Get most frequent element in array
+  function getMostFrequent(arr) {
+    if (arr.length === 0) return null;
+    const modeMap = {};
+    let maxEl = arr[0], maxCount = 1;
+    for (let i = 0; i < arr.length; i++) {
+      const el = arr[i];
+      if (modeMap[el] == null) modeMap[el] = 1;
+      else modeMap[el]++;
+      if (modeMap[el] > maxCount) {
+        maxEl = el;
+        maxCount = modeMap[el];
+      }
+    }
+    return maxEl;
+  }
+
+  // ── Tab Navigation ────────────────────────────────────────────────
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.onclick = () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      
+      if (tab === 'career-timeline') {
+        document.getElementById('tab-timeline-section').style.display = 'block';
+        document.getElementById('tab-rankings-section').style.display = 'none';
+      } else {
+        document.getElementById('tab-timeline-section').style.display = 'none';
+        document.getElementById('tab-rankings-section').style.display = 'block';
+      }
+    };
+  });
+
+  // ── Kickoff ───────────────────────────────────────────────────────
+  loadDatabase();
+})();
+</script>
+</body>
+</html>

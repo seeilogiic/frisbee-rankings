@@ -104,6 +104,8 @@
   .card-graph    .card-icon svg { color: var(--win); }
   .card-winprob  .card-icon { background: rgba(245,200,66,.08); border-color: rgba(245,200,66,.2); }
   .card-winprob  .card-icon svg { color: var(--gold); }
+  .card-player   .card-icon { background: rgba(168,184,208,.08); border-color: rgba(168,184,208,.2); }
+  .card-player   .card-icon svg { color: var(--silver); }
 
   @media (max-width: 640px) {
     .header { padding: 0 1rem; }
@@ -186,6 +188,23 @@
     </div>
     <div class="card-footer">
       <span class="card-tag">Calculator</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a href="player.html" class="card card-player">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Player Profiles</div>
+      <div class="card-desc">Search for players, see their career histories, teams they've played for, and their tournament records and game-by-game results.</div>
+    </div>
+    <div class="card-footer">
+      <span class="card-tag">Profiles</span>
       <span class="card-arrow">→</span>
     </div>
   </a>

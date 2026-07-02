@@ -10,7 +10,10 @@ pip install -r requirements.txt
 # 1. Scrape all games + compute rankings
 python -m usau_mixed_scraper --division mixed --compute-rankings
 
-# 2. Open the viewer
+# 2. Scrape tournament rosters for the season
+python -m usau_mixed_scraper.rosters --division mixed --season 2026
+
+# 3. Open the viewer
 python serve.py
 ```
 
@@ -40,6 +43,7 @@ Running the scraper writes several files to the output directory (`out/` by defa
 | `out/breakdown.json` | Per-game rating contribution, weight shares, and leave-one-out rating impacts for every team (needed by `team.html` and `winprob.html`) |
 | `out/metadata.json`  | Scrape details such as timestamps (`scraped_at`, `rankings_computed_at`), target season, and counts of teams/games |
 | `out/history.json`   | Historical snapshots of team ranks and ratings appended at the end of each run to generate the rating history chart |
+| `out/tournament_rosters.csv` | Scraped tournament-specific rosters with stable identifiers (Jersey, Position, Height, and stable team/player tracking keys) |
 
 ## Scraper flags
 

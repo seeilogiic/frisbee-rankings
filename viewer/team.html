@@ -140,6 +140,106 @@
   /* Ignored badge */
   .ign-badge { display: inline-block; background: var(--surface2); border: 1px solid var(--border); color: var(--text-faint); border-radius: 4px; padding: .1rem .4rem; font-size: .67rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; margin-left: .35rem; }
 
+  /* ── Tabs navigation ── */
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: .6rem 0;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  .tab-btn:hover {
+    color: var(--text);
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Roster styling ── */
+  .roster-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .roster-controls {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+  }
+  .roster-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: .4rem .8rem;
+    border-radius: var(--radius);
+    font-size: .85rem;
+    outline: none;
+    cursor: pointer;
+  }
+  .roster-select:focus {
+    border-color: var(--accent);
+  }
+  .roster-search {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: .4rem .8rem;
+    border-radius: var(--radius);
+    font-size: .85rem;
+    outline: none;
+    width: 180px;
+    transition: border-color .15s, width .15s;
+  }
+  .roster-search:focus {
+    border-color: var(--accent);
+    width: 240px;
+  }
+  .roster-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .rstat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .75rem 1rem;
+    text-align: center;
+  }
+  .rstat-val {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--mono);
+  }
+  .rstat-lbl {
+    font-size: .71rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-top: .2rem;
+  }
+  .tourn-badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .15rem .45rem;
+    border-radius: 4px;
+    margin-right: .3rem;
+    margin-bottom: .2rem;
+  }
+
   /* ── History chart ── */
   .history-wrap { position: relative; margin-bottom: 2rem; }
   .history-empty { font-size: .85rem; color: var(--text-faint); padding: 1.5rem 0; }
@@ -226,28 +326,83 @@
     <div id="history-tooltip"></div>
   </div>
 
+  <!-- Tab navigation -->
+  <div class="tab-nav" id="tab-nav-container" style="display:none; border-bottom:1px solid var(--border); margin-bottom:1.5rem; gap:1.5rem">
+    <button class="tab-btn active" data-tab="games">Games & Breakdown</button>
+    <button class="tab-btn" data-tab="roster" id="tab-roster-btn">Team Roster</button>
+  </div>
+
   <!-- Per-game breakdown -->
-  <div class="section-title">Game-by-game contribution</div>
-  <p class="section-sub">
-    Each row shows how much that game moved the team's final rating.
-    <strong>Impact Δ</strong> uses a leave-one-out estimate anchored to the official rating
-    (opponents' ratings held fixed). <span style="color:var(--win)">▲ Green</span> = game pulled rating up;
-    <span style="color:var(--loss)">▼ red</span> = pulled it down. Sorted newest first — click any column to re-sort.
-  </p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th data-col="iso_date">Date <span class="si">↓</span></th>
-          <th data-col="opponent_name">Opponent <span class="si"></span></th>
-          <th data-col="result">Result <span class="si"></span></th>
-          <th data-col="game_rating" class="num-col">Game Rating <span class="si"></span></th>
-          <th data-col="weight" class="num-col">Weight / Share <span class="si"></span></th>
-          <th data-col="impact" class="num-col impact-col">Impact Δ <span class="si"></span></th>
-        </tr>
-      </thead>
-      <tbody id="games-body"></tbody>
-    </table>
+  <div id="games-section">
+    <div class="section-title">Game-by-game contribution</div>
+    <p class="section-sub">
+      Each row shows how much that game moved the team's final rating.
+      <strong>Impact Δ</strong> uses a leave-one-out estimate anchored to the official rating
+      (opponents' ratings held fixed). <span style="color:var(--win)">▲ Green</span> = game pulled rating up;
+      <span style="color:var(--loss)">▼ red</span> = pulled it down. Sorted newest first — click any column to re-sort.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-col="iso_date">Date <span class="si">↓</span></th>
+            <th data-col="opponent_name">Opponent <span class="si"></span></th>
+            <th data-col="result">Result <span class="si"></span></th>
+            <th data-col="game_rating" class="num-col">Game Rating <span class="si"></span></th>
+            <th data-col="weight" class="num-col">Weight / Share <span class="si"></span></th>
+            <th data-col="impact" class="num-col impact-col">Impact Δ <span class="si"></span></th>
+          </tr>
+        </thead>
+        <tbody id="games-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Team Roster -->
+  <div id="roster-section" style="display:none">
+    <div class="roster-header-row">
+      <div class="section-title" style="margin-bottom:0">Tournament Roster</div>
+      <div class="roster-controls">
+        <select id="roster-tourn-select" class="roster-select">
+          <option value="all">All Tournaments</option>
+        </select>
+        <input type="text" id="roster-search" class="roster-search" placeholder="Search players...">
+      </div>
+    </div>
+    
+    <div class="roster-stats">
+      <div class="rstat-card">
+        <div class="rstat-val" id="rstat-total">—</div>
+        <div class="rstat-lbl">Total Players</div>
+      </div>
+      <div class="rstat-card">
+        <div class="rstat-val" id="rstat-height">—</div>
+        <div class="rstat-lbl">Avg Height</div>
+      </div>
+      <div class="rstat-card">
+        <div class="rstat-val" id="rstat-handlers">—</div>
+        <div class="rstat-lbl">Handlers</div>
+      </div>
+      <div class="rstat-card">
+        <div class="rstat-val" id="rstat-cutters">—</div>
+        <div class="rstat-lbl">Cutters</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 80px;">Jersey</th>
+            <th>Player Name</th>
+            <th style="width: 120px;">Height</th>
+            <th style="width: 200px;">Position</th>
+            <th>Tournaments</th>
+          </tr>
+        </thead>
+        <tbody id="roster-body"></tbody>
+      </table>
+    </div>
   </div>
 </main>
 
@@ -333,6 +488,105 @@
       // Render games table
       allGames = games;
       renderTable(sortGames(allGames));
+
+      // Fetch and setup roster
+      try {
+        const rostersResp = await fetch(window.getDataPath('tournament_rosters.csv')).catch(() => null);
+        if (rostersResp && rostersResp.ok) {
+          const rostersText = await rostersResp.text();
+          const parsedCSV = parseCSV(rostersText);
+          const stableTeamKey = normalizeKey(team.team_name) + '_' + normalizeKey(team.city_state) + '_' + window.currentDivision;
+          const rosterRows = parsedCSV.filter(r => r.stable_team_key === stableTeamKey);
+
+          if (rosterRows.length > 0) {
+            // Show tabs navigation container
+            document.getElementById('tab-nav-container').style.display = 'flex';
+            
+            // Group by player name/key
+            const playersMap = {};
+            const tournamentsSet = new Set();
+            
+            rosterRows.forEach(row => {
+              const pKey = row.stable_player_key || normalizeKey(row.player_name);
+              if (!pKey) return;
+              
+              if (row.tournament_name) tournamentsSet.add(row.tournament_name);
+              
+              if (!playersMap[pKey]) {
+                playersMap[pKey] = {
+                  player_name: row.player_name,
+                  jersey: row.jersey || '—',
+                  position: row.position || '—',
+                  height: row.height || '—',
+                  tournaments: []
+                };
+              }
+              if (row.tournament_name && !playersMap[pKey].tournaments.includes(row.tournament_name)) {
+                playersMap[pKey].tournaments.push(row.tournament_name);
+              }
+              // Update fields if they were missing but are now present
+              if (playersMap[pKey].jersey === '—' && row.jersey) playersMap[pKey].jersey = row.jersey;
+              if (playersMap[pKey].position === '—' && row.position) playersMap[pKey].position = row.position;
+              if (playersMap[pKey].height === '—' && row.height) playersMap[pKey].height = row.height;
+            });
+
+            const allPlayers = Object.values(playersMap);
+            
+            // Populate tournament filter dropdown
+            const select = document.getElementById('roster-tourn-select');
+            select.innerHTML = '<option value="all">All Tournaments</option>';
+            Array.from(tournamentsSet).sort().forEach(tName => {
+              const opt = document.createElement('option');
+              opt.value = tName;
+              opt.textContent = tName;
+              select.appendChild(opt);
+            });
+            
+            // Setup events
+            const searchInput = document.getElementById('roster-search');
+            
+            function updateRosterView() {
+              const selectedTourn = select.value;
+              const searchVal = searchInput.value.toLowerCase().trim();
+              
+              let filtered = allPlayers;
+              if (selectedTourn !== 'all') {
+                filtered = filtered.filter(p => p.tournaments.includes(selectedTourn));
+              }
+              if (searchVal) {
+                filtered = filtered.filter(p => p.player_name.toLowerCase().includes(searchVal));
+              }
+              
+              renderRoster(filtered);
+            }
+            
+            select.onchange = updateRosterView;
+            searchInput.oninput = updateRosterView;
+            
+            // Setup tab buttons switching
+            const tabBtns = document.querySelectorAll('.tab-nav .tab-btn');
+            tabBtns.forEach(btn => {
+              btn.onclick = () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const tab = btn.dataset.tab;
+                if (tab === 'games') {
+                  document.getElementById('games-section').style.display = 'block';
+                  document.getElementById('roster-section').style.display = 'none';
+                } else {
+                  document.getElementById('games-section').style.display = 'none';
+                  document.getElementById('roster-section').style.display = 'block';
+                }
+              };
+            });
+            
+            updateRosterView();
+          }
+        }
+      } catch (e) {
+        console.error('Error fetching/parsing rosters:', e);
+      }
+
       showScreen(null);
 
     } catch (err) {
@@ -551,6 +805,143 @@
       </tr>`;
     }).join('');
     if (window.updateDynamicLinks) window.updateDynamicLinks();
+  }
+
+  // ── Roster Helpers & Render ───────────────────────────────────────
+  function normalizeKey(str) {
+    return (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function parseCSV(text) {
+    const result = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      if (inQuotes) {
+        if (char === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') {
+            field += '"';
+            i++; // skip next quote
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          field += char;
+        }
+      } else {
+        if (char === '"') {
+          inQuotes = true;
+        } else if (char === ',') {
+          row.push(field);
+          field = '';
+        } else if (char === '\n' || char === '\r') {
+          row.push(field);
+          field = '';
+          if (row.length > 1 || row[0] !== '') {
+            result.push(row);
+          }
+          row = [];
+          if (char === '\r' && i + 1 < text.length && text[i + 1] === '\n') {
+            i++; // skip \n after \r
+          }
+        } else {
+          field += char;
+        }
+      }
+    }
+    if (field || row.length > 0) {
+      row.push(field);
+      if (row.length > 1 || row[0] !== '') {
+        result.push(row);
+      }
+    }
+    if (result.length < 2) return [];
+    const headers = result[0].map(h => h.trim());
+    return result.slice(1).map(r => {
+      const obj = {};
+      headers.forEach((h, idx) => {
+        obj[h] = r[idx] !== undefined ? r[idx].trim() : '';
+      });
+      return obj;
+    });
+  }
+
+  function parseHeightToInches(heightStr) {
+    if (!heightStr) return null;
+    const match = heightStr.match(/(\d+)\s*'\s*(\d+)?\s*"?/);
+    if (match) {
+      const feet = parseInt(match[1]);
+      const inches = match[2] ? parseInt(match[2]) : 0;
+      return (feet * 12) + inches;
+    }
+    return null;
+  }
+
+  function formatInchesToHeight(totalInches) {
+    if (!totalInches || isNaN(totalInches)) return '—';
+    const feet = Math.floor(totalInches / 12);
+    const inches = Math.round(totalInches % 12);
+    return `${feet}'${inches}"`;
+  }
+
+  function sortRoster(players) {
+    return [...players].sort((a, b) => {
+      const ja = parseInt(a.jersey);
+      const jb = parseInt(b.jersey);
+      if (isNaN(ja) && isNaN(jb)) {
+        return a.player_name.localeCompare(b.player_name);
+      }
+      if (isNaN(ja)) return 1;
+      if (isNaN(jb)) return -1;
+      if (ja !== jb) return ja - jb;
+      return a.player_name.localeCompare(b.player_name);
+    });
+  }
+
+  function renderRoster(players) {
+    const tbody = document.getElementById('roster-body');
+    const sorted = sortRoster(players);
+    
+    document.getElementById('rstat-total').textContent = sorted.length;
+    
+    let totalInches = 0;
+    let heightCount = 0;
+    let handlers = 0;
+    let cutters = 0;
+    
+    sorted.forEach(p => {
+      const inches = parseHeightToInches(p.height);
+      if (inches !== null && inches > 0) {
+        totalInches += inches;
+        heightCount++;
+      }
+      const pos = (p.position || '').toLowerCase();
+      if (pos.includes('handler')) handlers++;
+      else if (pos.includes('cutter')) cutters++;
+    });
+    
+    document.getElementById('rstat-height').textContent = heightCount > 0 ? formatInchesToHeight(totalInches / heightCount) : '—';
+    document.getElementById('rstat-handlers').textContent = handlers;
+    document.getElementById('rstat-cutters').textContent = cutters;
+    
+    if (sorted.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-faint);padding:2rem 0">No matching roster rows found.</td></tr>`;
+      return;
+    }
+    
+    tbody.innerHTML = sorted.map(p => {
+      const tBadges = p.tournaments.map(t => `<span class="tourn-badge">${esc(t)}</span>`).join('');
+      const pKey = p.stable_player_key || normalizeKey(p.player_name);
+      return `<tr>
+        <td style="font-family:var(--mono);color:var(--text-dim)">${esc(p.jersey)}</td>
+        <td style="font-weight:600"><a href="player.html?key=${pKey}&name=${encodeURIComponent(p.player_name)}" class="opp-link">${esc(p.player_name)}</a></td>
+        <td style="font-family:var(--mono);color:var(--text-dim)">${esc(p.height)}</td>
+        <td style="color:var(--text-dim)">${esc(p.position)}</td>
+        <td>${tBadges}</td>
+      </tr>`;
+    }).join('');
   }
 
   // ── Sort ──────────────────────────────────────────────────────────

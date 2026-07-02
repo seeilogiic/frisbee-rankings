@@ -98,6 +98,7 @@ def compute_rankings(
     season_end: date | None = None,
     iterations: int = 2000,
     blowout_ignore: bool = True,
+    season: int = 2026,
 ) -> tuple[list[dict], dict[str, list[dict]]]:
     """
     Compute USAU power ratings for all teams in games_csv.
@@ -113,16 +114,16 @@ def compute_rankings(
                     game_rating, impact, ignored, date, event.
     """
     games_csv = Path(games_csv)
-    records = _load_games(games_csv)
+    records = _load_games(games_csv, season=season)
 
     if not records:
-        return []
+        return [], {}
 
     game_dates = [r["date"] for r in records]
     if season_start is None:
         season_start = min(game_dates)
     if season_end is None:
-        season_end = SEASON_END_DEFAULT
+        season_end = date(season, 9, 7)
 
     # Pre-compute static weights (only x changes with ratings, not score/date weights)
     for r in records:
@@ -326,7 +327,7 @@ def _blowout_ignored(records: list[dict], ratings: dict[str, float]) -> list[boo
 _team_names: dict[str, str] = {}
 
 
-def _load_games(path: Path) -> list[dict]:
+def _load_games(path: Path, season: int = 2026) -> list[dict]:
     global _team_names
     _team_names = {}
     records = []
@@ -349,9 +350,9 @@ def _load_games(path: Path) -> list[dict]:
             _team_names[a_id] = row.get("team_a", a_id)
             _team_names[b_id] = row.get("team_b", b_id)
 
-            # Parse "Month DD" date strings (season year is always 2026)
+            # Parse "Month DD" date strings (season year is the target season)
             try:
-                game_date = datetime.strptime(row["date"].strip() + " 2026", "%B %d %Y").date()
+                game_date = datetime.strptime(row["date"].strip() + f" {season}", "%B %d %Y").date()
             except ValueError:
                 continue
 

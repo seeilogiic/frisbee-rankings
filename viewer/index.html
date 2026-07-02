@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>USA Ultimate · Club Mixed 2026</title>
+<script src="common.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -196,8 +197,8 @@
   async function loadStats() {
     try {
       const [rkResp, metaResp] = await Promise.all([
-        fetch('../out/rankings.json').catch(() => null),
-        fetch('../out/metadata.json').catch(() => null),
+        fetch(window.getDataPath('rankings.json')).catch(() => null),
+        fetch(window.getDataPath('metadata.json')).catch(() => null),
       ]);
 
       if (rkResp?.ok) {

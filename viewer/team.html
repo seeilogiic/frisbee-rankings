@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Team Detail · USAU Club Mixed 2026</title>
+<script src="common.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -279,10 +280,10 @@
     try {
       // Fetch rankings + breakdown (required); history + metadata optional
       const [rkResp, bdResp, histResp, metaResp] = await Promise.all([
-        fetch('../out/rankings.json'),
-        fetch('../out/breakdown.json'),
-        fetch('../out/history.json').catch(() => null),
-        fetch('../out/metadata.json').catch(() => null),
+        fetch(window.getDataPath('rankings.json')),
+        fetch(window.getDataPath('breakdown.json')),
+        fetch(window.getDataPath('history.json')).catch(() => null),
+        fetch(window.getDataPath('metadata.json')).catch(() => null),
       ]);
       if (rkResp.status === 404 || bdResp.status === 404) {
         document.getElementById('nodata-msg').textContent =
@@ -319,7 +320,9 @@
       }
 
       // Update page title
-      document.title = esc(team.team_name) + ' · USAU Club Mixed 2026';
+      const divisionNames = { 'mixed': 'Mixed', 'mens': "Men's", 'womens': "Women's" };
+      const divLabel = divisionNames[window.currentDivision] || 'Mixed';
+      document.title = esc(team.team_name) + ' · USAU Club ' + divLabel + ' ' + (window.currentSeason || 2026);
 
       // Render hero
       renderHero(team);
@@ -547,6 +550,7 @@
         <td class="num-col impact-col">${impactCell}</td>
       </tr>`;
     }).join('');
+    if (window.updateDynamicLinks) window.updateDynamicLinks();
   }
 
   // ── Sort ──────────────────────────────────────────────────────────

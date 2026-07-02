@@ -105,10 +105,10 @@ def main(argv: list[str] | None = None) -> int:
     }
     gender_division = _DIVISION_MAP.get(norm_division, "1#mixed")
 
-    # Save under division folder if using default output directory and division is not mixed
+    # Save under division and season folders if using default output directory
     out_dir = args.out
-    if out_dir == "./out" and norm_division != "mixed":
-        out_dir = os.path.join(args.out, norm_division)
+    if out_dir == "./out":
+        out_dir = os.path.join(args.out, norm_division, str(args.season))
 
     # --rankings-only: skip scraping, just (re)compute from existing CSV
     if getattr(args, "rankings_only", False):
@@ -208,8 +208,8 @@ def _run_rankings_only(args, out_dir: str | None = None, norm_division: str | No
             
     if out_dir is None:
         out_dir = getattr(args, "out", "./out")
-        if out_dir == "./out" and norm_division != "mixed":
-            out_dir = os.path.join(out_dir, norm_division)
+        if out_dir == "./out":
+            out_dir = os.path.join(out_dir, norm_division, str(getattr(args, "season", 2026)))
 
     games_path = f"{out_dir}/games.csv"
     teams_path = f"{out_dir}/teams.csv"
@@ -221,7 +221,7 @@ def _run_rankings_only(args, out_dir: str | None = None, norm_division: str | No
         logging.error("games.csv not found at %s — run scraper first.", games_path)
         return 1
     logging.info("Computing USAU v2.0 power rankings from %s …", games_path)
-    rankings, breakdown = compute_rankings(games_path)
+    rankings, breakdown = compute_rankings(games_path, season=getattr(args, "season", 2026))
     merge_team_metadata(rankings, teams_path)
     write_rankings_json(rankings, rankings_path)
     write_breakdown_json(breakdown, breakdown_path)

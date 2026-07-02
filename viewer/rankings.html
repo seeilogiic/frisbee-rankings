@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>USA Ultimate · Club Mixed 2026 Power Rankings</title>
+<script src="common.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -217,10 +218,10 @@
     </svg>
   </div>
   <div class="state-title">No rankings data yet</div>
-  <div class="state-sub">Generate <code style="font-family:var(--mono);color:var(--accent)">out/rankings.json</code> by running the scraper:</div>
-  <div class="state-code">python -m usau_mixed_scraper --compute-rankings</div>
-  <div class="state-sub" style="color:var(--text-faint)">If <code style="font-family:var(--mono)">out/games.csv</code> already exists:</div>
-  <div class="state-code">python -m usau_mixed_scraper --rankings-only</div>
+  <div class="state-sub">Generate data for this division &amp; season by running:</div>
+  <div class="state-code" id="nodata-scrape-cmd">python -m usau_mixed_scraper --division mixed --season 2026 --compute-rankings</div>
+  <div class="state-sub" style="color:var(--text-faint)">If games.csv already exists:</div>
+  <div class="state-code" id="nodata-rankings-cmd">python -m usau_mixed_scraper --division mixed --season 2026 --rankings-only</div>
   <div class="state-link">Then click <a onclick="fetchData()" href="#">Refresh</a> above.</div>
 </div>
 
@@ -375,6 +376,16 @@
     ['screen-loading','screen-nodata','screen-error'].forEach(s => {
       document.getElementById(s).style.display = s === id ? 'flex' : 'none';
     });
+    if (id === 'screen-nodata') {
+      const division = window.currentDivision || 'mixed';
+      const season = window.currentSeason || '2026';
+      const scrapeCmd = `python -m usau_mixed_scraper --division ${division} --season ${season} --compute-rankings`;
+      const rankingsCmd = `python -m usau_mixed_scraper --division ${division} --season ${season} --rankings-only`;
+      const cmd1El = document.getElementById('nodata-scrape-cmd');
+      const cmd2El = document.getElementById('nodata-rankings-cmd');
+      if (cmd1El) cmd1El.textContent = scrapeCmd;
+      if (cmd2El) cmd2El.textContent = rankingsCmd;
+    }
     const hasData = !id;
     document.getElementById('controls').style.display = hasData ? 'flex' : 'none';
     document.getElementById('main').style.display    = hasData ? 'block' : 'none';
@@ -386,13 +397,13 @@
     btn.classList.add('spinning');
     showScreen('screen-loading');
     try {
-      const resp = await fetch('../out/rankings.json');
+      const resp = await fetch(window.getDataPath('rankings.json'));
       if (resp.status === 404) { showScreen('screen-nodata'); return; }
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       const data = await resp.json();
       loadData(data);
       // Fetch metadata for "Updated" timestamp (404 is fine — just hide the badge)
-      fetch('../out/metadata.json').then(r => r.ok ? r.json() : null).then(m => {
+      fetch(window.getDataPath('metadata.json')).then(r => r.ok ? r.json() : null).then(m => {
         const badge = document.getElementById('updated-badge');
         const ts = m?.rankings_computed_at || m?.scraped_at;
         if (ts) {

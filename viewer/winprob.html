@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Win Probability · USAU Club Mixed 2026</title>
+<script src="common.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -304,8 +305,8 @@
   async function loadData() {
     try {
       const [rkResp, bdResp] = await Promise.all([
-        fetch('../out/rankings.json'),
-        fetch('../out/breakdown.json'),
+        fetch(window.getDataPath('rankings.json')),
+        fetch(window.getDataPath('breakdown.json')),
       ]);
       if (rkResp.status === 404) { showScreen('screen-nodata'); return; }
       if (!rkResp.ok) throw new Error(`rankings.json: HTTP ${rkResp.status}`);
@@ -445,6 +446,7 @@
 
     // Head-to-head
     renderH2H(A, B);
+    if (window.updateDynamicLinks) window.updateDynamicLinks();
   }
 
   function renderCard(side, team) {

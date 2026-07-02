@@ -1,7 +1,8 @@
 {
-  "scraped_at": "2026-06-30T13:13:13",
-  "rankings_computed_at": "2026-06-30T13:13:17",
+  "scraped_at": "2026-07-01T21:56:59",
+  "rankings_computed_at": "2026-07-01T21:57:07",
   "season": 2026,
-  "teams": 257,
+  "division": "mixed",
+  "teams": 258,
   "games": 571
 }

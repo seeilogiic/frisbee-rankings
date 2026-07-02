@@ -1638,20 +1638,6 @@
     "section": "Southwest"
   },
   {
-    "team_id": "IjuvnsaidJFozom6mFuzRoywItNW/gTeLX5H49/zRF8=",
-    "team_name": "American Barbecue",
-    "rating": 934.2,
-    "wins": 3,
-    "losses": 3,
-    "games_counted": 6,
-    "games_ignored": 0,
-    "sos": 883.3,
-    "rank": 118,
-    "city_state": "San Francisco, California",
-    "region": "Southwest",
-    "section": "Southwest"
-  },
-  {
     "team_id": "1P4eegrHSNNX010wWmagHRZlMhBqC7EBmSq68CxOf3w=",
     "team_name": "Green Chiles",
     "rating": 934.2,
@@ -1660,10 +1646,24 @@
     "games_counted": 5,
     "games_ignored": 1,
     "sos": 987.3,
-    "rank": 119,
+    "rank": 118,
     "city_state": "Denver, Colorado",
     "region": "South Central",
     "section": "South Central"
+  },
+  {
+    "team_id": "IjuvnsaidJFozom6mFuzRoywItNW/gTeLX5H49/zRF8=",
+    "team_name": "American Barbecue",
+    "rating": 934.2,
+    "wins": 3,
+    "losses": 3,
+    "games_counted": 6,
+    "games_ignored": 0,
+    "sos": 883.3,
+    "rank": 119,
+    "city_state": "San Francisco, California",
+    "region": "Southwest",
+    "section": "Southwest"
   },
   {
     "team_id": "MtntOF3tCxRVTbwu9knb37LOKTY/gWqaGwLNG5c6cvU=",

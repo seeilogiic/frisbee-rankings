@@ -58,7 +58,12 @@ def enumerate_teams(
     logger.info("  Directory: %d teams found", len(teams))
 
     result = sorted(teams.values(), key=lambda t: t.name.lower())
-    logger.info("Total unique Club-Mixed teams: %d", len(result))
+    div_name = "Club-Mixed"
+    if "women" in gender_division:
+        div_name = "Club-Women"
+    elif "men" in gender_division:
+        div_name = "Club-Men"
+    logger.info("Total unique %s teams: %d", div_name, len(result))
     return result
 
 

@@ -8,7 +8,7 @@ Scrapes all completed games played by every Club-Mixed team in a given USA Ultim
 pip install -r requirements.txt
 
 # 1. Scrape all games + compute rankings
-python -m usau_mixed_scraper --compute-rankings
+python -m usau_mixed_scraper --division mixed --compute-rankings
 
 # 2. Open the viewer
 python serve.py
@@ -45,6 +45,7 @@ Running the scraper writes several files to the output directory (`out/` by defa
 
 | Flag | Default | Notes |
 |------|---------|-------|
+| `--division DIV` | Required | Gender division to scrape: `mixed`, `mens`/`men`, `womens`/`women` (mixed saves to `out/`, others save to `out/<division>/`) |
 | `--season YEAR` | 2026 | Season years 2018–2027 are mapped to their site IDs |
 | `--out DIR` | `./out` | Output directory |
 | `--cache DIR` | `./cache` | On-disk HTTP response cache — makes re-runs instant for already-fetched pages |
@@ -60,7 +61,7 @@ Running the scraper writes several files to the output directory (`out/` by defa
 If `out/games.csv` already exists (e.g. you want to tweak the algorithm):
 
 ```bash
-python -m usau_mixed_scraper --rankings-only
+python -m usau_mixed_scraper --division mixed --rankings-only
 python serve.py  # then click Refresh in the browser
 ```
 

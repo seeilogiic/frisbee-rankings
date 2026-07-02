@@ -57,9 +57,15 @@ _SEASON_ID_MAP: dict[int, str] = {
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Scrape all Club-Mixed games from USA Ultimate for a given season."
+        description="Scrape all Club games from USA Ultimate for a given season."
     )
     parser.add_argument("--season", type=int, default=2026, help="Season year (default: 2026)")
+    parser.add_argument(
+        "--division",
+        choices=["mixed", "mens", "men", "womens", "women"],
+        required=True,
+        help="Gender division to scrape: mixed, mens/men, womens/women"
+    )
     parser.add_argument("--out", default="./out", help="Output directory (default: ./out)")
     parser.add_argument("--cache", default="./cache", help="Cache directory (default: ./cache)")
     parser.add_argument("--no-cache", action="store_true", help="Disable HTTP cache")
@@ -85,17 +91,36 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
+    # Normalize division name
+    norm_division = args.division
+    if norm_division == "men":
+        norm_division = "mens"
+    elif norm_division == "women":
+        norm_division = "womens"
+
+    _DIVISION_MAP = {
+        "mixed": "1#mixed",
+        "mens": "17#men",
+        "womens": "2#women",
+    }
+    gender_division = _DIVISION_MAP.get(norm_division, "1#mixed")
+
+    # Save under division folder if using default output directory and division is not mixed
+    out_dir = args.out
+    if out_dir == "./out" and norm_division != "mixed":
+        out_dir = os.path.join(args.out, norm_division)
+
     # --rankings-only: skip scraping, just (re)compute from existing CSV
     if getattr(args, "rankings_only", False):
-        return _run_rankings_only(args)
+        return _run_rankings_only(args, out_dir, norm_division)
 
     cache_dir = None if args.no_cache else args.cache
     client = USAUClient(cache_dir=cache_dir, delay=args.delay)
 
     # ------------------------------------------------------------------ #
-    # Step 1: Enumerate all Club-Mixed teams
+    # Step 1: Enumerate all teams
     # ------------------------------------------------------------------ #
-    teams = enumerate_teams(client, season_id=season_id)
+    teams = enumerate_teams(client, season_id=season_id, gender_division=gender_division)
 
     if args.limit > 0:
         logging.info("--limit %d: restricting to first %d teams.", args.limit, args.limit)
@@ -127,9 +152,9 @@ def main(argv: list[str] | None = None) -> int:
     # ------------------------------------------------------------------ #
     unique_games = deduplicate_games(all_games)
 
-    games_path = f"{args.out}/games.csv"
-    teams_path = f"{args.out}/teams.csv"
-    metadata_path = f"{args.out}/metadata.json"
+    games_path = f"{out_dir}/games.csv"
+    teams_path = f"{out_dir}/teams.csv"
+    metadata_path = f"{out_dir}/metadata.json"
     write_games_csv(unique_games, games_path)
     write_teams_csv(all_metas, teams_path)
     write_metadata(
@@ -137,6 +162,7 @@ def main(argv: list[str] | None = None) -> int:
             "scraped_at": datetime.now().isoformat(timespec="seconds"),
             "rankings_computed_at": None,
             "season": args.season,
+            "division": norm_division,
             "teams": len(all_metas),
             "games": len(unique_games),
         },
@@ -164,20 +190,33 @@ def main(argv: list[str] | None = None) -> int:
     logging.info("Output: %s, %s", games_path, teams_path)
 
     if getattr(args, "compute_rankings", False):
-        _run_rankings_only(args)
+        _run_rankings_only(args, out_dir, norm_division)
 
     return 0
 
 
-def _run_rankings_only(args) -> int:
+def _run_rankings_only(args, out_dir: str | None = None, norm_division: str | None = None) -> int:
     from .rankings import compute_rankings, write_rankings_json, write_breakdown_json, merge_team_metadata
     from .export import append_history_snapshot
-    games_path = f"{args.out}/games.csv"
-    teams_path = f"{args.out}/teams.csv"
-    rankings_path = f"{args.out}/rankings.json"
-    breakdown_path = f"{args.out}/breakdown.json"
-    metadata_path = f"{args.out}/metadata.json"
-    history_path = f"{args.out}/history.json"
+    
+    if norm_division is None:
+        norm_division = getattr(args, "division", "mixed")
+        if norm_division == "men":
+            norm_division = "mens"
+        elif norm_division == "women":
+            norm_division = "womens"
+            
+    if out_dir is None:
+        out_dir = getattr(args, "out", "./out")
+        if out_dir == "./out" and norm_division != "mixed":
+            out_dir = os.path.join(out_dir, norm_division)
+
+    games_path = f"{out_dir}/games.csv"
+    teams_path = f"{out_dir}/teams.csv"
+    rankings_path = f"{out_dir}/rankings.json"
+    breakdown_path = f"{out_dir}/breakdown.json"
+    metadata_path = f"{out_dir}/metadata.json"
+    history_path = f"{out_dir}/history.json"
     if not os.path.exists(games_path):
         logging.error("games.csv not found at %s — run scraper first.", games_path)
         return 1
@@ -201,6 +240,7 @@ def _run_rankings_only(args) -> int:
     computed_at = datetime.now().isoformat(timespec="seconds")
     meta["rankings_computed_at"] = computed_at
     meta.setdefault("season", getattr(args, "season", None))
+    meta.setdefault("division", norm_division)
     meta.setdefault("teams", len(rankings))
     meta.setdefault("games", None)
     write_metadata(meta, metadata_path)

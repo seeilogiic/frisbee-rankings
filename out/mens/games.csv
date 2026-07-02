@@ -1,0 +1,452 @@
+date,event,team_a,team_a_id,team_b,team_b_id,score_a,score_b,winner
+February 21,PLU Mens+BBQ 2026,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,Central Washington,55/kqeTZZlKQdDxbwpp3tChipZdEHz0mifuGH1ZSusU=,13,3,Parkland - PLU Alumni
+February 21,PLU Mens+BBQ 2026,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,Seattle,IqxEBfmivvsEh4XFQh3c3DBXjOH219jPzVlTw+kihgs=,13,1,Parkland - PLU Alumni
+February 21,PLU Mens+BBQ 2026,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,Whitworth,2QUjYXncaYo638ftt3Xdi7ep4+uKjxIEbz1DJLbQLiE=,12,13,Whitworth
+February 21,PLU Mens+BBQ 2026,Portland State,1ZRzdZTR85I6wPcFvOKbW20kPdAW03iPdrpZ6O+0si0=,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,9,13,Parkland - PLU Alumni
+February 22,PLU Mens+BBQ 2026,Oregon  [B],0YK//F4WHihuKQN7k68y6vV2JLr/USLNY4Ri2rkHX6A=,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,11,14,Parkland - PLU Alumni
+February 22,PLU Mens+BBQ 2026,Parkland - PLU Alumni,1ZcqLdZhpJysVLhP+wezdV38lX1yW4fT07j4qeJWv6c=,Oregon State [B],B5avpz/BW8Nz13Cwp1htDirGI5gFEl+aXc7UEUD5tj0=,8,15,Oregon State [B]
+June 06,Heatstroke,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,13,6,Alliance
+June 06,Heatstroke,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,13,10,Battleship
+June 06,Heatstroke,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,13,6,Battleship
+June 06,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,13,6,Cookie Mon$terz
+June 06,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,12,10,Cookie Mon$terz
+June 06,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Southern Hospitality,CF8AgBSfg8/iQFj7QQNGP3JyGf+lb2/CrcLWNjJRE70=,13,2,Cookie Mon$terz
+June 06,Heatstroke,Southern Hospitality,CF8AgBSfg8/iQFj7QQNGP3JyGf+lb2/CrcLWNjJRE70=,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,3,13,Alliance
+June 06,Heatstroke,Southern Hospitality,CF8AgBSfg8/iQFj7QQNGP3JyGf+lb2/CrcLWNjJRE70=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,11,13,Barefoot
+June 07,Heatstroke,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,5,12,Barefoot
+June 07,Heatstroke,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,15,13,Battleship
+June 07,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,12,9,Cookie Mon$terz
+June 07,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Barefoot,r+9coDObCx3LOyQdlTKRzT+Z4f5W59cY8tra81cu0MM=,15,8,Cookie Mon$terz
+June 07,Heatstroke,Cookie Mon$terz,5NUaAV11nwAoJ1kAwzWR/0d0JGG9ygmrrhZERaQHwhw=,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,8,6,Cookie Mon$terz
+June 07,Heatstroke,Southern Hospitality,CF8AgBSfg8/iQFj7QQNGP3JyGf+lb2/CrcLWNjJRE70=,Battleship,IuSaR1rv5HP5J7qgxOFvkHnxpspmr4PjZtNRDKUOxoA=,6,13,Battleship
+June 07,Mixed Easterns 2026,BAG,4ZRgUSClgp0WHncGHJwSuhDDObUXjPnm8tER6vgCbCk=,Big Wrench,bSTVtLx0NI+ikQSlbOVRirwcTGgdruVKVVYI0VtUAq0=,12,7,BAG
+June 07,Mixed Easterns 2026,BAG,4ZRgUSClgp0WHncGHJwSuhDDObUXjPnm8tER6vgCbCk=,Wave,LPHs9kAl1kTwEPVUWJq6tHZqcHeScfjZiWz6Nq/UxnI=,13,3,BAG
+June 07,Mixed Easterns 2026,BAG,4ZRgUSClgp0WHncGHJwSuhDDObUXjPnm8tER6vgCbCk=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,11,10,BAG
+June 07,Mixed Easterns 2026,Big Wrench,bSTVtLx0NI+ikQSlbOVRirwcTGgdruVKVVYI0VtUAq0=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,11,8,Big Wrench
+June 07,Mixed Easterns 2026,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,13,2,Skeleton Squad
+June 07,Mixed Easterns 2026,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,12,13,Odyssey
+June 07,Mixed Easterns 2026,Wave,LPHs9kAl1kTwEPVUWJq6tHZqcHeScfjZiWz6Nq/UxnI=,Lantern,Sg6G/J70zEZAYJyUw9OITqu+z1dxmRZYnvTNKsb5XZQ=,3,13,Lantern
+June 07,Mixed Easterns 2026,Wave,LPHs9kAl1kTwEPVUWJq6tHZqcHeScfjZiWz6Nq/UxnI=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,5,13,Odyssey
+June 13,Colorado Summer Solstice 2026 Part 1,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,5,15,Kansas City Smokestack
+June 13,Colorado Summer Solstice 2026 Part 1,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,9,10,The Incline
+June 13,Colorado Summer Solstice 2026 Part 1,Buoyancy,5QcCM7aDcmdxi0rJJ8Ee9ojGr731Eja9fAoROqhoZFQ=,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,7,13,Arizona Frisbee Club
+June 13,Colorado Summer Solstice 2026 Part 1,Buoyancy,5QcCM7aDcmdxi0rJJ8Ee9ojGr731Eja9fAoROqhoZFQ=,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,2,15,Kansas City Smokestack
+June 13,Colorado Summer Solstice 2026 Part 1,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,Buoyancy,5QcCM7aDcmdxi0rJJ8Ee9ojGr731Eja9fAoROqhoZFQ=,15,4,Colorado Cutthroat U-20 Boys
+June 13,Colorado Summer Solstice 2026 Part 1,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,14,7,Colorado Cutthroat U-20 Boys
+June 13,Colorado Summer Solstice 2026 Part 1,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,15,4,ISO Atmo
+June 13,Colorado Summer Solstice 2026 Part 1,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,15,8,ISO Atmo
+June 13,Colorado Summer Solstice 2026 Part 1,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,13,14,Tugboat
+June 13,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,11,14,Kansas City Smokestack
+June 13,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,15,12,Lil’ Huckers
+June 13,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,15,12,Lil’ Huckers
+June 13,Colorado Summer Solstice 2026 Part 1,Nomads,nhE/lZ1OLDxfCUaxowtZWEdrAVErH8yMpCZjfMJ3r1k=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,12,9,Nomads
+June 13,Colorado Summer Solstice 2026 Part 1,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,F-Words,xO5uPmIlvTttgXXc7yIZQXjDA7dbluN0JJuT3DD6mlE=,13,12,Red Lotus
+June 13,Colorado Summer Solstice 2026 Part 1,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,Nomads,nhE/lZ1OLDxfCUaxowtZWEdrAVErH8yMpCZjfMJ3r1k=,13,10,Red Lotus
+June 13,Colorado Summer Solstice 2026 Part 1,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,F-Words,xO5uPmIlvTttgXXc7yIZQXjDA7dbluN0JJuT3DD6mlE=,15,3,Tugboat
+June 13,Colorado Summer Solstice 2026 Part 1,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,9,15,Tugboat
+June 13,Colorado Summer Solstice 2026 Part 1,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,F-Words,xO5uPmIlvTttgXXc7yIZQXjDA7dbluN0JJuT3DD6mlE=,15,9,washed
+June 14,Colorado Summer Solstice 2026 Part 1,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,12,8,Arizona Frisbee Club
+June 14,Colorado Summer Solstice 2026 Part 1,Buoyancy,5QcCM7aDcmdxi0rJJ8Ee9ojGr731Eja9fAoROqhoZFQ=,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,11,15,washed
+June 14,Colorado Summer Solstice 2026 Part 1,Buoyancy,5QcCM7aDcmdxi0rJJ8Ee9ojGr731Eja9fAoROqhoZFQ=,F-Words,xO5uPmIlvTttgXXc7yIZQXjDA7dbluN0JJuT3DD6mlE=,15,6,Buoyancy
+June 14,Colorado Summer Solstice 2026 Part 1,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,11,12,ISO Atmo
+June 14,Colorado Summer Solstice 2026 Part 1,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,14,9,Colorado Cutthroat U-20 Boys
+June 14,Colorado Summer Solstice 2026 Part 1,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,10,11,The Incline
+June 14,Colorado Summer Solstice 2026 Part 1,F-Words,xO5uPmIlvTttgXXc7yIZQXjDA7dbluN0JJuT3DD6mlE=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,15,7,F-Words
+June 14,Colorado Summer Solstice 2026 Part 1,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,11,13,Kansas City Smokestack
+June 14,Colorado Summer Solstice 2026 Part 1,ISO Atmo,CwSYu5Yx63rttFw0gVd4l1qFBH0YH+PYg8RsAggSS9c=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,15,6,ISO Atmo
+June 14,Colorado Summer Solstice 2026 Part 1,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,15,2,Kansas City Smokestack
+June 14,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,Kansas City Smokestack,WBnSSadFsSwef1hpb/SgekD07ELwYWktPdcWjngquJY=,11,10,Lil’ Huckers
+June 14,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,Nomads,nhE/lZ1OLDxfCUaxowtZWEdrAVErH8yMpCZjfMJ3r1k=,15,5,Lil’ Huckers
+June 14,Colorado Summer Solstice 2026 Part 1,Lil’ Huckers,1TdCiOxKEFy7g0kdSVMDokiPjkUUPBSuEE+kH1l/EXg=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,15,10,Lil’ Huckers
+June 14,Colorado Summer Solstice 2026 Part 1,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,Nomads,nhE/lZ1OLDxfCUaxowtZWEdrAVErH8yMpCZjfMJ3r1k=,7,13,Nomads
+June 14,Colorado Summer Solstice 2026 Part 1,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,Nomads,nhE/lZ1OLDxfCUaxowtZWEdrAVErH8yMpCZjfMJ3r1k=,15,9,The Incline
+June 14,Colorado Summer Solstice 2026 Part 1,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,11,13,Tugboat
+June 14,Colorado Summer Solstice 2026 Part 1,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,15,6,washed
+June 20,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,13,10,Blueprint
+June 20,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,13,11,Blueprint
+June 20,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,13,6,Blueprint
+June 20,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,13,8,Blueprint
+June 20,Philly Invite 2026,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,13,9,CITYWIDE Special
+June 20,Philly Invite 2026,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,7,13,Colt
+June 20,Philly Invite 2026,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,12,9,CITYWIDE Special
+June 20,Philly Invite 2026,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,12,9,Club M - Manic
+June 20,Philly Invite 2026,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,13,6,Club M - Manic
+June 20,Philly Invite 2026,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,11,12,Garden State Ultimate
+June 20,Philly Invite 2026,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,13,9,Colt
+June 20,Philly Invite 2026,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,6,13,New Jersey Gemini
+June 20,Philly Invite 2026,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,13,2,Garden State Ultimate
+June 20,Philly Invite 2026,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,13,6,Garden State Ultimate
+June 20,Philly Invite 2026,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,13,7,Oak Grove Boys
+June 20,Philly Invite 2026,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,13,9,Oak Grove Boys
+June 20,Philly Invite 2026,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,6,13,Oak Grove Boys
+June 20,Philly Invite 2026,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,13,8,Rebels
+June 20,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,6,13,CITYWIDE Special
+June 20,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,4,13,Colt
+June 20,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,3,13,Oak Grove Boys
+June 20,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,5,13,Rebels
+June 20,SCINNY 2026,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,2,13,WOMP
+June 20,SCINNY 2026,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,Mayhem [Dev],oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,13,3,Burning River
+June 20,SCINNY 2026,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,8,13,Forest City
+June 20,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,13,11,Dynasty
+June 20,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,13,1,Dynasty
+June 20,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,13,4,Dynasty
+June 20,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,13,5,Endgame
+June 20,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,Mayhem [Dev],oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,13,2,Endgame
+June 20,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,7,13,WOMP
+June 20,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,13,3,Endgame
+June 20,SCINNY 2026,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,8,13,Colonels
+June 20,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,13,5,EtobiCoke
+June 20,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,13,5,EtobiCoke
+June 20,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,12,13,Fuse
+June 20,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,13,2,EtobiCoke
+June 20,SCINNY 2026,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,7,13,Black Lung
+June 20,SCINNY 2026,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,13,7,Forest City
+June 20,SCINNY 2026,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,13,5,Fuse
+June 20,SCINNY 2026,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,2,13,Colonels
+June 20,SCINNY 2026,Mayhem-Dev,oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,1,13,WOMP
+June 20,SCINNY 2026,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,5,13,Black Lung
+June 20,SCINNY 2026,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,8,13,Colonels
+June 20,SCINNY 2026,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,13,6,Nocturnal
+June 20,SCINNY 2026,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,5,13,Black Lung
+June 20,SCINNY 2026,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,7,13,Forest City
+June 20,SCINNY 2026,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,12,10,On Ramp
+June 20,SCINNY 2026,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,9,13,Enigma
+June 20,SCINNY 2026,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,4,13,Fuse
+June 21,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,15,10,Blueprint
+June 21,Philly Invite 2026,Blueprint,60kawQAxQAMU3MgqaSONc11QwOEbjEBk8NFkuWsrHdI=,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,14,15,Oak Grove Boys
+June 21,Philly Invite 2026,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,15,9,CITYWIDE Special
+June 21,Philly Invite 2026,CITYWIDE Special,8NoPFg6pyAzjT+EgRCVx/g+gVKGGSwKB+fbZPHOuYzQ=,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,13,15,Club M - Manic
+June 21,Philly Invite 2026,Club M - Manic,8gdIt9EFg2nXS2gaqdCbTJ/9e2WPUkRdRKhBm3NsdWU=,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,15,3,Club M - Manic
+June 21,Philly Invite 2026,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,2,15,UPDOG
+June 21,Philly Invite 2026,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,Colt,iWpYum1n0DZwOsgU0V1G3InlzjgVogumAWE6YCCtHgY=,10,15,Colt
+June 21,Philly Invite 2026,Oak Grove Boys,CeakTlhTwgtRKzU2WJnAwkgCeyUHVAbLycobCxOF5ck=,Garden State Ultimate,L/lThSxFxFMUblUvwkNNT9PKRVrFxYJ9OTYQMIziGbs=,15,8,Oak Grove Boys
+June 21,Philly Invite 2026,Rebels,BS2rwuz62kADG8lwjyk79X4EJbTCNSRpRrPd6XiPnQ4=,New Jersey Gemini,gHRi+MzzSAbHfEXXkmvDbMabGpcDuBvTImCswBHwJXE=,15,10,Rebels
+June 21,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,EZ,QXFPrGr033VYTEmhkK9RULsotSvOmE+4fy0pbsJXlmc=,6,15,EZ
+June 21,Philly Invite 2026,Smogborn,/D7P5dRLUEPoyoF5MaAIW7qFk46Pnj/IZvO7Cb5LplE=,UPDOG,oegTunYuTJkWYaY7fZ+sMYDLWokcl9iYwx8DVaJz4KM=,8,15,UPDOG
+June 21,SCINNY 2026,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,13,11,Black Lung
+June 21,SCINNY 2026,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,12,13,Enigma
+June 21,SCINNY 2026,Burning River,FwS9mflve3O164AsEl4Dvcqth5Mwm7mXxnENEDzz8Eo=,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,12,13,On Ramp
+June 21,SCINNY 2026,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,13,10,Colonels
+June 21,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,12,13,Endgame
+June 21,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,13,8,Dynasty
+June 21,SCINNY 2026,Dynasty,0LAeZurmF+0cgs3qU2FAZEipfxQrW6bUPyvpnbe0YAA=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,11,13,WOMP
+June 21,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,Colonels,uMDv1UGYhNjQCfNH0Pt3uaoKgDHFLjSayKpMCvh99/c=,11,12,Colonels
+June 21,SCINNY 2026,Endgame,8YqYfOxkLCJbdCkQL1idlcroPXtv9i+N9qT7C2pQwZg=,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,12,13,Fuse
+June 21,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,11,12,Black Lung
+June 21,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,WOMP,v8FIRgx0rGZyvyQ+pQZAaHQP93AL/O9OICjg8xe5g3I=,10,13,WOMP
+June 21,SCINNY 2026,EtobiCoke,2macaAbcUFFgtVX8lJUz4VbnzYWB9wScuoorg0MVpsk=,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,13,7,EtobiCoke
+June 21,SCINNY 2026,Forest City,KjAZr/Ben9kYhuQZV9W6GtPiuMrifN2fF6snZ1XXR5A=,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,11,13,Fuse
+June 21,SCINNY 2026,Fuse,PloumuBbtZSFLj8Y5uOYPAP7iwfMHuH5Rf7nFuiY4vc=,Black Lung,sB48UwxBOwaBWXdntZcixYR6mYsh6fb42AIJ+EEoHlU=,13,9,Fuse
+June 21,SCINNY 2026,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,6,13,Mischief
+June 21,SCINNY 2026,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,Mayhem [Dev],oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,13,4,Maumee Boys
+June 21,SCINNY 2026,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,Mayhem-Dev,oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,13,3,Mischief
+June 21,SCINNY 2026,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,Enigma,j6DkpPKv1pU4rMKf+xFutcG+Vz/HFSaSHPRP5f87ek4=,10,11,Enigma
+June 21,SCINNY 2026,On Ramp,HEsfFbkOUdacS2ZW5uZLBp+NbCL42VCsmSflCuV1lPs=,Nocturnal,MLU1Mrc2GP7KX3jVqO+Wjvm0bBQOwNk5kp6Y7yx06ko=,9,10,Nocturnal
+June 21,SCINNY 2026,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,Maumee Boys,gji1VCkfDGxuNP2iBNkDdWzeucvAyJwegcSIuc4cfnk=,13,10,Tennessee Folklore
+June 21,SCINNY 2026,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,Mayhem-Dev,oqea4DK3/eaEjvs0iirmdg8KIZqcmhD44ldynpgfuYs=,13,5,Tennessee Folklore
+June 21,SCINNY 2026,Tennessee Folklore,9FNEATwjtwLnWX7onaZ2BA8A8EkKQIgxgAXbMbBe5DE=,Mischief,k9/gyb6iojsnJXDUS69X+diFP5aUu3irUhEkst/cg0U=,12,11,Tennessee Folklore
+June 27,2026 Antlerlock,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,7,13,Odyssey
+June 27,2026 Antlerlock,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,13,1,Alibi
+June 27,2026 Antlerlock,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,13,5,BANG
+June 27,2026 Antlerlock,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,12,11,BANG
+June 27,2026 Antlerlock,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,6,13,Alibi
+June 27,2026 Antlerlock,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,7,8,Long Island Riff Raff
+June 27,2026 Antlerlock,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,9,10,MBTA
+June 27,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,13,7,Green Mountain Boys
+June 27,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,13,4,Green Mountain Boys
+June 27,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,12,6,Green Mountain Boys
+June 27,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,4,13,Odyssey
+June 27,2026 Antlerlock,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,2,13,Odyssey
+June 27,2026 Antlerlock,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,10,13,Connecticut 9 to 5
+June 27,2026 Antlerlock,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,5,13,MBTA
+June 27,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,13,5,Skeleton Squad
+June 27,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,13,8,Skeleton Squad
+June 27,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,10,7,Skeleton Squad
+June 27,2026 Antlerlock,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,1,13,Alibi
+June 27,2026 Antlerlock,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,8,12,Buffalo Frostbite
+June 27,2026 Antlerlock,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,3,13,Odyssey
+June 27,2026 Pro Elite Challenge East,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,15,8,Chain Lightning
+June 27,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,15,4,Chicago Machine
+June 27,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,15,10,Chicago Machine
+June 27,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,14,13,Chicago Machine
+June 27,2026 Pro Elite Challenge East,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,14,15,Doublewide
+June 27,2026 Pro Elite Challenge East,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,15,12,DiG
+June 27,2026 Pro Elite Challenge East,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,12,15,PoNY
+June 27,2026 Pro Elite Challenge East,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,15,10,Philadelphia Pacmen
+June 27,2026 Pro Elite Challenge East,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,13,12,Phoenix
+June 27,2026 Pro Elite Challenge East,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,5,15,GOAT
+June 27,2026 Pro Elite Challenge East,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,9,15,PoNY
+June 27,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,10,15,GOAT
+June 27,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,15,11,Raleigh-Durham United
+June 27,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,8,15,PoNY
+June 27,2026 Pro Elite Challenge East,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,11,15,DiG
+June 27,2026 Pro Elite Challenge East,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,12,13,Doublewide
+June 27,2026 Pro Elite Challenge East,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,10,15,Philadelphia Pacmen
+June 27,2026 Pro Elite Challenge East,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,15,6,Ring of Fire
+June 27,2026 Pro Elite Challenge East,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,15,6,Ring of Fire
+June 27,2026 Pro Elite Challenge East,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,15,10,Ring of Fire
+June 27,2026 Pro Elite Challenge East,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,15,9,Sub Zero
+June 27,2026 Pro Elite Challenge East,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,14,12,Sub Zero
+June 27,2026 Pro Elite Challenge East,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,15,12,Truck Stop
+June 27,2026 Pro Elite Challenge East,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,15,9,Truck Stop
+June 27,Club Terminus 2026,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,ATLiens,xAb3H5kC0Ypv1u2vdiPGfVIAasK2mpM18k9v5MAz/uU=,9,12,ATLiens
+June 27,Club Terminus 2026,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,Queen City Kings,gp2nlhLncL+MlFLi9wJpav3Ih26c1FfveJfx3u0ZVwc=,13,7,Alliance
+June 27,Club Terminus 2026,Apollo,mIY1xvME8ehFXBvUmB98qfaBVV+p1UzL/9FnDn3/kok=,Players Into Serious Sports,wh9Ou9POzb72S9AnKJcbKaPwj+YdCIiFhObLUH7OHck=,13,1,Apollo
+June 27,Club Terminus 2026,Apollo,mIY1xvME8ehFXBvUmB98qfaBVV+p1UzL/9FnDn3/kok=,Tanasi,uhf52Y+yBi8Xo+iHB/UCBL/9EU6EwUAlxdQE5TXRFzo=,8,11,Tanasi
+June 27,Club Terminus 2026,Atlanta Arson,eD6oFvCIPh9qhKcEjfSyLKftKMexENCwHe1JazkGp7w=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,7,10,Harvest Moon
+June 27,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,7,12,Alliance
+June 27,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Mint,CltZE+ZWwVWhkXgxmzgXFdfjIuJSQLgrYFuHGv+VhfQ=,3,13,Mint
+June 27,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,7,10,Psychedelic
+June 27,Club Terminus 2026,Delirium,O1IiFFcJge0uvV2XwFF1z53uK2zHA2+p4bMymb8MYkA=,Apollo,mIY1xvME8ehFXBvUmB98qfaBVV+p1UzL/9FnDn3/kok=,7,13,Apollo
+June 27,Club Terminus 2026,Delirium,O1IiFFcJge0uvV2XwFF1z53uK2zHA2+p4bMymb8MYkA=,Atlanta Arson,eD6oFvCIPh9qhKcEjfSyLKftKMexENCwHe1JazkGp7w=,6,13,Atlanta Arson
+June 27,Club Terminus 2026,Delirium,O1IiFFcJge0uvV2XwFF1z53uK2zHA2+p4bMymb8MYkA=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,13,9,Delirium
+June 27,Club Terminus 2026,Mint,CltZE+ZWwVWhkXgxmzgXFdfjIuJSQLgrYFuHGv+VhfQ=,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,12,10,Mint
+June 27,Club Terminus 2026,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,Romulus,jE6KRcBAM9eQkYvYQVpmdIwwJVbbwUjnKHVGWxfm5ds=,13,7,Psychedelic
+June 27,Club Terminus 2026,Queen City Kings,gp2nlhLncL+MlFLi9wJpav3Ih26c1FfveJfx3u0ZVwc=,Romulus,jE6KRcBAM9eQkYvYQVpmdIwwJVbbwUjnKHVGWxfm5ds=,10,11,Romulus
+June 27,Club Terminus 2026,Romulus,jE6KRcBAM9eQkYvYQVpmdIwwJVbbwUjnKHVGWxfm5ds=,ATLiens,xAb3H5kC0Ypv1u2vdiPGfVIAasK2mpM18k9v5MAz/uU=,11,13,ATLiens
+June 27,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,7,11,Harvest Moon
+June 27,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Players Into Serious Sports,wh9Ou9POzb72S9AnKJcbKaPwj+YdCIiFhObLUH7OHck=,13,10,Savannah Wild
+June 27,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Tanasi,uhf52Y+yBi8Xo+iHB/UCBL/9EU6EwUAlxdQE5TXRFzo=,3,13,Tanasi
+June 27,Eugene Summer Solstice 2026,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,15,8,Dark Star
+June 27,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,13,12,Grudge
+June 27,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,11,12,Sawtooth
+June 27,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,15,5,Grudge
+June 27,Eugene Summer Solstice 2026,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,9,15,SOUF
+June 27,Eugene Summer Solstice 2026,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,12,6,Junco
+June 27,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,12,8,ODOT
+June 27,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,6,15,Switchback
+June 27,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,6,15,Zoboomafoo
+June 27,Eugene Summer Solstice 2026,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,7,15,Portland TremOR
+June 27,Eugene Summer Solstice 2026,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,6,15,Sawtooth
+June 27,Eugene Summer Solstice 2026,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,15,10,Portland TremOR
+June 27,Eugene Summer Solstice 2026,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,15,10,PowderHogs
+June 27,Eugene Summer Solstice 2026,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,9,15,SOUF
+June 27,Eugene Summer Solstice 2026,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,3,15,Dark Star
+June 27,Eugene Summer Solstice 2026,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,8,14,Junco
+June 27,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,4,15,Heartbreak
+June 27,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,7,15,PowderHogs
+June 27,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,6,15,SOUF
+June 27,Eugene Summer Solstice 2026,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,12,10,Switchback
+June 27,Eugene Summer Solstice 2026,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,15,5,Zoboomafoo
+June 27,Eugene Summer Solstice 2026,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,12,11,Zoboomafoo
+June 27,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,10,15,Dark Star
+June 27,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,15,4,Zodiac
+June 27,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,15,4,Zodiac
+June 27,San Diego Round Robin,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,Skipjack,uS6mEwKpdJElcWA74LWSxENGpF4xzyrAtbkmGq1qmN4=,5,11,Skipjack
+June 27,San Diego Round Robin,Arizona Frisbee Club,BlGvkJ63CbEtjl23BJic/yooRu5uWsP404cLqlGY3Bc=,OC Crows,VF5BZPPH7a2G7Hi2/bB4mhB8KmClfdOaCLoVnPm0SWo=,11,10,Arizona Frisbee Club
+June 27,San Diego Round Robin,OC Crows,VF5BZPPH7a2G7Hi2/bB4mhB8KmClfdOaCLoVnPm0SWo=,Skipjack,uS6mEwKpdJElcWA74LWSxENGpF4xzyrAtbkmGq1qmN4=,5,9,Skipjack
+June 27,Summer Bash 2026,Anchor,37IDyG1svin4vuvMj86ew86IL2qxgcr6j4Pp/gAKbNA=,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,8,10,Red Dawn
+June 27,Summer Bash 2026,Anchor,37IDyG1svin4vuvMj86ew86IL2qxgcr6j4Pp/gAKbNA=,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,5,13,Battery
+June 27,Summer Bash 2026,Anchor,37IDyG1svin4vuvMj86ew86IL2qxgcr6j4Pp/gAKbNA=,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,8,10,Digit
+June 27,Summer Bash 2026,Anchor,37IDyG1svin4vuvMj86ew86IL2qxgcr6j4Pp/gAKbNA=,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,5,13,OAT
+June 27,Summer Bash 2026,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,5,12,OAT
+June 27,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,6,9,Battery
+June 27,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,3,13,OAT
+June 27,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,13,9,Digit
+June 27,Summer Bash 2026,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,Wavestorms,vSR1ASOmvU2cor4yf6z0XXtolCAnrFlaAc3xGHZqbSs=,2,13,Wavestorms
+June 27,Summer Bash 2026,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,7,13,Sebastopol Orchard
+June 27,Summer Bash 2026,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,Journeymen,xGdFa0VcL/oGowy1yzBucVqyXaq9+y21YODJDHB1z7k=,10,13,Journeymen
+June 27,Summer Bash 2026,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,3,13,Battery
+June 27,Summer Bash 2026,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,2,13,OAT
+June 27,Summer Bash 2026,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,Journeymen,xGdFa0VcL/oGowy1yzBucVqyXaq9+y21YODJDHB1z7k=,13,5,Sebastopol Orchard
+June 27,Summer Bash 2026,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,Wavestorms,vSR1ASOmvU2cor4yf6z0XXtolCAnrFlaAc3xGHZqbSs=,4,13,Wavestorms
+June 27,Summer Bash 2026,Wavestorms,vSR1ASOmvU2cor4yf6z0XXtolCAnrFlaAc3xGHZqbSs=,Journeymen,xGdFa0VcL/oGowy1yzBucVqyXaq9+y21YODJDHB1z7k=,13,6,Wavestorms
+June 27,Texas 2 Finger 2026,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,2,13,Dreadnought
+June 27,Texas 2 Finger 2026,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,7,12,Rice Box
+June 27,Texas 2 Finger 2026,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,8,9,Forge
+June 27,Texas 2 Finger 2026,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,13,7,Dreadnought
+June 27,Texas 2 Finger 2026,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,1,13,ZOO
+June 27,Texas 2 Finger 2026,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,11,12,Rawhide
+June 27,Texas 2 Finger 2026,Friendly Fire-C,1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,6,13,Riverside
+June 27,Texas 2 Finger 2026,Friendly Fire-C,1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,7,10,San Antonio Warhawks
+June 27,Texas 2 Finger 2026,Friendly Fire-C,1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,13,10,Friendly Fire-C
+June 27,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,10,8,NOx
+June 27,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,12,9,NOx
+June 27,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,7,12,ZOO
+June 27,Texas 2 Finger 2026,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,Texas Tea [A],eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,4,12,Texas Tea [A]
+June 27,Texas 2 Finger 2026,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,13,3,Riverside
+June 27,Texas 2 Finger 2026,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,5,10,Texas Duffy
+June 27,Texas 2 Finger 2026,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,1,13,Alamode
+June 27,Texas 2 Finger 2026,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,5,11,The Incline
+June 27,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,8,11,Alamode
+June 27,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,12,11,Texas BBQ
+June 27,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,13,2,Texas BBQ
+June 27,Texas 2 Finger 2026,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,6,13,Alamode
+June 27,Texas 2 Finger 2026,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,12,6,Texas Duffy
+June 27,Texas 2 Finger 2026,Texas Tea [A],eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,10,6,Texas Tea [A]
+June 27,Texas 2 Finger 2026,Texas Tea-A,eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,5,13,ZOO
+June 27,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,8,13,DAPPER
+June 27,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,8,13,Pittsburgh Stealers
+June 27,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,10,13,Give Me Death
+June 27,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,4,13,El Niño
+June 27,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,7,13,John Doe
+June 27,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,5,13,Gummy Bear Hitmen
+June 27,Witching Hour 2026,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,12,11,Crypt
+June 27,Witching Hour 2026,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,13,4,DAPPER
+June 27,Witching Hour 2026,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,13,9,DAPPER
+June 27,Witching Hour 2026,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,7,9,Gummy Bear Hitmen
+June 27,Witching Hour 2026,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,9,11,John Doe
+June 27,Witching Hour 2026,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,0,13,Hazard
+June 27,Witching Hour 2026,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,0,13,Triumph
+June 27,Witching Hour 2026,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,2,13,Winc City Fog
+June 27,Witching Hour 2026,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,13,7,Hazard
+June 27,Witching Hour 2026,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,6,13,Triumph
+June 27,Witching Hour 2026,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,6,13,Gummy Bear Hitmen
+June 27,Witching Hour 2026,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,13,6,MOB Ultimate
+June 27,Witching Hour 2026,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,13,6,MOB Ultimate
+June 27,Witching Hour 2026,NC Brickhouse [Upper],AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,6,13,Crypt
+June 27,Witching Hour 2026,NC Brickhouse [Upper],AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,7,12,L.U.T $ack
+June 27,Witching Hour 2026,NC Brickhouse [Upper],AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,5,13,MOB Ultimate
+June 27,Witching Hour 2026,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,13,8,Pittsburgh Stealers
+June 27,Witching Hour 2026,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,13,7,Triumph
+June 28,2026 Antlerlock,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,14,11,BANG
+June 28,2026 Antlerlock,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,13,10,BANG
+June 28,2026 Antlerlock,BANG,Fe5N/QqzExQIL4v5V+3rqpQUErq7hSO4K5radOpBAl4=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,11,15,Odyssey
+June 28,2026 Antlerlock,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,1,13,Odyssey
+June 28,2026 Antlerlock,Buffalo Frostbite,dOd2opfOPUw876JDM/sklAvbKUYcpv9iObKwHtTIAUw=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,7,15,MBTA
+June 28,2026 Antlerlock,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,MBTA,q2XrKXCiZtzU5PKUHtaFAmhRxo5cL9yGBaOAt0V0fQE=,13,10,Connecticut 9 to 5
+June 28,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,8,13,Alibi
+June 28,2026 Antlerlock,Green Mountain Boys,4Sj990eAbvhccOU/w6JE9IX62yJ3FVUyMPEbDTHADEc=,Connecticut 9 to 5,YdVHZSrmzn7LhFrr03BKk9AukzrwA5UczhlFC49orBk=,9,15,Connecticut 9 to 5
+June 28,2026 Antlerlock,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,12,14,Long Island Riff Raff
+June 28,2026 Antlerlock,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,15,10,Motive
+June 28,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,Alibi,eGxBmGLf0RIzv1yxPwb7Q38yNe6WncJBOOHTJcLjKto=,15,9,Skeleton Squad
+June 28,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,Motive,NcWhr8cRyclmLCrTUbyhc9j6LCKesOu2vo/ZP/jN4gc=,13,2,Skeleton Squad
+June 28,2026 Antlerlock,Skeleton Squad,61SHF7nFXTVszOD5XGfNiWbOBN42GmzXb5bhNe9PZ6w=,Odyssey,w0JV2aU52myZIBD3c/Y2w9nXqVJDklKk0m/Qhg2oNPE=,11,15,Odyssey
+June 28,2026 Antlerlock,Spring Break '93,XTzcrU4si3uzgoV5Spdtlzla7kKoUo3lwC232LDUl30=,Long Island Riff Raff,gKlQhAHIHmIpiF3v1P4DH3ZjJVfDDFfwc5mtU23SwI4=,13,8,Spring Break '93
+June 28,2026 Pro Elite Challenge East,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,15,14,Chain Lightning
+June 28,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,15,9,Chicago Machine
+June 28,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,11,15,Ring of Fire
+June 28,2026 Pro Elite Challenge East,Chicago Machine,29j6xrj7zWFhKFLGBA1oLNimwWIJfAeZpgx06d3oSaU=,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,12,15,DiG
+June 28,2026 Pro Elite Challenge East,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,14,10,DiG
+June 28,2026 Pro Elite Challenge East,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,13,12,Phoenix
+June 28,2026 Pro Elite Challenge East,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,10,15,Red Tide
+June 28,2026 Pro Elite Challenge East,Phoenix,TBRPl6IabmOeL6ZokAQspPFyyu0lgBH96zsL8TDKLmU=,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,10,12,Vault
+June 28,2026 Pro Elite Challenge East,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,14,13,Pittsburgh Temper
+June 28,2026 Pro Elite Challenge East,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,7,14,Chain Lightning
+June 28,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,baNC,u9ZEaQaLyECHUbFi9ttJLQyrLvKM0kqvefdf7MUpSG8=,15,12,Raleigh-Durham United
+June 28,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,Chain Lightning,iFaY8y4IRGLtVn3IVPCo6cWG5qjCL7f9RgltviOQt1g=,8,15,Chain Lightning
+June 28,2026 Pro Elite Challenge East,Raleigh-Durham United,Hpo8ryF+Y2+zlNfuSVCZ4tE2vU2/MJQx+5flbV48/DY=,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,14,13,Raleigh-Durham United
+June 28,2026 Pro Elite Challenge East,Red Tide,dSRHxSFQ+iqjlkFGfvoBnpE5m6BoSIZqlB9AH4N1HTw=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,11,12,Doublewide
+June 28,2026 Pro Elite Challenge East,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,13,12,Ring of Fire
+June 28,2026 Pro Elite Challenge East,Ring of Fire,HbizIYUV7/f+y7RYvDBqIt/kYPdTqbmv59ybTyv9po8=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,11,14,PoNY
+June 28,2026 Pro Elite Challenge East,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,14,12,Sub Zero
+June 28,2026 Pro Elite Challenge East,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,14,13,Sub Zero
+June 28,2026 Pro Elite Challenge East,Sub Zero,cbU2zTtJPfcth5VBsumHq62Lovye7bFFEbnYxJwTdWs=,PoNY,vBnn2Ad+uRl8O/evSvK2REEMwagFyHv0AMzTINshULU=,12,15,PoNY
+June 28,2026 Pro Elite Challenge East,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,DiG,k/gM03c9l+vLjtroTilMDxE+BjFZQL5o4kPhoyOxkoA=,8,15,DiG
+June 28,2026 Pro Elite Challenge East,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,GOAT,reuZeJwuqCr7hEH9hokf8uvqEkhcOmf9/eZ/+mU6zYk=,10,12,GOAT
+June 28,2026 Pro Elite Challenge East,Truck Stop,LOdLmOTsuMj++NoYhnn2tIN8mtE5PFyaU3XYk9poK4U=,Philadelphia Pacmen,qisbCVXbPk73UM9hxomf/0VxgtG4b5VNEosoIWm8wbw=,12,15,Philadelphia Pacmen
+June 28,2026 Pro Elite Challenge East,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,Doublewide,z72IYzf+XQt+sI0MPUXsD44YUWj+L1GT53FhcGHazHg=,12,15,Doublewide
+June 28,2026 Pro Elite Challenge East,Vault,VKURc6AOOv05Ikdz28QHCcXnxh42hIBBE0gufkFvg8k=,Pittsburgh Temper,WCdU6y9YMaMbXz7dLqJt+VUvBTtV8sU74diNAYE10q8=,15,11,Vault
+June 28,Club Terminus 2026,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,Tanasi,uhf52Y+yBi8Xo+iHB/UCBL/9EU6EwUAlxdQE5TXRFzo=,4,15,Tanasi
+June 28,Club Terminus 2026,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,ATLiens,xAb3H5kC0Ypv1u2vdiPGfVIAasK2mpM18k9v5MAz/uU=,11,13,ATLiens
+June 28,Club Terminus 2026,Alliance,TQOztnzeVEogyMTJ6idAK60u0ir6b1SP+sb6UJIyGR4=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,13,9,Alliance
+June 28,Club Terminus 2026,Apollo,mIY1xvME8ehFXBvUmB98qfaBVV+p1UzL/9FnDn3/kok=,ATLiens,xAb3H5kC0Ypv1u2vdiPGfVIAasK2mpM18k9v5MAz/uU=,12,9,Apollo
+June 28,Club Terminus 2026,Atlanta Arson,eD6oFvCIPh9qhKcEjfSyLKftKMexENCwHe1JazkGp7w=,Tanasi,uhf52Y+yBi8Xo+iHB/UCBL/9EU6EwUAlxdQE5TXRFzo=,8,15,Tanasi
+June 28,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Delirium,O1IiFFcJge0uvV2XwFF1z53uK2zHA2+p4bMymb8MYkA=,10,11,Delirium
+June 28,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Players Into Serious Sports,wh9Ou9POzb72S9AnKJcbKaPwj+YdCIiFhObLUH7OHck=,12,6,Atlanta Outlaws
+June 28,Club Terminus 2026,Atlanta Outlaws,77ekzzGk7QCHveC6uiBrb0Fqe1+LCrOIRwSV+4ptEcQ=,Queen City Kings,gp2nlhLncL+MlFLi9wJpav3Ih26c1FfveJfx3u0ZVwc=,7,13,Queen City Kings
+June 28,Club Terminus 2026,Delirium,O1IiFFcJge0uvV2XwFF1z53uK2zHA2+p4bMymb8MYkA=,Romulus,jE6KRcBAM9eQkYvYQVpmdIwwJVbbwUjnKHVGWxfm5ds=,7,13,Romulus
+June 28,Club Terminus 2026,Mint,CltZE+ZWwVWhkXgxmzgXFdfjIuJSQLgrYFuHGv+VhfQ=,Apollo,mIY1xvME8ehFXBvUmB98qfaBVV+p1UzL/9FnDn3/kok=,14,13,Mint
+June 28,Club Terminus 2026,Mint,CltZE+ZWwVWhkXgxmzgXFdfjIuJSQLgrYFuHGv+VhfQ=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,15,8,Mint
+June 28,Club Terminus 2026,Mint,CltZE+ZWwVWhkXgxmzgXFdfjIuJSQLgrYFuHGv+VhfQ=,Tanasi,uhf52Y+yBi8Xo+iHB/UCBL/9EU6EwUAlxdQE5TXRFzo=,9,14,Tanasi
+June 28,Club Terminus 2026,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,Atlanta Arson,eD6oFvCIPh9qhKcEjfSyLKftKMexENCwHe1JazkGp7w=,10,14,Atlanta Arson
+June 28,Club Terminus 2026,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,Harvest Moon,hlUM1BRll7X7sG9ylITZFUNcbstLwBwFWXSIKgE4ods=,15,7,Psychedelic
+June 28,Club Terminus 2026,Psychedelic,FZ2ePmPrlwh6bsxI3QG1ZC8LBXNEqPP5evI9kOP7XjU=,ATLiens,xAb3H5kC0Ypv1u2vdiPGfVIAasK2mpM18k9v5MAz/uU=,11,7,Psychedelic
+June 28,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Players Into Serious Sports,wh9Ou9POzb72S9AnKJcbKaPwj+YdCIiFhObLUH7OHck=,9,5,Savannah Wild
+June 28,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Queen City Kings,gp2nlhLncL+MlFLi9wJpav3Ih26c1FfveJfx3u0ZVwc=,4,15,Queen City Kings
+June 28,Club Terminus 2026,Savannah Wild,A0lsKY2sCdTvE7Y3egkhidBC0B9lUaKIv5Jvcc+DDPA=,Romulus,jE6KRcBAM9eQkYvYQVpmdIwwJVbbwUjnKHVGWxfm5ds=,11,15,Romulus
+June 28,Eugene Summer Solstice 2026,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,15,13,Dark Star
+June 28,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,9,15,SOUF
+June 28,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,15,9,Grudge
+June 28,Eugene Summer Solstice 2026,Grudge,2eOWfdW31XCO/e/s93pRxoLNcRo+ajbdh7Bod6rZncY=,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,13,12,Grudge
+June 28,Eugene Summer Solstice 2026,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,10,15,Junco
+June 28,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,10,15,Make it Rain
+June 28,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,15,9,ODOT
+June 28,Eugene Summer Solstice 2026,ODOT,6uwmOaDSt141MQMyfh6iitDKSTR7AFgfVAEgQN33kNk=,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,4,15,Seven Gills
+June 28,Eugene Summer Solstice 2026,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,9,15,Heartbreak
+June 28,Eugene Summer Solstice 2026,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,10,15,Dark Star
+June 28,Eugene Summer Solstice 2026,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,15,8,Portland TremOR
+June 28,Eugene Summer Solstice 2026,Portland TremOR,IOcwKQKtO1dAd8/GP3XdpMVlRg6Xe9zMrbf/Oeqe5VM=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,9,15,SOUF
+June 28,Eugene Summer Solstice 2026,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,Switchback,Ptcm+jQC4/Ju7tcpqq/ULiuI/NW/ZmTR/VbDXs3JKPM=,8,15,Switchback
+June 28,Eugene Summer Solstice 2026,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,Junco,oJfUSczLmpt0z08AJXOGOsiQDFeYGf/x3AArq/0pHYY=,15,11,Sawtooth
+June 28,Eugene Summer Solstice 2026,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,Heartbreak,lmXbVe3zyll7Rmw7Mq8n8DOUWge1TiGy96WrEanHPCw=,15,11,Seven Gills
+June 28,Eugene Summer Solstice 2026,Seven Gills,DsY6dA4xUrELm1khs+8BLwDBJVawKTFY76fVxnYh4yI=,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,8,15,Sawtooth
+June 28,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,Make it Rain,zjNIU1IZptTPeQCDYF972hCcuQd5LoQ+zfmdbXbw4f4=,10,15,Make it Rain
+June 28,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,Sawtooth,eyWefqJLPBHQ+THsU3JZ6QClG5jz47uBFp9WxfS5S+c=,8,15,Sawtooth
+June 28,Eugene Summer Solstice 2026,Sky-90,+rvYhXkR4UX1VWoGJ7WyWB3JLqafo4pA/ECam2hT/Xk=,Oregon Trainwreck,7Byho29403wuRQjUNy+Wy0ERuuQN5W6xtzn5ZKKoUJg=,8,15,Oregon Trainwreck
+June 28,Eugene Summer Solstice 2026,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,PowderHogs,JuSCscadIjmKAUc+hWc6J0KdE7Y7+aeoLnv2RLrKhC8=,15,12,Zoboomafoo
+June 28,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,Dark Star,OIdpMkIBxi91SYGKzPTR05ekm/9M1qRh5h65BXGZmQU=,10,15,Dark Star
+June 28,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,SOUF,z3jHr2dmE5khQFKLdmQ/mnBqPeVChOyCINExIxo+SJI=,14,12,Zodiac
+June 28,Eugene Summer Solstice 2026,Zodiac,79yu3SnMiFVDjzwPO4Ulb21LAAP+wBXd0ql7zqWV+Nc=,Zoboomafoo,At8vue9iJln2+aTO67aVKK4u4tXYfKckdHORf8IfpEM=,15,10,Zodiac
+June 28,Summer Bash 2026,Anchor,37IDyG1svin4vuvMj86ew86IL2qxgcr6j4Pp/gAKbNA=,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,3,13,Firefall
+June 28,Summer Bash 2026,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,Wavestorms,vSR1ASOmvU2cor4yf6z0XXtolCAnrFlaAc3xGHZqbSs=,5,13,Wavestorms
+June 28,Summer Bash 2026,Battery,j631VhIy4cjxz5OYV2BKFzuUKpqtm8BT1/qwVcZoKNs=,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,6,13,OAT
+June 28,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,7,13,Sebastopol Orchard
+June 28,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,8,13,Firefall
+June 28,Summer Bash 2026,Digit,HwQ0zTK8CjwKz1foPsND5YFSSzFCKKGdF2JEkJwm1pQ=,Journeymen,xGdFa0VcL/oGowy1yzBucVqyXaq9+y21YODJDHB1z7k=,13,7,Digit
+June 28,Summer Bash 2026,Firefall,VlWLTaAmiUfgn4xKbopdSMYSi5V4hBAQg9v4ctXbjmg=,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,12,6,Firefall
+June 28,Summer Bash 2026,OAT,jcWiIsAnTw2snrv2LTmENF+bPDPjWkhgN7GnJFy59iA=,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,8,11,Sebastopol Orchard
+June 28,Summer Bash 2026,Red Dawn,g4G7Brz+CTUb5pU4ojarLs6ZdGRAzl4cV907Y4/JO9E=,Journeymen,xGdFa0VcL/oGowy1yzBucVqyXaq9+y21YODJDHB1z7k=,12,10,Red Dawn
+June 28,Summer Bash 2026,Sebastopol Orchard,oqT3hag6FCxOfLLQjSY4wkmKyTKNGi1EEVUUrNHwcXA=,Wavestorms,vSR1ASOmvU2cor4yf6z0XXtolCAnrFlaAc3xGHZqbSs=,6,13,Wavestorms
+June 28,Texas 2 Finger 2026,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,10,15,The Incline
+June 28,Texas 2 Finger 2026,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,11,12,Supercell
+June 28,Texas 2 Finger 2026,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,10,15,Alamode
+June 28,Texas 2 Finger 2026,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,6,11,Riverside
+June 28,Texas 2 Finger 2026,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,8,15,Rice Box
+June 28,Texas 2 Finger 2026,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,9,15,Rawhide
+June 28,Texas 2 Finger 2026,Friendly Fire [C],1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,Black Gold,MKUMy2QZJYSXDx2ByULAPRV+7WaeGwg8b70biiuBjZg=,15,9,Friendly Fire [C]
+June 28,Texas 2 Finger 2026,Friendly Fire-C,1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,5,15,Rawhide
+June 28,Texas 2 Finger 2026,Friendly Fire-C,1c4yv20FgkbWQBTr37V0YVdHwKB/SXloJjmkbJXqvPI=,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,11,10,Friendly Fire-C
+June 28,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,7,15,Alamode
+June 28,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,12,9,NOx
+June 28,Texas 2 Finger 2026,NOx,3Z2znsSyVyeoMrJZoJSPrwgYu8D+z4e6Qmlkz6kt9t4=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,8,13,ZOO
+June 28,Texas 2 Finger 2026,Rawhide,ZAav0kLjZUS5qr4KSovh3DU7/W2pmSZX7GTngqNsGZ0=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,9,13,The Incline
+June 28,Texas 2 Finger 2026,Riverside,Tz2MBr0v6EDLCWdbom781OB0HuElhPiMMq75Hg7PbjE=,Texas Tea [A],eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,15,11,Riverside
+June 28,Texas 2 Finger 2026,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,Forge,PIU56cQcPNxOKvikoV1USccWdaHSiOBSqyT9SHbj7zA=,10,13,Forge
+June 28,Texas 2 Finger 2026,San Antonio Warhawks,F4TlINDfp77zSFPu1wX9wFOQU1Qrz54NRhV/ZBMdzm4=,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,15,8,San Antonio Warhawks
+June 28,Texas 2 Finger 2026,Supercell,dXQeg6DPi8sHCQQg3NZP1oIVUVc+mxNZD/zr5waF9zI=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,6,13,Rice Box
+June 28,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,Alamode,p3+lO94Y6YxTlI78NzTASuEFTkEvz31JqR+/bbgYZcU=,11,13,Alamode
+June 28,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,Texas Tea [A],eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,15,11,Texas BBQ
+June 28,Texas 2 Finger 2026,Texas BBQ,7IttxE8SgzcP947D/k74drDQ7nnjoaM8SUO7VOp+Vxc=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,15,9,Texas BBQ
+June 28,Texas 2 Finger 2026,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,Dreadnought,Psx/F+suuIWlyHv2swmoqJAS2INSyLQUnBD3C7RVcHQ=,8,10,Dreadnought
+June 28,Texas 2 Finger 2026,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,ZOO,guBFbjXtrfQteWfpSwVTaDOBSvmWxdaWK56AA8v6BcQ=,3,15,ZOO
+June 28,Texas 2 Finger 2026,Texas Duffy,H2+umprBB7djfjm8+qAdjjFE1/n9xLGHe2hkLz/8PxA=,Texas Tea [A],eyVcQXZYVqKDcSHHA/hJCq6wrKIaM/QZYBrVKUpCoMg=,10,15,Texas Tea [A]
+June 28,Texas 2 Finger 2026,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,Rice Box,tUN0ETLNxfFPOJE0AEbD+zT2fC98M1i4ijiHxnbxcO0=,10,12,Rice Box
+June 28,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,12,8,Beef Depot
+June 28,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,13,8,Beef Depot
+June 28,Witching Hour 2026,Beef Depot,P1y7b8prKCfewADA8dIENHFttMHmdaGMiEO8tV8Ysqo=,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,9,8,Beef Depot
+June 28,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,8,12,L.U.T $ack
+June 28,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,8,12,Winc City Fog
+June 28,Witching Hour 2026,Chemical X,5l7QmZcE6a7PU1bNqv5mi5KbOMy9F8yAYdphAKqQWk4=,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,13,8,Chemical X
+June 28,Witching Hour 2026,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,9,7,Crypt
+June 28,Witching Hour 2026,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,9,11,DAPPER
+June 28,Witching Hour 2026,Crypt,KcHGk3b8gLpHN1kH3aBQ5t0nc89SW6wCQxGY8y30Qhw=,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,11,10,Crypt
+June 28,Witching Hour 2026,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,12,11,El Niño
+June 28,Witching Hour 2026,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,1,13,Give Me Death
+June 28,Witching Hour 2026,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,7,13,DAPPER
+June 28,Witching Hour 2026,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,7,11,Gummy Bear Hitmen
+June 28,Witching Hour 2026,Hazard,KOeGnLSyyUX8rSnZFm6KyOCBlm+/jhhd8VA3R52v7I8=,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,10,11,John Doe
+June 28,Witching Hour 2026,L.U.T $ack,ZA5+j1BPAoT3pSIjR8rGQisru2p5hUaFAjifSguuU0I=,Give Me Death,dRcdvEKSbdQUyu7C6w5FehL1kgsy2sonkbsm2rBMxlI=,12,9,L.U.T $ack
+June 28,Witching Hour 2026,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,DAPPER,TeCobBOk50imGMMl0fgKFlNgbsf42l9BJeZSGs7s2WQ=,12,9,MOB Ultimate
+June 28,Witching Hour 2026,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,13,6,MOB Ultimate
+June 28,Witching Hour 2026,MOB Ultimate,ID8Hx02ogvh2+mWxe1BYXtqtzSRcmrIRI2TPJMA7eF4=,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,12,8,MOB Ultimate
+June 28,Witching Hour 2026,NC Brickhouse [Upper],AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,El Niño,QhTXBtMzOh9sT8JmVNh4LlX3/qCAavKrt9nj9h5QzlQ=,8,10,El Niño
+June 28,Witching Hour 2026,NC Brickhouse [Upper],AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,Flux,H9mcuxXHsnftI8/TH5T6OIu2jQFIzwGXRyjVP1a3Dvo=,13,4,NC Brickhouse [Upper]
+June 28,Witching Hour 2026,NC Brickhouse-Upper,AOCVtzeQRLztM0pCuuFXHXcqtTQSaSvvcHphK+E2djA=,Winc City Fog,feGJj041il2+9S3eHduBluaseZaDJUb9nKoPAPwbzyw=,11,10,NC Brickhouse-Upper
+June 28,Witching Hour 2026,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,Gummy Bear Hitmen,wiIflz4SQST1TG2Q+/L+65MueKhzCgTxdN3TlgWhfMU=,11,10,Pittsburgh Stealers
+June 28,Witching Hour 2026,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,John Doe,l1opijUNEdmgQrlLnAX9bkbvlNVooeFFK8D2rggRFAs=,11,8,Pittsburgh Stealers
+June 28,Witching Hour 2026,Triumph,LTrnspHWc0bJV/+mFt2LSREYmbV9cEotpCTAVwKGHg4=,Pittsburgh Stealers,bWgjqVupxUGQbV1PCnDpZ4N679l7wKbGgyga0b9b6to=,13,9,Triumph
+May 30,Cutthroat Club Round Robin 2026,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,15,5,Colorado Cutthroat U-20 Boys
+May 30,Cutthroat Club Round Robin 2026,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,14,12,Red Lotus
+May 30,Cutthroat Club Round Robin 2026,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,5,15,Tugboat
+May 30,Cutthroat Club Round Robin 2026,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,13,15,Tugboat
+May 30,Cutthroat Club Round Robin 2026,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,Colorado Cutthroat U-17 Boys,UhBuAY46xkIb9L1mmRKFW7raT/EUxAHQBAQu0G8nNso=,15,6,washed
+May 31,Cutthroat Club Round Robin 2026,Colorado Cutthroat U-17 Boys,UhBuAY46xkIb9L1mmRKFW7raT/EUxAHQBAQu0G8nNso=,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,12,9,Colorado Cutthroat U-17 Boys
+May 31,Cutthroat Club Round Robin 2026,Colorado Cutthroat U-17 Boys,UhBuAY46xkIb9L1mmRKFW7raT/EUxAHQBAQu0G8nNso=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,10,14,The Incline
+May 31,Cutthroat Club Round Robin 2026,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,13,9,Colorado Cutthroat U-20 Boys
+May 31,Cutthroat Club Round Robin 2026,Colorado Cutthroat U-20 Boys,2JeysWO8A2a0advsuqQEpbiOKM0De6MkYlyM1vl7n2Y=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,14,11,Colorado Cutthroat U-20 Boys
+May 31,Cutthroat Club Round Robin 2026,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,2,15,The Incline
+May 31,Cutthroat Club Round Robin 2026,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,9,13,Tugboat
+May 31,Cutthroat Club Round Robin 2026,Tugboat,mowQGlAs2bwZoIZjwGC6+Zxk/W+pDWEot9abXHHjUR4=,Colorado Cutthroat U-20 Boys TWO,xmMIvBKVb4rhsG9qihY73cZtdnCbXJV4DHWcpwzaM+A=,15,3,Tugboat
+May 31,Cutthroat Club Round Robin 2026,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,The Incline,fLktFchsbi7xRZrVdSeOeSmSHiooSNSkWo/doFCyJN0=,15,11,washed
+May 31,Cutthroat Club Round Robin 2026,washed,5vyWfEaq78p/9s5j71VchOOgkeoF+0spqBu4RIyZoOQ=,Red Lotus,ct/BJRWMBGD8zpNqaSxwWzUwFM0DWw/8Cn3cPk+KSeY=,9,2,washed

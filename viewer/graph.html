@@ -40,6 +40,10 @@
   .updated-badge { font-size: .68rem; color: var(--dim); white-space: nowrap; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  .back-ibtn { display: flex; align-items: center; gap: .35rem; padding: .3rem .65rem; background: var(--surf2); border: 1px solid var(--border); border-radius: 5px; cursor: pointer; color: var(--dim); font-size: .76rem; transition: color .15s, border-color .15s; text-decoration: none; }
+  .back-ibtn:hover { color: var(--text); border-color: var(--border2); }
+  .back-ibtn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
   canvas { display: block; cursor: grab; width: 100%; height: calc(100vh - 52px); }
   canvas.dragging { cursor: grabbing; }
 
@@ -74,6 +78,11 @@
     <div class="disc"></div>
     <span>Game Graph</span>
     <span class="wm-sub">Club Mixed 2026</span>
+  </a>
+  <div class="vr"></div>
+  <a href="index.html" class="back-ibtn">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg>
+    Back to Index
   </a>
   <div class="vr"></div>
   <div class="refresh-ibtn" id="refresh-btn" onclick="fetchData()" title="Re-fetch data">

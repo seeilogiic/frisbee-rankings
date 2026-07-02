@@ -166,16 +166,12 @@
     <span class="wm-org">USA Ultimate</span>
     <span class="wm-name">Club Mixed 2026</span>
   </a>
-  <a href="rankings.html" class="back-btn">
+  <a href="rankings.html" class="back-btn" onclick="if(document.referrer){history.back();return false;}">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg>
-    Rankings
+    Back
   </a>
   <div class="header-spacer"></div>
   <span id="updated-badge" class="updated-badge"></span>
-  <a id="winprob-btn" href="winprob.html" class="back-btn" style="display:none">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5l3 3-3 3"/></svg>
-    Win Prob
-  </a>
 </header>
 
 <!-- Loading screen -->
@@ -198,7 +194,7 @@
   </div>
   <div class="state-title">Team not found</div>
   <div class="state-sub" id="nodata-msg">Run the scraper then try again.</div>
-  <div class="state-link"><a href="rankings.html">← Back to Rankings</a></div>
+  <div class="state-link"><a href="index.html">← Back to Index</a></div>
 </div>
 
 <!-- Error screen -->
@@ -507,10 +503,6 @@
       ${team.games_ignored ? `<span>Ignored <span class="val" style="color:var(--text-faint)">${team.games_ignored}</span></span>` : ''}
       ${locationStr}
     `;
-
-    const wpBtn = document.getElementById('winprob-btn');
-    wpBtn.href = `winprob.html?a=${encodeURIComponent(team.team_id)}`;
-    wpBtn.style.display = 'flex';
   }
 
   // ── Games table ───────────────────────────────────────────────────
